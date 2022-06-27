@@ -1,0 +1,12 @@
+#divheader {
+    -fx-background-color: #D9D9D9;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+}
+
+#divcontent {
+    -fx-background-color: #2b4c7e;
+}
+
+#divcontent2 {
+    -fx-background-color: #2b4c7e;
+}

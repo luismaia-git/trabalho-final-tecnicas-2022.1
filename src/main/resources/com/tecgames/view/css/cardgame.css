@@ -1,0 +1,19 @@
+
+
+#title {
+
+}
+
+#vermais {
+    -fx-font-size: 12;
+    -fx-background-color: #708198;
+}
+
+#vermais:hover {
+    -fx-background-color: #7888a4;
+}
+
+#vermais:pressed {
+    -fx-background-color: #3d4354;
+}
+

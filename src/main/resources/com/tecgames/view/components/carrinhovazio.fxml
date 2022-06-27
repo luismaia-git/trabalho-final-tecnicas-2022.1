@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="divcontent2" prefHeight="512.0" prefWidth="1000.0" stylesheets="@../css/meucarrinho.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.MeucarrinhoVazioController">
+   <children>
+      <Button fx:id="loja" onAction="#onLojaButtonClick" layoutX="440.0" layoutY="233.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="132.0" text="Ir para loja" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Label layoutX="346.0" layoutY="167.0" text="Seu carrinho está vazio" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

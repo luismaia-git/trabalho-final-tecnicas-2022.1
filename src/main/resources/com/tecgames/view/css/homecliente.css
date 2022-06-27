@@ -1,0 +1,60 @@
+
+
+#title {
+    -fx-font-size: 24;
+}
+
+#header {
+    -fx-background-color: #D9D9D9;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+}
+
+#contentHome {
+    -fx-background-color: #2B4C7E;
+}
+
+#sidemenu {
+    -fx-background-radius: 5, 5;
+    -fx-background-color: #D9D9D9;
+}
+
+
+.botao {
+    -fx-background-radius: 5, 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+    -fx-background-color: #2B4C7E;
+    -fx-pref-height: 55px;
+    -fx-pref-width: 155px;
+}
+.botao:hover {
+    -fx-background-color: #5f8cce;
+
+}
+.botao:pressed {
+    -fx-background-color: #45628c;
+
+}
+
+
+
+#logout {
+    -fx-background-radius: 5, 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+    -fx-border-color: none;
+    -fx-pref-height: 25px;
+    -fx-pref-width: 70px;
+}
+
+#carrousel {
+    -fx-background-color: #5f8cce;
+}
+
+
+
+
+/*not working
+#circleIcon {
+    -fx-text-alignment: center;
+}
+*/
+

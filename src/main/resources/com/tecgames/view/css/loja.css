@@ -1,0 +1,46 @@
+
+#background {
+   -fx-background-color: #2B4C7E;
+}
+
+#sidemenu  {
+   -fx-background-color: #D9D9D9;
+}
+
+#scrollPane {
+   -fx-background-color:transparent;
+}
+
+
+
+Button {
+   -fx-background-color: #D9D9D9;
+   -fx-border-radius: 10;
+   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+}
+
+Button:hover {
+   -fx-background-color: #afafaf;
+}
+
+Button:pressed {
+   -fx-background-color: #3a6bb8;
+}
+
+.botaosidemenu {
+   -fx-background-color: #2B4C7E;
+}
+
+#voltar{
+   -fx-background-color: #2B4C7E;
+   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0), 0, 0, 0, 0);
+}
+
+#voltar:hover{
+   -fx-background-color: #3a6bb8;
+
+}
+
+#voltar:pressed{
+   -fx-background-color: #24416b;
+}
