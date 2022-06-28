@@ -5,12 +5,6 @@ import java.util.ArrayList;
 
 public class UsuarioDados {
 
-
-    // inserir(usuario) listar() remover() alterar()
-
-    //inserir(){  carregar() e escrever()      }
-    //crud nos arquivos
-
     public ArrayList<User> listar() {
         ArrayList<User> usuarios;
 
@@ -20,33 +14,43 @@ public class UsuarioDados {
 
     public boolean inserir(User usuario) throws IOException {
         ArrayList<User> usuarios;
-        boolean b= false;
         usuarios = carregaArquivoUsuarios();
 
-        if(!checaUsuario(usuario, usuarios)){
+        if (!checaUsuario(usuario, usuarios)) {
             usuarios.add(usuario);
             escreveArquivoUsuarios(usuarios);
-            b = true;
-            return b;
-        }else{
-            return b;
+            return true;
         }
+        else
+            return false;
+        
     }
 
     public boolean remover(User usuario) throws IOException {
         ArrayList<User> usuarios;
-        boolean b= false;
-
         usuarios = carregaArquivoUsuarios();
-
-        if(checaUsuario(usuario, usuarios)){
-            usuarios.remove(usuario);
+        User aux = retornaUsuario(usuario, usuarios);
+        if (!aux.getNome().equals(null)) { 
+            usuarios.remove(usuario);   
             escreveArquivoUsuarios(usuarios);
-            b = true;
-            return b;
-        }else{
-            return b;
+            return true;
         }
+        else
+            return false;
+        
+    }
+
+    public User retornaUsuario(User usuario, ArrayList<User> usuarios) {
+        int i = 0;
+        while (i < usuarios.size()) {
+            User user = usuarios.get(i);
+            if ((usuario.getNome().equals(user.getNome())))
+                return user;
+            
+            i = i + 1;
+        }
+        
+        return null;
     }
 
     public boolean alterar(ArrayList<User> usuarios){
@@ -57,18 +61,17 @@ public class UsuarioDados {
     //
 
     public boolean checaUsuario(User usuario, ArrayList usuarios) throws IOException {
-        boolean aux = true;
         int i = 0;
 
         while (i < usuarios.size()) {
             User user = (User) usuarios.get(i);
             if ((user.getEmail().equals(usuario.getEmail())) || (user.getCpf().equals(usuario.getCpf()))) {
-                return aux;
+                return true;
             }
             i = i + 1;
         }
-        aux = false;
-        return aux;
+        
+        return false;
     }
 
 
@@ -81,8 +84,7 @@ public class UsuarioDados {
             while (true) {
                 linha = buffRead.readLine();
                 if (linha != null) {
-                    String array[] = new String[4];
-                    array = linha.split(";");
+                    String array[] = linha.split(";");
                     User user = new User(array[0],array[1],array[2], array[3], array[4]);
 
                     String[] array2 = array[3].split(",");
@@ -97,17 +99,18 @@ public class UsuarioDados {
 
                     usuariosArquivo.add(user);
 
-                }else{
-                    break;
                 }
+                else
+                    break;
+                
             }
 
             buffRead.close();
-            return usuariosArquivo;
+            
         }catch(Exception e){
             System.out.println(e);
         }
-        return null;
+        return usuariosArquivo;
     }
 
 
@@ -133,12 +136,9 @@ public class UsuarioDados {
             }catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
         catch (IOException e) {
             e.printStackTrace();
         }
     }
 }
-
-
