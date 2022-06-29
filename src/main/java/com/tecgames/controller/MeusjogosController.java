@@ -344,7 +344,7 @@ public class MeusjogosController implements Initializable {
 
         LojaUIController lojaController = loader.getController();
 
-        lojaController.setUsuarioLogado(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
+        lojaController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
 
 
         //This line gets the Stage(window) information

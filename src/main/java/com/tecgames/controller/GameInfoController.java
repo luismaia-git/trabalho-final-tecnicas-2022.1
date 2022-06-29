@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -23,10 +25,13 @@ public class GameInfoController {
     public Label anolancamento;
     public Label requisitos;
     public Label preco;
+    public Button adicionarcarrinho;
+
     private User usuarioLogado;
     private Game jogoEscolhido;
     private int valueTela;// se 1 entao eu entrei na tela de gameinfo apartir da tela de loja, se 2 entao foi da tela meus jogos
 
+    boolean have_game;
     public void initData(Game jogo, User usuario, int valor) {
         this.usuarioLogado = usuario;
         this.jogoEscolhido = jogo;
@@ -38,6 +43,23 @@ public class GameInfoController {
         anolancamento.setText(jogo.getAnolançamento());
         requisitos.setText(jogo.getRequisitos());
         preco.setText(String.valueOf(jogo.getPreço()));
+
+        have_game = false;
+
+        if(have_game) {
+            adicionarcarrinho.setText("Ja comprado");
+            adicionarcarrinho.setOnAction( e -> {
+                Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+                dialogoInfo.setTitle("Informação");
+                dialogoInfo.setHeaderText("Você ja tem esse jogo!");
+                dialogoInfo.setContentText("Clique em ok");
+                dialogoInfo.showAndWait();
+            });
+        } else {
+            adicionarcarrinho.setOnAction( e -> {
+                //adiciono no carrinho
+            });
+        }
 
     }
 
@@ -88,4 +110,13 @@ public class GameInfoController {
     public User getUsuarioLogado() {
         return this.usuarioLogado;
     }
+
+
+    @FXML
+    protected void onAdicionarButtonClick() throws IOException {
+
+    }
+
+
+
 }

@@ -31,6 +31,14 @@ Button:pressed {
    -fx-background-color: #2B4C7E;
 }
 
+.botaosidemenu:hover {
+   -fx-background-color: #5f8cce;
+}
+
+.botaosidemenu:pressed {
+   -fx-background-color: #45628c;
+}
+
 #voltar{
    -fx-background-color: #2B4C7E;
    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0), 0, 0, 0, 0);

@@ -13,7 +13,7 @@
          <children>
             <Label layoutX="73.0" layoutY="21.0" text="Resumo">
                <font>
-                  <Font name="System Bold" size="29.0" />
+                  <Font name="System Bold" size="26.0" />
                </font>
             </Label>
             <Label layoutX="12.0" layoutY="109.0" text="Sub total:">

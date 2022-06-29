@@ -23,6 +23,12 @@
     -fx-background-color: #5e5e5e;
 }
 
+
 #scrollPane {
     -fx-background-color: #2b4c7e;
+}
+
+#resumo {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+    -fx-background-radius: 5,5;
 }

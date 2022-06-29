@@ -18,6 +18,7 @@ public class LoginController {
     public Button entrar;
     public TextField emailData;
     public TextField senhaData;
+    public Button criarConta;
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
@@ -46,5 +47,20 @@ public class LoginController {
         Stage window = (Stage) entrar.getScene().getWindow();
         window.setScene(homepageViewScene);
 
+    }
+
+    @FXML
+    protected void onCriarContaButtonClick() throws IOException {
+        //carregando estilização
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/tecgames/view/criar-conta-view.fxml"));
+
+        Parent View = loader.load();
+
+        Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização
+        //This line gets the Stage(window) information
+        Stage window = (Stage) entrar.getScene().getWindow();
+
+        window.setScene(ViewScene); //mudando a cena da janela
     }
 }
