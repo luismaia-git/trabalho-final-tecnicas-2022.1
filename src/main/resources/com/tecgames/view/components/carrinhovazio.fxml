@@ -2,21 +2,16 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="divcontent2" prefHeight="512.0" prefWidth="1000.0" stylesheets="@../css/meucarrinho.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.MeucarrinhoVazioController">
+<Pane fx:id="divcontent2" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../css/meucarrinho.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.CarrinhovazioController">
    <children>
-      <Button fx:id="loja" onAction="#onLojaButtonClick" layoutX="440.0" layoutY="233.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="132.0" text="Ir para loja" textFill="WHITE">
+      <Label layoutX="308.0" layoutY="176.0" text="Seu carrinho está vazio" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="19.0" />
-         </font>
-      </Button>
-      <Label layoutX="346.0" layoutY="167.0" text="Seu carrinho está vazio" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="29.0" />
+            <Font name="System Bold" size="33.0" />
          </font>
       </Label>
+      <Button layoutX="437.0" layoutY="254.0" mnemonicParsing="false" onAction="#onLojaButtonClick" prefHeight="37.0" prefWidth="116.0" text="Ir para a Loja" />
    </children>
-</AnchorPane>
+</Pane>

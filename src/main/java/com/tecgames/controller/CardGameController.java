@@ -1,15 +1,11 @@
 package com.tecgames.controller;
 
 import com.tecgames.model.Game;
-import com.tecgames.model.User;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
+
 
 public class CardGameController {
 
@@ -35,7 +31,7 @@ public class CardGameController {
 
         preço.setText(String.valueOf(jogo.getPreço()));
 
-        imagegame.setStyle("-fx-background-image: url('/games/1-2.png');");//NOT WORKING
+        imagegame.setStyle("-fx-background-image: url('/com/tecgames/view/images/games/1-2.png');");//NOT WORKING
     }
 
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="divcontent2" prefHeight="512.0" prefWidth="1000.0" stylesheets="@../css/meucarrinho.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.CarrinhocheioController">
+   <children>
+      <ScrollPane fx:id="scrollPane" layoutX="27.0" layoutY="48.0" prefHeight="440.0" prefWidth="570.0" />
+      <Pane fx:id="resumo" layoutX="746.0" layoutY="46.0" prefHeight="446.0" prefWidth="255.0">
+         <children>
+            <Label layoutX="73.0" layoutY="21.0" text="Resumo">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="109.0" text="Sub total:">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="subtotal" alignment="CENTER" layoutX="148.0" layoutY="109.0" prefHeight="34.0" prefWidth="94.0" text="xx,xx">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <Line endX="110.0" layoutX="128.0" layoutY="321.0" startX="-108.0" />
+            <Label layoutX="20.0" layoutY="333.0" text="Total:">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="total" alignment="CENTER" layoutX="146.0" layoutY="333.0" prefHeight="34.0" prefWidth="94.0" text="xx,xx">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</Pane>

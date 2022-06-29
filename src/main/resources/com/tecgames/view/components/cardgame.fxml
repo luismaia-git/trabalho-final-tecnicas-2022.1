@@ -9,7 +9,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="164.0" style="-fx-background-color: D9D9D9; -fx-background-radius: 10,10;" stylesheets="@../css/cardgame.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.CardGameController">
    <children>
-      <VBox layoutX="4.0" layoutY="5.0" prefHeight="190.0" prefWidth="152.0" style="-fx-background-color: D9D9D9; -fx-background-radius: 10,10;" stylesheets="@../css/cardgame.css">
+      <VBox layoutX="4.0" layoutY="5.0" prefHeight="190.0" prefWidth="152.0" style="-fx-background-color: D9D9D9; -fx-background-radius: 10,10;">
          <children>
             <Pane fx:id="imagegame" prefHeight="140.0" prefWidth="152.0" style="-fx-background-size: cover; -fx-background-repeat: no-repeat; -fx-background-position: center center;" />
             <Pane prefHeight="21.0" prefWidth="152.0">

@@ -15,16 +15,6 @@ public class Game {
     private String requisitos;
 
 
-    public Game(String nome, String preço) {
-        this.id = Integer.parseInt(id);
-        this.nome = nome;
-        this.preço = Double.parseDouble(preço.replaceAll( "," , "." ));
-        this.genero = "Não informado";
-        this.descricao = "Não informado";
-        this.anolançamento = "Não informado";
-        this.requisitos = "Não informado";
-    }
-
     public Game(String id, String nome, String preço, String genero, String descricao, String anolançamento, String requisitos){
         
         this.id = Integer.parseInt(id);

@@ -5,18 +5,24 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MeucarrinhoVazioController {
+public class CarrinhovazioController {
 
-    public Button loja;
-
-
-
+    public Pane divcontent2;
     private User usuarioLogado;
+
+    public void initData(User usuarioLogado) {
+        this.usuarioLogado = usuarioLogado;
+
+    }
+
+    private User getUsuarioLogado() {
+        return this.usuarioLogado;
+    }
 
     @FXML
     protected void onLojaButtonClick() throws IOException {
@@ -33,21 +39,17 @@ public class MeucarrinhoVazioController {
 
         LojaUIController lojaController = loader.getController();
 
-        lojaController.setUsuarioLogado(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
+        lojaController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
 
 
         //This line gets the Stage(window) information
+        Stage window = (Stage) divcontent2.getScene().getWindow();
 
-        Stage window = (Stage) loja.getScene().getWindow();
         window.setScene(lojaViewScene); //mudando a cena da janela para a loja
 
     }
 
-    public User getUsuarioLogado() {
-        return this.usuarioLogado;
-    }
 
-    public void setUsuarioLogado(User usuarioLogado) {
-        this.usuarioLogado = usuarioLogado;
-    }
+
+
 }

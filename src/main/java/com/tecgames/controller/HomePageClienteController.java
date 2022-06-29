@@ -66,7 +66,7 @@ public class HomePageClienteController {
 
         LojaUIController lojaController = loader.getController();
 
-        lojaController.setUsuarioLogado(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
+        lojaController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
 
 
         //This line gets the Stage(window) information
@@ -92,7 +92,7 @@ public class HomePageClienteController {
 
         MeusjogosController meusjogosController = loader.getController();
 
-        meusjogosController.setUsuarioLogado(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
+        meusjogosController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
 
 
         //This line gets the Stage(window) information
@@ -116,9 +116,8 @@ public class HomePageClienteController {
         ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/meucarrinho.css").toExternalForm());
 
         MeucarrinhoController Controller = loader.getController();
-        System.out.println("AQUIIII " + getUsuarioLogado().getNome());
-        Controller.setUsuarioLogado(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
-
+        //System.out.println("AQUIIII " + getUsuarioLogado().getNome());
+        Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
 
         //This line gets the Stage(window) information
         Stage window = (Stage) logout.getScene().getWindow();

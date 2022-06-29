@@ -63,7 +63,7 @@ public class GameInfoController {
             ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/loja.css").toExternalForm());
 
             LojaUIController lojaController = loader.getController();
-            lojaController.setUsuarioLogado(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
+            lojaController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
 
             window.setScene(ViewScene); //mudando a cena da janela para a loja
         } else {
@@ -77,7 +77,7 @@ public class GameInfoController {
             ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/meusjogos.css").toExternalForm());
 
             MeusjogosController meusjogosController = loader.getController();
-            meusjogosController.setUsuarioLogado(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
+            meusjogosController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
 
             window.setScene(ViewScene); //mudando a cena da janela para a loja
         }

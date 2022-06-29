@@ -10,3 +10,19 @@
 #divcontent2 {
     -fx-background-color: #2b4c7e;
 }
+
+#resumo {
+    -fx-background-color: #D9D9D9;
+}
+
+#cardcarrinho {
+    -fx-background-color: #D9D9D9;
+}
+
+#imagemjogo {
+    -fx-background-color: #5e5e5e;
+}
+
+#scrollPane {
+    -fx-background-color: #2b4c7e;
+}

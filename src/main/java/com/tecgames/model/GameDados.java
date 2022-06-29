@@ -82,7 +82,7 @@ public class GameDados {
                 linha = buffRead.readLine();
                 if (linha != null) {
                     String array[] = linha.split(";");
-                    Game game = new Game(array[0], array[1],array[2], array[3]);
+                    Game game = new Game(array[0], array[1], array[2], array[3],  array[4],  array[5],  array[6]);
                     gamesArquivo.add(game);
 
                 }else{

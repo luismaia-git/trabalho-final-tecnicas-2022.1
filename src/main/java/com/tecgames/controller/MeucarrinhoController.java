@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -16,47 +17,58 @@ import java.util.ResourceBundle;
 
 public class MeucarrinhoController implements Initializable {
     public Button voltar;
-    public AnchorPane divcontent2;
+    public Pane divcontent;
+
 
     private User usuarioLogado;
 
     public User getUsuarioLogado() {
         return usuarioLogado;
     }
-
+    @FXML
     public void setUsuarioLogado(User usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
     }
 
 
-
+    public void initData(User usuarioLogado) throws IOException {
+        this.usuarioLogado = usuarioLogado;
+        displayCarrinho();
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            displayCarrinho();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
     }
 
-    public void displayCarrinho() throws IOException {
-        boolean carrinho = false;
 
-        System.out.println(getUsuarioLogado());
+    public void displayCarrinho() throws IOException {
+        boolean carrinho = true;
+
         if(carrinho){
 
-        }else {
-            System.out.println("opa");
-            //FXMLLoader loader = new FXMLLoader();
-            //loader.setLocation(getClass().getResource("/com/tecgames/view/components/carrinhovazio.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/tecgames/view/components/carrinhocheio.fxml"));
 
-            //MeucarrinhoVazioController controller = loader.getController();
 
-            //controller.setUsuarioLogado(getUsuarioLogado());
+            Pane new_pane = loader.load();
+            divcontent.getChildren().setAll(new_pane);
 
-            //divcontent2 = loader.load();
+            CarrinhocheioController controller = loader.getController();
 
+            controller.initData(getUsuarioLogado());
+
+        } else {
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/tecgames/view/components/carrinhovazio.fxml"));
+
+
+            Pane new_pane = loader.load();
+            divcontent.getChildren().setAll(new_pane);
+
+            CarrinhovazioController controller = loader.getController();
+
+            controller.initData(getUsuarioLogado());
 
 
         }
@@ -71,9 +83,6 @@ public class MeucarrinhoController implements Initializable {
         Parent View = loader.load();
 
         Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização
-
-        //+estilizações com css
-        ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/homecliente.css").toExternalForm());
 
 
         HomePageClienteController Controller = loader.getController();

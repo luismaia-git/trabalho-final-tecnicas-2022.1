@@ -38,16 +38,28 @@ public class MeusjogosController implements Initializable {
     private User usuarioLogado;
 
 
-    // carregar jogos de arquivo
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initData(User usuarioLogado) throws IOException {
+        this.usuarioLogado = usuarioLogado;
 
 
-        Game jogo1 = new Game("The last of us", 50.00, "Ação", "Cidades abandonadas retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB.");
-        Game jogo2 = new Game("GTA-V", 32.00 );
-        Game jogo3 = new Game("jogo3", 50.00);
-        Game jogo4 = new Game("jogo4", 32.00);
-        Game jogo5 = new Game("jogo5", 50.00);
+        Game jogo1 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
+        Game jogo2 = new Game("2","GTA-V", "32.00" , "bla bla",  "bla bla", "bla bla", "bla bla");
+        Game jogo3 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas" +
+                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
+        Game jogo4 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas" +
+                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
+        Game jogo6 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas" +
+                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
+        Game jogo7 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas" +
+                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
+        Game jogo8 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas" +
+                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
+        Game jogo9 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas" +
+                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
+        Game jogo10 = new Game("1","The last of us", "50.00", "Ação", "Cidades " +
+                "abandonadas" +
+                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
+
 
 
         //instanciando o array com todos os jogos
@@ -57,15 +69,21 @@ public class MeusjogosController implements Initializable {
         jogos.add(jogo2);
         jogos.add(jogo3);
         jogos.add(jogo4);
-        jogos.add(jogo5);
+        jogos.add(jogo6);
+        jogos.add(jogo7);
+        jogos.add(jogo8);
+        jogos.add(jogo9);
+        jogos.add(jogo10);
 
 
-        try {
-            displayMeusJogos(jogos);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        displayMeusJogos(jogos);
 
+
+    }
+
+    // carregar jogos de arquivo
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
@@ -73,11 +91,14 @@ public class MeusjogosController implements Initializable {
     //metodo que recebe um array de jogos e mostra na tela
     public void displayMeusJogos(ArrayList<Game> array) throws IOException{
 
+        int hboxes =0;
         //instanciando uma VBox
         BoxMain = new VBox();
         BoxMain.setStyle("-fx-background-color: #2B4C7E;");
 
         BoxMain.setPrefWidth(727);
+
+        BoxMain.setPrefHeight(482);
 
         BoxMain.setSpacing(20.0);
 
@@ -87,6 +108,7 @@ public class MeusjogosController implements Initializable {
         hboxGames.setSpacing(20.0);
         hboxGames.setPrefWidth(721);
         hboxGames.setPrefHeight(198);
+        hboxes++;
 
 
         int j = 1;
@@ -153,11 +175,15 @@ public class MeusjogosController implements Initializable {
             hboxGames.getChildren().add(paneGame);
 
 
+
             //se j = 4 é pq tem 4 jogos lidos na HBox, entao preciso instanciar uma nova
             if(j == 4){
                 //antes de instanciar uma nova Hbox, preciso salvar a atual com os 4 jogos lidos, adicionando a Hbox na Vbox.
                 BoxMain.getChildren().add(hboxGames);
 
+                if(i == array.size()-1){
+                    break;
+                }
 
                 //criando uma nova hbox
                 hboxGames = new HBox();
@@ -165,16 +191,19 @@ public class MeusjogosController implements Initializable {
                 hboxGames.setSpacing(20.0);
                 hboxGames.setPrefWidth(721);
                 hboxGames.setPrefHeight(198);
+                hboxes++;
 
                 j=0;//zerando o "contador de jogos"
 
             }
+
             //obssss
             //Como so estou adicionando a Hbox na Vbox quando ela está cheia com 4 jogos, então se minha ultima Hbox tiver 1,2,3 jogos, eu preciso adicionar ela na Vbox, a seguinte condição me garante isso:
             //testar com && j==1 or 2 or 3
-            if(i == jogos.size()-1){
+            if(i == array.size()-1){
                 BoxMain.getChildren().add(hboxGames);
             }
+
 
             j++;
 
@@ -183,6 +212,7 @@ public class MeusjogosController implements Initializable {
         //tamanho da hboxs = 218
 
         //calculo para saber a altura necessaria da VBox para o ScrollPane funcionar de forma eficiente
+        /*
         if(array.size() % 4 == 0){
 
             if((array.size()/4) == 1){//se tenho somente uma hbox no scroll, entao preciso setar o valor da altura da Vbox para prencher tudo
@@ -197,7 +227,15 @@ public class MeusjogosController implements Initializable {
             BoxMain.setPrefHeight(((array.size()+2)/4) * 241);
         }else if(array.size() % 4 == 3){
             BoxMain.setPrefHeight(((array.size()+1)/4) * 241);
+        }*/
+
+
+        if(hboxes >= 3) {
+            int excedente = hboxes - 2;
+            BoxMain.setPrefHeight(482 + (excedente*200));
         }
+
+
 
 
         //adicionando tudo da Vbox no ScrollPane
