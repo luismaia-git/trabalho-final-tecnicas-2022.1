@@ -1,6 +1,5 @@
 import java.util.*;
 
-//usuario
 public class Venda {
     int id_venda;
     int id_usuario;
