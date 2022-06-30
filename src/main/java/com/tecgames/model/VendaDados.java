@@ -1,3 +1,5 @@
+package com.tecgames.model;
+
 import java.io.*;
 import java.util.*;
 
