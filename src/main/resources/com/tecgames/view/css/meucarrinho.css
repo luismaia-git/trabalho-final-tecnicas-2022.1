@@ -32,3 +32,33 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
     -fx-background-radius: 5,5;
 }
+
+#comprar {
+    -fx-text-fill: White;
+    -fx-background-radius: 5,5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+    -fx-background-color: #2b4c7e;
+}
+
+#comprar:hover {
+     -fx-background-color: #7abde1;
+}
+
+#comprar:pressed {
+    -fx-background-color: #5f8cce;
+}
+
+#removerjogocarrinho {
+    -fx-text-fill: White;
+    -fx-background-radius: 5,5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+    -fx-background-color: #2b4c7e;
+}
+
+#removerjogocarrinho:hover{
+    -fx-background-color: #7abde1;
+}
+
+#removerjogocarrinho:pressed{
+    -fx-background-color: #5f8cce;
+}

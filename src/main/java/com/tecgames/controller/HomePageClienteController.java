@@ -109,19 +109,17 @@ public class HomePageClienteController {
 
         Parent View = loader.load();
 
-        Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização da loja
+        Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização de carrinho
 
-        //+estilizações com css
-        ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/meucarrinho.css").toExternalForm());
 
         MeucarrinhoController Controller = loader.getController();
-        //System.out.println("AQUIIII " + getUsuarioLogado().getNome());
-        Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
+
+        Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de carrinho
 
         //This line gets the Stage(window) information
         Stage window = (Stage) logout.getScene().getWindow();
 
-        window.setScene(ViewScene); //mudando a cena da janela para a loja
+        window.setScene(ViewScene); //mudando a cena da janela para a tela de carrinho
 
     }
 

@@ -1,9 +1,5 @@
 
 
-#title {
-
-}
-
 #vermais {
     -fx-font-size: 12;
     -fx-background-color: #708198;
@@ -17,3 +13,6 @@
     -fx-background-color: #3d4354;
 }
 
+#cardpane {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.3, 1, 2);
+}

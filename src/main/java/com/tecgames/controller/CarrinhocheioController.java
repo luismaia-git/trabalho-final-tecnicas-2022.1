@@ -3,6 +3,7 @@ package com.tecgames.controller;
 import com.tecgames.model.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -14,6 +15,8 @@ import java.util.ArrayList;
 public class CarrinhocheioController {
     public ScrollPane scrollPane;
     public Pane divcontent2;
+    public Label subtotal;
+    public Label total;
 
     private VBox BoxMain;
 
@@ -44,6 +47,8 @@ public class CarrinhocheioController {
 
         //instanciando o array para preencher com todos os jogos do usuario
         jogos = new ArrayList<>();
+
+        double preco=0;
         //agora adicionar ao array de jogos, os jogos do usuario
         for (int l =0; l < carrinhoUsuario.getIdjogos().size(); l++){
 
@@ -52,10 +57,12 @@ public class CarrinhocheioController {
 
                 if(carrinhoUsuario.getIdjogos().get(l).equals(array_games.get(j).getId())){
                     jogos.add(array_games.get(j));
+                    preco = preco + array_games.get(j).getPreço();
                 }
 
             }
         }
+
 
         if(jogos.size() == 0) {
             FXMLLoader loader = new FXMLLoader();
@@ -70,6 +77,8 @@ public class CarrinhocheioController {
             controller.initData(getUsuarioLogado());
 
         } else {
+            subtotal.setText(String.valueOf(preco));//setando subvalor do carrinho
+            total.setText(String.valueOf(preco));//setando total valor do carrinho
             display(jogos);
         }
 

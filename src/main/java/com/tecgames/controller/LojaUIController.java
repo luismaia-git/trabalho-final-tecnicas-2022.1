@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -29,6 +30,7 @@ public class LojaUIController implements Initializable {
     public ScrollPane scrollPane; //scroll
     public Button voltar;
     public Button pesquisar;
+    public TextField campoTexto;
 
     private Pane paneGame; //card game
     private HBox hboxGames;
@@ -37,6 +39,15 @@ public class LojaUIController implements Initializable {
 
 
     private User usuarioLogado;
+
+
+    public User getUsuarioLogado() {
+        return usuarioLogado;
+    }
+
+    public void setUsuarioLogado(User usuarioLogado) {
+        this.usuarioLogado = usuarioLogado;
+    }
 
 
     public void initData(User usuarioLogado) throws IOException {
@@ -159,10 +170,12 @@ public class LojaUIController implements Initializable {
                 j=0;//zerando o "contador de jogos"
 
             }
-
-            if(i == jogos.size()-1){
+            // i= contador do array do jogos , j = contador (controlador) do jogos
+            if(i == array.size()-1){
                 BoxMain.getChildren().add(hboxGames);
             }
+
+
 
             j++;
 
@@ -185,7 +198,7 @@ public class LojaUIController implements Initializable {
 
         ArrayList<Game> aux = new ArrayList<>();
         for (int i = 0; i < jogos.size(); i++) {
-            if (jogos.get(i).getNome().contains(titulo))
+            if (jogos.get(i).getNome().toLowerCase().contains(titulo.toLowerCase()))
                 aux.add(jogos.get(i));
         }
         return aux;
@@ -195,52 +208,26 @@ public class LojaUIController implements Initializable {
 
         ArrayList<Game> aux = new ArrayList<>();
         for (int i = 0; i < jogos.size(); i++) {
-            if (jogos.get(i).getGenero().contains(genero)) // add genero e getGenero() no model
+            if (jogos.get(i).getGenero().toLowerCase().contains(genero.toLowerCase())) // add genero e getGenero() no model
                 aux.add(jogos.get(i));
         }
         return aux;
     }
 
-    public User getUsuarioLogado() {
-        return usuarioLogado;
-    }
-
-    public void setUsuarioLogado(User usuarioLogado) {
-        this.usuarioLogado = usuarioLogado;
-    }
-
-
-
     //botoes de eventos
 
-
-    //busca pelo nome ( campo de texto )
     @FXML
-    protected void onBuscaButtonClick()  {
-        // result = CampodeTexto.getText()
-        // buscanome(result)
-        //display();
+    protected void onBuscaButtonClick() throws IOException {
+        String result = campoTexto.getText();
+        ArrayList<Game> array = buscaTitulo(result);
+        displayJogos(array);
     }
 
-
-    //botao que abre as opçõs de genero
     @FXML
-    protected void onBuscaGeneroButtonClick()  {
-
-        //abre uma tela com bottoes com generos e vc escolhe
-    }
-
-
-    //botao pra escolher o genero
-    @FXML
-    protected void onGeneroButtonClick()  {
-
-        // resultgenero = get do botao escolhido do genero
-
-        // buscagenero(resultgenero)
-
-        //fechar a janela e
-        //displayJogos();
+    protected void onBuscaGeneroButtonClick() throws IOException {
+        String result = campoTexto.getText();
+        ArrayList<Game> array = buscaGenero(result);
+        displayJogos(array);
     }
 
     @FXML
@@ -268,22 +255,27 @@ public class LojaUIController implements Initializable {
     }
 
     @FXML
-    protected void OnCarrinhoButtonClick(){
-        System.out.println(getUsuarioLogado().getNome());
+    protected void onCarrinhoButtonClick() throws IOException {
+        //carregando estilização da loja
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/tecgames/view/meucarrinho-view.fxml"));
 
-        //array = buscar(user)
-        //if(array for nulo) instancio a tela carrinho vazio
-        //else instancio a a tela de carrinho
-        //
+        Parent View = loader.load();
+
+        Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização de carrinho
+
+
+        MeucarrinhoController Controller = loader.getController();
+
+        Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de carrinho
+
+        //This line gets the Stage(window) information
+        Stage window = (Stage) voltar.getScene().getWindow();
+
+        window.setScene(ViewScene); //mudando a cena da janela para a tela de carrinho
+
     }
 
-
-    @FXML
-    protected void onVerMaisButtonClick() throws IOException {
-
-
-
-    }
 
     @FXML
     protected void onMeusjogosButtonClick() throws IOException {

@@ -21,8 +21,8 @@
                      </font>
                   </Label>
                </children></Pane>
-            <Button fx:id="logout" layoutX="907.0" layoutY="28.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefWidth="75.0" text="Logout" />
-            <Button fx:id="carrinho" layoutX="818.0" layoutY="28.0" mnemonicParsing="false" onAction="#onCarrinhoButtonClick" prefWidth="75.0" text="Carrinho" />
+            <Button fx:id="logout" layoutX="903.0" layoutY="23.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="35.0" prefWidth="75.0" text="Logout" />
+            <Button fx:id="carrinho" layoutX="817.0" layoutY="23.0" mnemonicParsing="false" onAction="#onCarrinhoButtonClick" prefHeight="35.0" prefWidth="75.0" text="Carrinho" />
          </children>
       </Pane>
       <Pane fx:id="sidemenu" layoutX="800.0" layoutY="111.0" prefHeight="432.0" prefWidth="200.0">

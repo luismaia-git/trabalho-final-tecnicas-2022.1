@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -24,21 +25,27 @@ import java.util.ResourceBundle;
 public class MeusjogosController implements Initializable {
 
 
+    public TextField campoTexto;
     private ArrayList<Game> jogos;
     @FXML
     public ScrollPane scrollPane; //scroll
     public Button voltar;
     public Button pesquisar;
-
     private Pane paneGame; //card game
     private HBox hboxGames;
     private VBox BoxMain;
 
-
-
     private User usuarioLogado;
 
+    public User getUsuarioLogado() {
+        return usuarioLogado;
+    }
 
+    public void setUsuarioLogado(User usuarioLogado) {
+        this.usuarioLogado = usuarioLogado;
+    }
+
+    // carregar jogos de arquivo etc
     public void initData(User usuarioLogado) throws IOException {
         this.usuarioLogado = usuarioLogado;
 
@@ -73,7 +80,7 @@ public class MeusjogosController implements Initializable {
 
     }
 
-    // carregar jogos de arquivo
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -123,13 +130,10 @@ public class MeusjogosController implements Initializable {
 
             Pane painelpreco = gameController.getPainelpreco();
             painelpreco.getChildren().clear();
-            //paneGame.getChildren().remove(painelpreco);
 
 
             //"estraindo o botao"
             Button botao = gameController.getVermais();
-
-            //botao.setLayoutX(10);
 
 
 
@@ -141,8 +145,6 @@ public class MeusjogosController implements Initializable {
             loader2.setLocation(getClass().getResource("/com/tecgames/view/gameinfo-view.fxml"));
 
             Parent View = loader2.load();
-
-
 
 
             //botao ver mais abre a tela de gameinfo
@@ -162,10 +164,8 @@ public class MeusjogosController implements Initializable {
             });
 
 
-
             //adicionando o card game no Hbox
             hboxGames.getChildren().add(paneGame);
-
 
 
             //se j = 4 é pq tem 4 jogos lidos na HBox, entao preciso instanciar uma nova
@@ -189,114 +189,61 @@ public class MeusjogosController implements Initializable {
 
             }
 
-            //obssss
-            //Como so estou adicionando a Hbox na Vbox quando ela está cheia com 4 jogos, então se minha ultima Hbox tiver 1,2,3 jogos, eu preciso adicionar ela na Vbox, a seguinte condição me garante isso:
-            //testar com && j==1 or 2 or 3
             if(i == array.size()-1){
                 BoxMain.getChildren().add(hboxGames);
             }
-
 
             j++;
 
         }
 
-        //tamanho da hboxs = 218
-
         //calculo para saber a altura necessaria da VBox para o ScrollPane funcionar de forma eficiente
-        /*
-        if(array.size() % 4 == 0){
-
-            if((array.size()/4) == 1){//se tenho somente uma hbox no scroll, entao preciso setar o valor da altura da Vbox para prencher tudo
-                BoxMain.setPrefHeight(482);
-            }else{
-                BoxMain.setPrefHeight((array.size()/4) * 218);
-            }
-
-        }else if (array.size() % 4 == 1) {
-            BoxMain.setPrefHeight(((array.size()+3)/4) * 241);
-        }else if (array.size() % 4 == 2) {
-            BoxMain.setPrefHeight(((array.size()+2)/4) * 241);
-        }else if(array.size() % 4 == 3){
-            BoxMain.setPrefHeight(((array.size()+1)/4) * 241);
-        }*/
-
 
         if(hboxes >= 3) {
             int excedente = hboxes - 2;
             BoxMain.setPrefHeight(482 + (excedente*200));
         }
 
-
-
-
         //adicionando tudo da Vbox no ScrollPane
         scrollPane.setContent(BoxMain);
 
     }
 
+
     public ArrayList<Game> buscaTitulo(String titulo) {
 
         ArrayList<Game> aux = new ArrayList<>();
         for (int i = 0; i < jogos.size(); i++) {
-            if (jogos.get(i).getNome().contains(titulo))
+            if (jogos.get(i).getNome().toLowerCase().contains(titulo.toLowerCase()))
                 aux.add(jogos.get(i));
         }
         return aux;
     }
-
-
 
     public ArrayList<Game> buscaGenero(String genero) { // a String genero pode ser gerada ao clicar o botao do genero escolhido
 
         ArrayList<Game> aux = new ArrayList<>();
         for (int i = 0; i < jogos.size(); i++) {
-            if (jogos.get(i).getGenero().contains(genero)) // add genero e getGenero() no model
+            if (jogos.get(i).getGenero().toLowerCase().contains(genero.toLowerCase())) // add genero e getGenero() no model
                 aux.add(jogos.get(i));
         }
         return aux;
     }
 
-    public User getUsuarioLogado() {
-        return usuarioLogado;
-    }
-
-    public void setUsuarioLogado(User usuarioLogado) {
-        this.usuarioLogado = usuarioLogado;
-    }
-
-
-
     //botoes de eventos
 
-
-    //busca pelo nome ( campo de texto )
     @FXML
-    protected void onBuscaButtonClick()  {
-        // result = CampodeTexto.getText()
-        // buscanome(result)
-        //display();
+    protected void onBuscaButtonClick() throws IOException {
+        String result = campoTexto.getText();
+        ArrayList<Game> array = buscaTitulo(result);
+        displayMeusJogos(array);
     }
 
-
-    //botao que abre as opçõs de genero
     @FXML
-    protected void onBuscaGeneroButtonClick()  {
-
-        //abre uma tela com bottoes com generos e vc escolhe
-    }
-
-
-    //botao pra escolher o genero
-    @FXML
-    protected void onGeneroButtonClick()  {
-
-        // resultgenero = get do botao escolhido do genero
-
-        // buscagenero(resultgenero)
-
-        //fechar a janela e
-        //displayJogos();
+    protected void onBuscaGeneroButtonClick() throws IOException {
+        String result = campoTexto.getText();
+        ArrayList<Game> array = buscaGenero(result);
+        displayMeusJogos(array);
     }
 
     @FXML
@@ -309,8 +256,6 @@ public class MeusjogosController implements Initializable {
 
         Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização
 
-        //+estilizações com css
-        ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/homecliente.css").toExternalForm());
 
 
         HomePageClienteController Controller = loader.getController();
@@ -333,8 +278,6 @@ public class MeusjogosController implements Initializable {
 
         Scene lojaViewScene = new Scene(lojaView); // instanciando uma nova cena com a estilização da loja
 
-        //+estilizações com css
-        lojaViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/loja.css").toExternalForm());
 
         LojaUIController lojaController = loader.getController();
 
@@ -345,6 +288,28 @@ public class MeusjogosController implements Initializable {
         Stage window = (Stage) voltar.getScene().getWindow();
 
         window.setScene(lojaViewScene); //mudando a cena da janela para a loja
+
+    }
+
+    @FXML
+    protected void onCarrinhoButtonClick() throws IOException {
+        //carregando estilização da loja
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/tecgames/view/meucarrinho-view.fxml"));
+
+        Parent View = loader.load();
+
+        Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização de carrinho
+
+
+        MeucarrinhoController Controller = loader.getController();
+
+        Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de carrinho
+
+        //This line gets the Stage(window) information
+        Stage window = (Stage) voltar.getScene().getWindow();
+
+        window.setScene(ViewScene); //mudando a cena da janela para a tela de carrinho
 
     }
 }

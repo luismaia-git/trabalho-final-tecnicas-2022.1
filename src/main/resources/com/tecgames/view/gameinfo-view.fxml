@@ -28,7 +28,7 @@
             </Pane>
             <Pane>
                <children>
-                  <Button fx:id="carrinho" layoutX="-3.0" layoutY="26.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="91.0" text="Carrinho" />
+                  <Button fx:id="carrinho" layoutX="-3.0" layoutY="26.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="91.0" text="Carrinho" onAction="#onCarrinhoButtonClick"/>
                </children>
             </Pane>
          </children>

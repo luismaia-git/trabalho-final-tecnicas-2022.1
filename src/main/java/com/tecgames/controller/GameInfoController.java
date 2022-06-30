@@ -29,6 +29,7 @@ public class GameInfoController {
     public Label requisitos;
     public Label preco;
     public Button adicionarcarrinho;
+    public Label title;
 
     private User usuarioLogado;
     private Game jogoEscolhido;
@@ -152,6 +153,33 @@ public class GameInfoController {
 
 
     }
+
+    @FXML
+    protected void onCarrinhoButtonClick() throws IOException {
+        //carregando estilização da loja
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/tecgames/view/meucarrinho-view.fxml"));
+
+        Parent View = loader.load();
+
+        Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização de carrinho
+
+
+        MeucarrinhoController Controller = loader.getController();
+
+        Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de carrinho
+
+        //This line gets the Stage(window) information
+        Stage window = (Stage) title.getScene().getWindow();
+
+        window.setScene(ViewScene); //mudando a cena da janela para a tela de carrinho
+
+    }
+
+
+
+
+
 
     public User getUsuarioLogado() {
         return this.usuarioLogado;
