@@ -205,12 +205,23 @@ public class LojaUIController implements Initializable {
     }
 
     public ArrayList<Game> buscaGenero(String genero) { // a String genero pode ser gerada ao clicar o botao do genero escolhido
-
+        
         ArrayList<Game> aux = new ArrayList<>();
-        for (int i = 0; i < jogos.size(); i++) {
-            if (jogos.get(i).getGenero().toLowerCase().contains(genero.toLowerCase())) // add genero e getGenero() no model
-                aux.add(jogos.get(i));
+        genero = genero.replace(" e ", " ");
+        genero = genero.replace("jogo", "");
+        genero = genero.replace(" de ", "");
+        genero = genero.replace(",", "");
+        genero = genero.replace("/", " ");
+    
+        String array[] = texto.split(" ");
+
+        for (int h = 0; h < array.length; h++) {
+            for (int i = 0; i < jogos.size(); i++) {
+                if (jogos.get(i).getGenero().toLowerCase().contains(array[h].toLowerCase())) // add genero e getGenero() no model
+                    aux.add(jogos.get(i));
+            }
         }
+        
         return aux;
     }
 
