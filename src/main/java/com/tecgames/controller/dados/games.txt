@@ -1,0 +1,6 @@
+1;the last of us;43.99;distopia; jogo de zumbi;2013;um pc bom
+3;the witcher 3;100.0;fantasia;jogo de bruxo;2015;um pc mt bom
+4;GTA-V;12.9;Assalto;jogo de ladrao;2014;um pc ok
+5;jogosla;32;Blabla;jogo de ladrao;2014;um pc ok
+7;slaessejogo;52.9;naosei;jogo de acao;2008;um pc mais ou menos
+12;the forest;19.9;terror;jogo de zumbi;2012;um pc bomzao

@@ -1,3 +1,0 @@
-1;the last of us;43.99;distopia; jogo de zumbi;2013;um pc bom
-3;the witcher 3: subtitulo;100.0;fantasia;jogo de bruxo;2015;um pc mt bom
-4;GTA-V;12.9;Assalto;jogo de ladrao;um pc ok

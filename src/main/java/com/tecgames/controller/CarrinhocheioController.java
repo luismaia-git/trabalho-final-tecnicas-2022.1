@@ -1,7 +1,6 @@
 package com.tecgames.controller;
 
-import com.tecgames.model.Game;
-import com.tecgames.model.User;
+import com.tecgames.model.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -14,6 +13,7 @@ import java.util.ArrayList;
 
 public class CarrinhocheioController {
     public ScrollPane scrollPane;
+    public Pane divcontent2;
 
     private VBox BoxMain;
 
@@ -21,24 +21,59 @@ public class CarrinhocheioController {
     private User usuarioLogado;
     private ArrayList<Game> jogos;
 
+    private Carrinho carrinhoUsuario;
+
+    private ArrayList<Carrinho> array_carrinhos;
+
     public void initData(User usuarioLogado) throws IOException {
         this.usuarioLogado = usuarioLogado;
 
-        Game jogo1 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
-        Game jogo2 = new Game("2","GTA-V", "32.00" , "bla bla",  "bla bla", "bla bla", "bla bla");
-        Game jogo3 = new Game("2","GTA-V", "32.00" , "bla bla",  "bla bla", "bla bla", "bla bla");
-        Game jogo4 = new Game("2","GTA-V", "32.00" , "bla bla",  "bla bla", "bla bla", "bla bla");
+        CarrinhoDados carrinhoDAO = new CarrinhoDados();
+        array_carrinhos = carrinhoDAO.carregaArquivoCarrinhos();
+
+        GameDados gameDAO = new GameDados();
+        ArrayList<Game> array_games = gameDAO.carregaArquivoGames();
 
 
-        //instanciando o array com todos os jogos
+
+        for(int i = 0; i < array_carrinhos.size(); i++) {
+            if(usuarioLogado.getId() == array_carrinhos.get(i).getId()){//achei o usuario
+                carrinhoUsuario = array_carrinhos.get(i);
+            }
+        }
+
+        //instanciando o array para preencher com todos os jogos do usuario
         jogos = new ArrayList<>();
+        //agora adicionar ao array de jogos, os jogos do usuario
+        for (int l =0; l < carrinhoUsuario.getIdjogos().size(); l++){
 
-        jogos.add(jogo1);
-        jogos.add(jogo2);
-        jogos.add(jogo3);
-        jogos.add(jogo4);
+            for(int j = 0; j < array_games.size(); j++){
 
-        display(jogos);
+
+                if(carrinhoUsuario.getIdjogos().get(l).equals(array_games.get(j).getId())){
+                    jogos.add(array_games.get(j));
+                }
+
+            }
+        }
+
+        if(jogos.size() == 0) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/tecgames/view/components/carrinhovazio.fxml"));
+
+
+            Pane new_pane = loader.load();
+            divcontent2.getChildren().setAll(new_pane);
+
+            CarrinhovazioController controller = loader.getController();
+
+            controller.initData(getUsuarioLogado());
+
+        } else {
+            display(jogos);
+        }
+
+
     }
 
 
@@ -82,7 +117,31 @@ public class CarrinhocheioController {
             botao.setOnAction(e -> {
 
                 //remove o jogo
-                System.out.println("Apertei");
+
+                Game jogo = controller.getJogo();
+
+                int k = 0;
+                while(true){
+                    if(carrinhoUsuario.getIdjogos().get(k) == jogo.getId()){
+                        carrinhoUsuario.getIdjogos().remove(k);
+                        break;
+                    }
+                    k = k + 1;
+                }
+
+
+                CarrinhoDados CD = new CarrinhoDados();
+
+
+                CD.Atualiza(carrinhoUsuario);
+
+
+                try {
+                    initData(usuarioLogado);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
 
             });
 
@@ -101,5 +160,9 @@ public class CarrinhocheioController {
         //adicionando tudo da Vbox no ScrollPane
         scrollPane.setContent(BoxMain);
 
+    }
+
+    public User getUsuarioLogado() {
+        return usuarioLogado;
     }
 }

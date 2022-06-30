@@ -31,7 +31,6 @@ public class HomePageClienteController {
         char firstCaracter = usuario.getNome().charAt(0);
 
         iconLetter.setText(String.valueOf(firstCaracter));
-        //iconLetter.setAlignment(Pos.CENTER); not working
     }
 
     //button logout

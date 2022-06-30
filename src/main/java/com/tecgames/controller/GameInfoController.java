@@ -1,5 +1,7 @@
 package com.tecgames.controller;
 
+import com.tecgames.model.Carrinho;
+import com.tecgames.model.CarrinhoDados;
 import com.tecgames.model.Game;
 import com.tecgames.model.User;
 import javafx.fxml.FXML;
@@ -14,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class GameInfoController {
 
@@ -46,6 +49,13 @@ public class GameInfoController {
 
         have_game = false;
 
+        for(int i=0; i < usuarioLogado.getJogosUsuario().size();i++){
+
+            if(usuarioLogado.getJogosUsuario().get(i).equals(jogoEscolhido.getId())){
+                have_game = true;
+            }
+        }
+
         if(have_game) {
             adicionarcarrinho.setText("Ja comprado");
             adicionarcarrinho.setOnAction( e -> {
@@ -57,7 +67,43 @@ public class GameInfoController {
             });
         } else {
             adicionarcarrinho.setOnAction( e -> {
-                //adiciono no carrinho
+                CarrinhoDados carrinhoDAO = new CarrinhoDados();
+
+                ArrayList<Carrinho> array_ca = carrinhoDAO.carregaArquivoCarrinhos();
+
+                int j=0;
+                while(j < array_ca.size()) {
+
+                    if(usuarioLogado.getId() == array_ca.get(j).getId()){ //verifica se tem o carrinho no arquivo
+
+                        if(array_ca.get(j).getIdjogos().contains(jogoEscolhido.getId())){ // usuario ja tem o jogo no carrinho
+                            Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+                            dialogoInfo.setTitle("Informação");
+                            dialogoInfo.setHeaderText("Este jogo ja está no carrinho");
+                            dialogoInfo.setContentText("Clique em ok");
+                            dialogoInfo.showAndWait();
+
+                        }else{
+                            array_ca.get(j).getIdjogos().add(jogoEscolhido.getId());
+                            carrinhoDAO.escreveArquivoCarrinhos(array_ca);
+                        }
+
+                        break;
+                    }
+                    j = j +1;
+                }
+                if(j== array_ca.size()) { // add uma linha no carrinhos
+                    Carrinho ca = new Carrinho();
+                    ca.setId(usuarioLogado.getId());
+
+                    ArrayList<Integer> temp = new ArrayList<>();
+                    temp.add(jogoEscolhido.getId());
+
+                    ca.setIdjogos(temp);
+                    carrinhoDAO.inserir(ca);
+                }
+
+
             });
         }
 

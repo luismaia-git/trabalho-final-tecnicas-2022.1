@@ -1,6 +1,7 @@
 package com.tecgames.controller;
 
 import com.tecgames.model.Game;
+import com.tecgames.model.GameDados;
 import com.tecgames.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,8 +23,8 @@ import java.util.ResourceBundle;
 
 public class MeusjogosController implements Initializable {
 
-    public ArrayList<Game> jogos; //JogosDados.listar() // arraylist games <-- carregar
 
+    private ArrayList<Game> jogos;
     @FXML
     public ScrollPane scrollPane; //scroll
     public Button voltar;
@@ -41,39 +42,30 @@ public class MeusjogosController implements Initializable {
     public void initData(User usuarioLogado) throws IOException {
         this.usuarioLogado = usuarioLogado;
 
-
-        Game jogo1 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
-        Game jogo2 = new Game("2","GTA-V", "32.00" , "bla bla",  "bla bla", "bla bla", "bla bla");
-        Game jogo3 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas" +
-                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
-        Game jogo4 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas" +
-                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
-        Game jogo6 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas" +
-                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
-        Game jogo7 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas" +
-                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
-        Game jogo8 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas" +
-                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
-        Game jogo9 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas" +
-                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
-        Game jogo10 = new Game("1","The last of us", "50.00", "Ação", "Cidades " +
-                "abandonadas" +
-                " retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
-
-
-
         //instanciando o array com todos os jogos
-        jogos = new ArrayList<>();
+        ArrayList<Integer> jogosId;
 
-        jogos.add(jogo1);
-        jogos.add(jogo2);
-        jogos.add(jogo3);
-        jogos.add(jogo4);
-        jogos.add(jogo6);
-        jogos.add(jogo7);
-        jogos.add(jogo8);
-        jogos.add(jogo9);
-        jogos.add(jogo10);
+        jogosId = usuarioLogado.getJogosUsuario(); //carregando os ids dos jogos do usuario
+
+        jogos = new ArrayList<>(); //criando um array de jogos para ser mostrado na tela
+
+        GameDados g1 = new GameDados();
+
+        ArrayList<Game> aux = g1.carregaArquivoGames(); //carregando todos os jogos da aplicação
+
+        //agora adicionar ao array de jogos, os jogos do usuario
+        for (int i =0; i < jogosId.size(); i++){
+
+            for(int j = 0; j < aux.size(); j++){
+
+
+                if(jogosId.get(i).equals(aux.get(j).getId())){
+
+                    jogos.add(aux.get(j));
+                }
+
+            }
+        }
 
 
         displayMeusJogos(jogos);
@@ -252,6 +244,8 @@ public class MeusjogosController implements Initializable {
         }
         return aux;
     }
+
+
 
     public ArrayList<Game> buscaGenero(String genero) { // a String genero pode ser gerada ao clicar o botao do genero escolhido
 

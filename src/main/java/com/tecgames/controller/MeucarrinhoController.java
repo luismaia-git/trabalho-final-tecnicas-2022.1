@@ -1,5 +1,7 @@
 package com.tecgames.controller;
 
+import com.tecgames.model.Carrinho;
+import com.tecgames.model.CarrinhoDados;
 import com.tecgames.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MeucarrinhoController implements Initializable {
@@ -42,8 +45,20 @@ public class MeucarrinhoController implements Initializable {
 
 
     public void displayCarrinho() throws IOException {
-        boolean carrinho = true;
+        boolean carrinho = false;
+        
+        CarrinhoDados carrinhoDAO = new CarrinhoDados();
+        ArrayList<Carrinho> array_ca = carrinhoDAO.carregaArquivoCarrinhos();
 
+        for(int i = 0; i < array_ca.size(); i++) {
+            if(usuarioLogado.getId() == array_ca.get(i).getId()){//achei o usuario
+                carrinho = true;
+            }
+        }
+
+
+        //aqui carrega o dados do carrinho
+        //tenho que saber se o usuario logado tem alguma jogo no carrinho
         if(carrinho){
 
             FXMLLoader loader = new FXMLLoader();

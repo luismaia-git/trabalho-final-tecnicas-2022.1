@@ -3,6 +3,7 @@ package com.tecgames.model;
 import java.util.ArrayList;
 
 public class User {
+    private int id;
     private String nome;
     private String email;
     private String senha;
@@ -14,7 +15,8 @@ public class User {
     private ArrayList<Integer> JogosUsuario;
 
     //2;1,2,3,4,5,6,7,7
-    public User(String nome, String email, String senha, String cpf, String data){
+    public User(String id, String nome, String email, String senha, String cpf, String data){
+        this.id = Integer.parseInt(id);
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -75,4 +77,13 @@ public class User {
     public void setData(String data){
         this.dataNasc = data;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

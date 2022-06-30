@@ -2,6 +2,7 @@ package com.tecgames.model;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class UsuarioDados {
 
@@ -79,16 +80,19 @@ public class UsuarioDados {
     public ArrayList<User> carregaArquivoUsuarios () {
 
         ArrayList<User> usuariosArquivo = new ArrayList<>();
-        try (BufferedReader buffRead = new BufferedReader(new FileReader("dados.txt"))) {
+
+        try (BufferedReader buffRead = new BufferedReader(new FileReader("src/main/java/com/tecgames/controller/dados/usuarios.txt"))) {
             String linha;
             while (true) {
                 linha = buffRead.readLine();
-                if (linha != null) {
+
+                if(linha == null){
+                    break;
+                }else {
                     String array[] = linha.split(";");
-                    User user = new User(array[0],array[1],array[2], array[3], array[4]);
+                    User user = new User(array[0], array[1],array[2], array[3], array[4], array[5]);
 
-                    String[] array2 = array[3].split(",");
-
+                    String[] array2 = array[6].split(",");
                     ArrayList<Integer> games = new ArrayList<>();
 
                     for (int i = 0; i < array2.length; i++) {
@@ -98,25 +102,21 @@ public class UsuarioDados {
                     user.setJogosUsuario(games);
 
                     usuariosArquivo.add(user);
-
                 }
-                else
-                    break;
                 
             }
 
-            buffRead.close();
-            
         }catch(Exception e){
             System.out.println(e);
         }
+
         return usuariosArquivo;
     }
 
 
     public void escreveArquivoUsuarios(ArrayList<User> usuarios){
         try {
-            File arq = new File("usuarios.txt");
+            File arq = new File("src/main/java/com/tecgames/controller/dados/usuarios.txt");
             if (!arq.exists()) {
                 arq.createNewFile();
             }

@@ -24,10 +24,17 @@ public class CardCarrinhoController {
 
         preco.setText(String.valueOf(jogo.getPreço()));
 
-        //imagejogo.setStyle("-fx-background-image: url('/com/tecgames/view/images/games/1-2.png');");//NOT WORKING
     }
 
     public Button getRemover(){
         return removerjogocarrinho;
+    }
+
+    public Game getJogo() {
+        return jogo;
+    }
+
+    public void setJogo(Game jogo) {
+        this.jogo = jogo;
     }
 }

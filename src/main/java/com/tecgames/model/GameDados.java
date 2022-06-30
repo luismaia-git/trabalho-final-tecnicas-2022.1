@@ -76,7 +76,7 @@ public class GameDados {
     public ArrayList<Game> carregaArquivoGames () {
         ArrayList<Game> gamesArquivo = new ArrayList<>();
         
-        try (BufferedReader buffRead = new BufferedReader(new FileReader("games.txt"))) {
+        try (BufferedReader buffRead = new BufferedReader(new FileReader("src/main/java/com/tecgames/controller/dados/games.txt"))) {
             String linha;
             while (true) {
                 linha = buffRead.readLine();
@@ -102,7 +102,7 @@ public class GameDados {
 
     public void escreveArquivoGames(ArrayList<Game> games){
         try {
-            File arq = new File("games.txt");
+            File arq = new File("src/main/java/com/tecgames/controller/dados/games.txt");
             if (!arq.exists()) {
                 arq.createNewFile();
             }

@@ -3,6 +3,7 @@ package com.tecgames.controller;
 
 import com.tecgames.model.User;
 
+import com.tecgames.model.UsuarioDados;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class LoginController {
     public Button entrar;
@@ -23,11 +25,9 @@ public class LoginController {
     @FXML
     protected void onLoginButtonClick() throws IOException {
         //user test
+        UsuarioDados usuarioDAO = new UsuarioDados();
 
-        User teste = new User("Italo", emailData.getText(), senhaData.getText(), "1234", "12/08/2001");
-
-
-
+        User teste = usuarioDAO.carregaArquivoUsuarios().get(0);
 
 
 

@@ -52,10 +52,11 @@
 
 
 
-
-/*not working
-#circleIcon {
-    -fx-text-alignment: center;
+#carrinho {
+    -fx-background-radius: 5, 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+    -fx-border-color: none;
+    -fx-pref-height: 25px;
+    -fx-pref-width: 70px;
 }
-*/
 

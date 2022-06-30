@@ -1,6 +1,7 @@
 package com.tecgames.controller;
 
 import com.tecgames.model.Game;
+import com.tecgames.model.GameDados;
 import com.tecgames.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,15 +42,13 @@ public class LojaUIController implements Initializable {
     public void initData(User usuarioLogado) throws IOException {
         this.usuarioLogado = usuarioLogado;
 
-        Game jogo1 = new Game("1","The last of us", "50.00", "Ação", "Cidades abandonadas retomadas pela natureza. Uma população dizimada por uma praga moderna. Os sobreviventes matam uns aos outros por comida, armas e qualquer outra coisa em que puderem botar as mãos. Joel, um sobrevivente brutal, e Ellie, uma adolescente corajosa e madura apesar da pouca idade, devem unir forças para saírem vivos da sua jornada pelos Estados Unidos.", "21/7/2014", "Windows: 7 (64-bit). CPU: Quad core Intel Core i5 or i7 processor, or AMD FX 8000 series chip. RAM: 4 GB. Hard Disc Space: 14 GB." );
-        Game jogo2 = new Game("2","GTA-V", "32.00" , "bla bla",  "bla bla", "bla bla", "bla bla");
-
-
         //instanciando o array com todos os jogos
-        jogos = new ArrayList<>();
 
-        jogos.add(jogo1);
-        jogos.add(jogo2);
+        //criando um array de jogos para ser mostrado na tela
+
+        GameDados g1 = new GameDados();
+
+        jogos = g1.carregaArquivoGames(); //carregando todos os jogos da aplicação
 
         displayJogos(jogos);
 
