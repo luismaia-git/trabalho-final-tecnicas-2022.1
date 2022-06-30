@@ -39,8 +39,6 @@ public class HomePageClienteController {
 
         Parent root = FXMLLoader.load(getClass().getResource("/com/tecgames/view/login-view.fxml"));
         Scene scene = new Scene(root, 1000, 600); //cena
-        scene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap");
-        scene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/login.css").toExternalForm());
 
         //This line gets the Stage(window) information
         Stage window = (Stage) logout.getScene().getWindow();

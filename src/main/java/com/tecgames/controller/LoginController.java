@@ -59,28 +59,46 @@ public class LoginController implements Initializable{
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
+
+        boolean is_admin = true;
         //user test
         UsuarioDados usuarioDAO = new UsuarioDados();
 
         User teste = usuarioDAO.carregaArquivoUsuarios().get(0);
 
-
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/com/tecgames/view/homecliente-view.fxml"));
-        Parent homepageView = loader.load();
-
-
-        Scene homepageViewScene = new Scene(homepageView);
-
-        //acess the controller and call a method (initData)
-        HomePageClienteController homeController = loader.getController();
-        homeController.initData(teste);
-
+        User teste_admin = new User("1", "Administrador1", "admin1@email.com", "123", "777", "12/07/2001");
 
         //This line gets the Stage(window) information
         Stage window = (Stage) entrar.getScene().getWindow();
-        window.setScene(homepageViewScene);
+        FXMLLoader loader = new FXMLLoader();
+
+        if(is_admin){
+            loader.setLocation(getClass().getResource("/com/tecgames/view/homeadmin-view.fxml"));
+            Parent View = loader.load();
+
+
+            Scene ViewScene = new Scene(View);
+
+            //acess the controller and call a method (initData)
+            HomePageAdminController Controller = loader.getController();
+            Controller.initData(teste_admin );
+
+            window.setScene(ViewScene);
+        }else {
+
+            loader.setLocation(getClass().getResource("/com/tecgames/view/homecliente-view.fxml"));
+            Parent homepageView = loader.load();
+
+            Scene homepageViewScene = new Scene(homepageView);
+
+            //acess the controller and call a method (initData)
+            HomePageClienteController homeController = loader.getController();
+            homeController.initData(teste);
+
+            window.setScene(homepageViewScene);
+        }
+
+
 
     }
 

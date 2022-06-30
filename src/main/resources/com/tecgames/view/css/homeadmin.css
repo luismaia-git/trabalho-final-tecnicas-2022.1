@@ -1,0 +1,77 @@
+
+
+#title {
+    -fx-font-size: 24;
+}
+
+#header {
+    -fx-background-color: #D9D9D9;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+}
+
+#contentHome {
+    -fx-background-color: #2B4C7E;
+}
+
+.card {
+    -fx-background-radius: 5, 5;
+    -fx-background-color: #D9D9D9;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+}
+
+.botaocard {
+    -fx-background-radius: 5, 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+    -fx-background-color: #2B4C7E;
+    -fx-pref-height: 55px;
+    -fx-pref-width: 160px;
+}
+
+
+.botaocard:hover {
+    -fx-background-color: #5f8cce;
+
+}
+.botaocard:pressed {
+    -fx-background-color: #45628c;
+
+}
+
+
+#carrousel {
+    -fx-background-color: #5f8cce;
+}
+
+#carrinho {
+    -fx-background-radius: 4, 4;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+    -fx-border-color: none;
+}
+
+#carrinho:hover {
+    -fx-background-color: #5f8cce;
+    -fx-text-fill: White;
+}
+
+#carrinho:pressed {
+    -fx-background-color: #2f4c69;
+    -fx-text-fill: White;
+}
+
+
+#logout {
+    -fx-background-radius: 4, 4;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+    -fx-border-color: none;
+}
+
+#logout:hover{
+    -fx-background-color: #5f8cce;
+    -fx-text-fill: White;
+}
+
+
+#logout:pressed{
+    -fx-background-color: #2f4c69;
+    -fx-text-fill: White;
+}

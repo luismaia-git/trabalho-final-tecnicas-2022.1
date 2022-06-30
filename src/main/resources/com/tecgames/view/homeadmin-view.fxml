@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="contentHome" prefHeight="600.0" prefWidth="1000.0" stylesheets="@css/homeadmin.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.HomePageAdminController">
+    <children>
+        <Pane fx:id="header" prefHeight="80.0" prefWidth="1000.0">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="412.0" layoutY="20.0" text="Administrador" textFill="#2b4c7e">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font></Label>
+                <Pane layoutX="14.0" layoutY="10.0" prefHeight="60.0" prefWidth="60.0">
+                    <children>
+                        <Circle fx:id="circleIcon" fill="WHITE" layoutX="30.0" layoutY="29.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                        <Label fx:id="iconLetter" alignment="CENTER" layoutX="9.0" layoutY="4.0" prefHeight="53.0" prefWidth="42.0" text="F">
+                            <font>
+                                <Font name="System Bold" size="36.0" />
+                            </font>
+                        </Label>
+                    </children></Pane>
+                <Button fx:id="logout" layoutX="903.0" layoutY="23.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Logout" onAction="#onLogoutButtonClick"/>
+            </children>
+        </Pane>
+      <HBox fillHeight="false" layoutX="95.0" layoutY="148.0" prefHeight="407.0" prefWidth="796.0" spacing="65.0" AnchorPane.bottomAnchor="45.0" AnchorPane.topAnchor="148.0">
+         <children>
+              <Pane fx:id="sidemenu" prefHeight="328.0" prefWidth="221.0" styleClass="card">
+                  <children>
+                      <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="160.0" styleClass="botaocard" text="Gerenciar jogos" textFill="WHITE">
+                          <font>
+                              <Font name="System Bold" size="15.0" />
+                          </font>
+                  </Button>
+                  </children>
+              </Pane>
+            <Pane fx:id="sidemenu1" prefHeight="328.0" prefWidth="221.0" styleClass="card">
+               <children>
+                  <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="176.0" styleClass="botaocard" text="Buscar vendas" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="sidemenu11" prefHeight="328.0" prefWidth="221.0" styleClass="card">
+               <children>
+                  <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="176.0" styleClass="botaocard" text="Gerenciar clientes" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>
