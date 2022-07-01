@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class CarrinhovazioController {
+public class CarrinhoVazioController {
 
     public Pane divcontent2;
     private User usuarioLogado;
@@ -37,7 +37,7 @@ public class CarrinhovazioController {
         //+estilizações com css
         lojaViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/loja.css").toExternalForm());
 
-        LojaUIController lojaController = loader.getController();
+        LojaController lojaController = loader.getController();
 
         lojaController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
 

@@ -9,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -22,7 +21,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class MeusjogosController implements Initializable {
+public class MeusJogosController implements Initializable {
 
 
     public TextField campoTexto;
@@ -229,7 +228,7 @@ public class MeusjogosController implements Initializable {
         genero = genero.replace(",", "");
         genero = genero.replace("/", " ");
     
-        String array[] = texto.split(" ");
+        String array[] = genero.split(" ");
 
         for (int h = 0; h < array.length; h++) {
             for (int i = 0; i < jogos.size(); i++) {
@@ -268,7 +267,7 @@ public class MeusjogosController implements Initializable {
 
 
 
-        HomePageClienteController Controller = loader.getController();
+        HomepageClienteController Controller = loader.getController();
         Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de home
 
 
@@ -289,7 +288,7 @@ public class MeusjogosController implements Initializable {
         Scene lojaViewScene = new Scene(lojaView); // instanciando uma nova cena com a estilização da loja
 
 
-        LojaUIController lojaController = loader.getController();
+        LojaController lojaController = loader.getController();
 
         lojaController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
 
@@ -312,7 +311,7 @@ public class MeusjogosController implements Initializable {
         Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização de carrinho
 
 
-        MeucarrinhoController Controller = loader.getController();
+        MeuCarrinhoController Controller = loader.getController();
 
         Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de carrinho
 

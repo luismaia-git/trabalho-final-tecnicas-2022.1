@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="contentHome" prefHeight="600.0" prefWidth="1000.0" stylesheets="@css/homecliente.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.HomePageClienteController">
+<AnchorPane fx:id="contentHome" prefHeight="600.0" prefWidth="1000.0" stylesheets="@css/homecliente.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.HomepageClienteController">
    <children>
       <Pane fx:id="header" prefHeight="80.0" prefWidth="1000.0">
          <children>

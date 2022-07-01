@@ -131,7 +131,7 @@ public class GameInfoController {
             //+estilizações com css
             ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/loja.css").toExternalForm());
 
-            LojaUIController lojaController = loader.getController();
+            LojaController lojaController = loader.getController();
             lojaController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
 
             window.setScene(ViewScene); //mudando a cena da janela para a loja
@@ -145,7 +145,7 @@ public class GameInfoController {
             //+estilizações com css
             ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/meusjogos.css").toExternalForm());
 
-            MeusjogosController meusjogosController = loader.getController();
+            MeusJogosController meusjogosController = loader.getController();
             meusjogosController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
 
             window.setScene(ViewScene); //mudando a cena da janela para a loja
@@ -165,7 +165,7 @@ public class GameInfoController {
         Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização de carrinho
 
 
-        MeucarrinhoController Controller = loader.getController();
+        MeuCarrinhoController Controller = loader.getController();
 
         Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de carrinho
 

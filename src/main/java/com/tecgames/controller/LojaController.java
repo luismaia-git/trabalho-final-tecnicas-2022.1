@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 import java.util.ResourceBundle;
 
-public class LojaUIController implements Initializable {
+public class LojaController implements Initializable {
     public ArrayList<Game> jogos; //JogosDados.listar() // arraylist games <-- carregar
 
     @FXML
@@ -213,7 +213,7 @@ public class LojaUIController implements Initializable {
         genero = genero.replace(",", "");
         genero = genero.replace("/", " ");
     
-        String array[] = texto.split(" ");
+        String array[] = genero.split(" ");
 
         for (int h = 0; h < array.length; h++) {
             for (int i = 0; i < jogos.size(); i++) {
@@ -255,7 +255,7 @@ public class LojaUIController implements Initializable {
         ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/homecliente.css").toExternalForm());
 
 
-        HomePageClienteController Controller = loader.getController();
+        HomepageClienteController Controller = loader.getController();
         Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de home
 
 
@@ -276,7 +276,7 @@ public class LojaUIController implements Initializable {
         Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização de carrinho
 
 
-        MeucarrinhoController Controller = loader.getController();
+        MeuCarrinhoController Controller = loader.getController();
 
         Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de carrinho
 
@@ -301,7 +301,7 @@ public class LojaUIController implements Initializable {
         //+estilizações com css
         ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/meusjogos.css").toExternalForm());
 
-        MeusjogosController meusjogosController = loader.getController();
+        MeusJogosController meusjogosController = loader.getController();
 
         meusjogosController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
 

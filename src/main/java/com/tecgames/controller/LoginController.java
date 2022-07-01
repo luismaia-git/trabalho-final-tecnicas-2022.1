@@ -20,7 +20,6 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable{
@@ -38,8 +37,8 @@ public class LoginController implements Initializable{
         ScaleTransition st = new ScaleTransition(Duration.millis(20000), backgroundLogin);
         st.setFromX(1);
         st.setFromY(1);
-        st.setToX(1.2);
-        st.setToY(1.2);
+        st.setToX(1.1);
+        st.setToY(1.1);
         st.setCycleCount(100);
         st.setAutoReverse(true);
         st.play();
@@ -80,7 +79,7 @@ public class LoginController implements Initializable{
             Scene ViewScene = new Scene(View);
 
             //acess the controller and call a method (initData)
-            HomePageAdminController Controller = loader.getController();
+            HomepageAdminController Controller = loader.getController();
             Controller.initData(teste_admin );
 
             window.setScene(ViewScene);
@@ -92,7 +91,7 @@ public class LoginController implements Initializable{
             Scene homepageViewScene = new Scene(homepageView);
 
             //acess the controller and call a method (initData)
-            HomePageClienteController homeController = loader.getController();
+            HomepageClienteController homeController = loader.getController();
             homeController.initData(teste);
 
             window.setScene(homepageViewScene);

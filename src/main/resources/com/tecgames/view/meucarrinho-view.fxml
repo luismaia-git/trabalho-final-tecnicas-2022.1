@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="1000.0" stylesheets="@css/meucarrinho.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.MeucarrinhoController">
+<VBox prefHeight="600.0" prefWidth="1000.0" stylesheets="@css/meucarrinho.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.MeuCarrinhoController">
    <children>
       <HBox fx:id="divheader" prefHeight="88.0" prefWidth="1000.0">
          <Pane prefHeight="88.0" prefWidth="298.0">

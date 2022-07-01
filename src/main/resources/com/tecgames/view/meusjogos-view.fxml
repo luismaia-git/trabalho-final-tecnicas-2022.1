@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="background" prefHeight="600.0" prefWidth="1000.0" stylesheets="@css/meusjogos.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.MeusjogosController">
+<AnchorPane fx:id="background" prefHeight="600.0" prefWidth="1000.0" stylesheets="@css/meusjogos.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.MeusJogosController">
 
     <children>
         <ScrollPane fx:id="scrollPane" layoutX="230.0" layoutY="93.0" prefHeight="483.0" prefWidth="743.0">

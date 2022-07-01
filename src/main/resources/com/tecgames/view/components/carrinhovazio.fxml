@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="divcontent2" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../css/meucarrinho.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.CarrinhovazioController">
+<Pane fx:id="divcontent2" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../css/meucarrinho.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.CarrinhoVazioController">
    <children>
       <Label layoutX="308.0" layoutY="176.0" text="Seu carrinho está vazio" textAlignment="CENTER" textFill="WHITE">
          <font>

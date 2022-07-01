@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class CarrinhocheioController {
+public class CarrinhoCheioController {
     public ScrollPane scrollPane;
     public Pane divcontent2;
     public Label subtotal;
@@ -72,7 +72,7 @@ public class CarrinhocheioController {
             Pane new_pane = loader.load();
             divcontent2.getChildren().setAll(new_pane);
 
-            CarrinhovazioController controller = loader.getController();
+            CarrinhoVazioController controller = loader.getController();
 
             controller.initData(getUsuarioLogado());
 

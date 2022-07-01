@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="contentHome" prefHeight="600.0" prefWidth="1000.0" stylesheets="@css/homeadmin.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.HomePageAdminController">
+<AnchorPane fx:id="contentHome" prefHeight="600.0" prefWidth="1000.0" stylesheets="@css/homeadmin.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.HomepageAdminController">
     <children>
         <Pane fx:id="header" prefHeight="80.0" prefWidth="1000.0">
             <children>
@@ -32,7 +32,7 @@
          <children>
               <Pane fx:id="sidemenu" prefHeight="328.0" prefWidth="221.0" styleClass="card">
                   <children>
-                      <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="160.0" styleClass="botaocard" text="Gerenciar jogos" textFill="WHITE">
+                      <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="160.0" styleClass="botaocard" text="Gerenciar jogos" textFill="WHITE" onAction="#onGerenciarJogosButtonClick">
                           <font>
                               <Font name="System Bold" size="15.0" />
                           </font>
@@ -41,7 +41,7 @@
               </Pane>
             <Pane fx:id="sidemenu1" prefHeight="328.0" prefWidth="221.0" styleClass="card">
                <children>
-                  <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="176.0" styleClass="botaocard" text="Buscar vendas" textFill="WHITE">
+                  <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="176.0" styleClass="botaocard" text="Buscar vendas" textFill="WHITE" onAction="#onBuscarVendasButtonClick">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -50,7 +50,7 @@
             </Pane>
             <Pane fx:id="sidemenu11" prefHeight="328.0" prefWidth="221.0" styleClass="card">
                <children>
-                  <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="176.0" styleClass="botaocard" text="Gerenciar clientes" textFill="WHITE">
+                  <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="176.0" styleClass="botaocard" text="Gerenciar clientes" textFill="WHITE" onAction="#onGerenciarClientesButtonClick">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

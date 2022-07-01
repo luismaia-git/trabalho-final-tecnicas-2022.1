@@ -9,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -18,7 +17,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class MeucarrinhoController implements Initializable {
+public class MeuCarrinhoController implements Initializable {
     public Button voltar;
     public Pane divcontent;
 
@@ -68,7 +67,7 @@ public class MeucarrinhoController implements Initializable {
             Pane new_pane = loader.load();
             divcontent.getChildren().setAll(new_pane);
 
-            CarrinhocheioController controller = loader.getController();
+            CarrinhoCheioController controller = loader.getController();
 
             controller.initData(getUsuarioLogado());
 
@@ -81,7 +80,7 @@ public class MeucarrinhoController implements Initializable {
             Pane new_pane = loader.load();
             divcontent.getChildren().setAll(new_pane);
 
-            CarrinhovazioController controller = loader.getController();
+            CarrinhoVazioController controller = loader.getController();
 
             controller.initData(getUsuarioLogado());
 
@@ -100,7 +99,7 @@ public class MeucarrinhoController implements Initializable {
         Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização
 
 
-        HomePageClienteController Controller = loader.getController();
+        HomepageClienteController Controller = loader.getController();
         Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de home
 
 

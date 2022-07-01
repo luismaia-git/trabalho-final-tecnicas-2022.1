@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="divcontent2" prefHeight="512.0" prefWidth="1000.0" stylesheets="@../css/meucarrinho.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.CarrinhocheioController">
+<Pane fx:id="divcontent2" prefHeight="512.0" prefWidth="1000.0" stylesheets="@../css/meucarrinho.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.CarrinhoCheioController">
    <children>
       <ScrollPane fx:id="scrollPane" layoutX="27.0" layoutY="48.0" prefHeight="440.0" prefWidth="570.0" />
       <Pane fx:id="resumo" layoutX="746.0" layoutY="46.0" prefHeight="446.0" prefWidth="255.0">
