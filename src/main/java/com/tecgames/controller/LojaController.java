@@ -217,7 +217,7 @@ public class LojaController implements Initializable {
 
         for (int h = 0; h < array.length; h++) {
             for (int i = 0; i < jogos.size(); i++) {
-                if (jogos.get(i).getGenero().toLowerCase().contains(array[h].toLowerCase())) // add genero e getGenero() no model
+                if (jogos.get(i).getGenero().toLowerCase().equals(array[h].toLowerCase())) // add genero e getGenero() no model
                     aux.add(jogos.get(i));
             }
         }

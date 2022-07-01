@@ -3,17 +3,27 @@ package com.tecgames.model;
 import java.util.*;
 
 public class Venda {
-    int id_venda;
-    int id_usuario;
+    private int id_venda;
+    private int id_usuario;
+    private double valortotal;
+    private String data;
+    private String hora;
+    
     ArrayList<Integer> id_jogos;
     
-    public Venda(String id_venda, String id_usuario) {
+    public Venda(String id_venda, String id_usuario, String valortotal, String data, String hora) {
         this.id_venda = Integer.parseInt(id_venda);
-        this.id_usuario = Integer.parseInt(id_usuario);        
+        this.id_usuario = Integer.parseInt(id_usuario);
+        this.valortotal = Double.parseDouble(valortotal.replaceAll( "," , "." ));
+        this.data = data;
+        this.hora = hora;      
     }
 
-    public Venda(String id_usuario) {
-        this.id_usuario = Integer.parseInt(id_usuario);        
+    public Venda(String id_usuario, String valortotal, String data, String hora) {
+        this.id_usuario = Integer.parseInt(id_usuario);
+        this.valortotal = Double.parseDouble(valortotal.replaceAll( "," , "." ));
+        this.data = data;
+        this.hora = hora;        
     }
 
     public int getIdvenda() {
@@ -30,6 +40,30 @@ public class Venda {
 
     public void setIdusuario(int id) {
         this.id_usuario = id;
+    }
+
+    public double getValortotal() {
+        return valortotal;
+    }
+
+    public void setValortotal(double valortotal) {
+        this.valortotal = valortotal;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 
     public ArrayList<Integer> getIdjogos() {

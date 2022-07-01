@@ -82,7 +82,7 @@ public class GameDados {
                 linha = buffRead.readLine();
                 if (linha != null) {
                     String array[] = linha.split(";");
-                    Game game = new Game(array[0], array[1], array[2], array[3],  array[4],  array[5],  array[6]);
+                    Game game = new Game(array[0], array[1], array[2], array[3],  array[4],  array[5],  array[6], array[7]);
                     gamesArquivo.add(game);
 
                 }else{
@@ -111,7 +111,7 @@ public class GameDados {
             try (BufferedWriter buffer = new BufferedWriter(gravador)) {
                 for (int i = 0; i < games.size(); i++) {
                     Game game = games.get(i);
-                    String linha = game.getId() + ";" + game.getNome() + ";" + game.getPreço() + ";" + game.getGenero() + "\n";
+                    String linha = game.getId() + ";" + game.getNome() + ";" + game.getPreço() + ";" + game.getGenero() + ";" + game.getDescricao() + ";" + game.getAnolançamento() + ";" + game.getRequisitos() + ";" + game.getClassificacao() + "\n";
                     buffer.write(linha);
                 }
             }catch (IOException e) {

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Carrinho {
 
-    int id_usuario;
-    ArrayList<Integer> id_jogos;
+    private int id_usuario;
+    private ArrayList<Integer> id_jogos;
 
 
     public Carrinho() {

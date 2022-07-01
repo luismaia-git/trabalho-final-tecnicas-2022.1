@@ -13,9 +13,10 @@ public class Game {
     private String anolançamento;
 
     private String requisitos;
+    private String classificacao;
 
 
-    public Game(String id, String nome, String preço, String genero, String descricao, String anolançamento, String requisitos){
+    public Game(String id, String nome, String preço, String genero, String descricao, String anolançamento, String requisitos, String classificacao){
         
         this.id = Integer.parseInt(id);
         this.nome = nome;
@@ -24,6 +25,7 @@ public class Game {
         this.descricao = descricao;
         this.anolançamento = anolançamento;
         this.requisitos = requisitos;
+        this.classificacao = classificacao;
 
     }
 
@@ -60,6 +62,7 @@ public class Game {
     public void setGenero(String genero) {
         this.genero = genero;
     }
+    
     public String getDescricao() {
         return descricao;
     }
@@ -82,5 +85,13 @@ public class Game {
 
     public void setRequisitos(String requisitos) {
         this.requisitos = requisitos;
+    }
+
+    public String getClassificacao() {
+        return classificacao;
+    }
+
+    public void setClassificacao(String classificacao) {
+        this.classificacao = classificacao;
     }
 }

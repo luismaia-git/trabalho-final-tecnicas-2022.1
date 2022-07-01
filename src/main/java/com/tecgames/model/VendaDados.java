@@ -2,13 +2,22 @@ package com.tecgames.model;
 
 import java.io.*;
 import java.util.*;
+import java.text.SimpleDateFormat;
 
 public class VendaDados {
 
     public void inserir(Venda venda) { 
         ArrayList<Venda> vendas = carregaArquivoVendas();
         Venda ultimo = vendas.get(vendas.size() - 1);           // Pega o ultimo elemento do ArrayList de vendas
-        venda.setIdvenda(ultimo.getIdvenda() + 1);           // Pega o id do ultimo elemento, soma 1 e seta no ID da venda que será adicionada
+        venda.setIdvenda(ultimo.getIdvenda() + 1);             // Pega o id do ultimo elemento, soma 1 e seta no ID da venda que será adicionada
+        
+        Date dh = new Date();
+        String data = new SimpleDateFormat("dd/MM/yyyy").format(dh);
+        String hora = new SimpleDateFormat("HH:mm:ss").format(dh);
+
+        venda.setData(data);
+        venda.setHora(hora);
+
         vendas.add(venda);
         escreveArquivoVendas(vendas);
     }
@@ -16,17 +25,16 @@ public class VendaDados {
 
     public ArrayList<Venda> carregaArquivoVendas () {
         ArrayList<Venda> vendaArquivo = new ArrayList<>();
-        // "src/main/java/com/tecgames/controller/dados/carrinhos.txt"
-        try (BufferedReader buffRead = new BufferedReader(new FileReader("vendas.txt"))) {
+        try (BufferedReader buffRead = new BufferedReader(new FileReader("src/main/java/com/tecgames/controller/dados/carrinhos.txt"))) {
             String linha;
             while (true) {
                 linha = buffRead.readLine();
 
                 if (!(linha == null)) {
                     String array[] = linha.split(";");
-                    Venda venda = new Venda(array[0], array[1]);
+                    Venda venda = new Venda(array[0], array[1], array[2], array[3], array[4]);
 
-                    String[] array2 = array[2].split(",");
+                    String[] array2 = array[5].split(",");
 
                     ArrayList<Integer> games = new ArrayList<>();
 
@@ -54,9 +62,8 @@ public class VendaDados {
     }
 
     public void escreveArquivoVendas(ArrayList<Venda> vendas){
-        try {
-            // "src/main/java/com/tecgames/controller/dados/carrinhos.txt"
-            File arq = new File("vendas.txt");
+        try { 
+            File arq = new File("src/main/java/com/tecgames/controller/dados/carrinhos.txt");
             if (!arq.exists()) {
                 arq.createNewFile();
             }
@@ -71,10 +78,10 @@ public class VendaDados {
                             idjogos = idjogos + String.valueOf(venda.getIdjogos().get(j)) + ",";
                         }
                     }
-
                     
                     idjogos = idjogos + venda.getIdjogos().get(venda.getIdjogos().size() - 1);
-                    String linha = venda.getIdvenda() + ";" + venda.getIdusuario() + ";" + idjogos + "\n";
+                    
+                    String linha = venda.getIdvenda() + ";" + venda.getIdusuario() + ";" + venda.getValortotal() + ";" + venda.getData() + ";" + venda.getHora() + ";" + idjogos + "\n";
                     buffer.write(linha);
                 }
             }catch (IOException e) {

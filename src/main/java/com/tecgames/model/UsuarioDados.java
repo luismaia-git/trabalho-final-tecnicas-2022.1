@@ -59,13 +59,12 @@ public class UsuarioDados {
         return true;
     }
 
-    //
 
-    public boolean checaUsuario(User usuario, ArrayList usuarios) throws IOException {
+    public boolean checaUsuario(User usuario, ArrayList<User> usuarios) {
         int i = 0;
 
         while (i < usuarios.size()) {
-            User user = (User) usuarios.get(i);
+            User user = usuarios.get(i);
             if ((user.getEmail().equals(usuario.getEmail())) || (user.getCpf().equals(usuario.getCpf()))) {
                 return true;
             }
@@ -125,11 +124,17 @@ public class UsuarioDados {
             try (BufferedWriter buffer = new BufferedWriter(gravador)) {
                 for (int i = 0; i < usuarios.size(); i++) {
                     User user = usuarios.get(i);
-                    String idjogos = null;
-                    for (int j = 0; j < user.getMeusJogos().size() - 1; j++) {
-                        idjogos = idjogos + String.valueOf(user.getMeusJogos().get(j))  + ",";
+                    String idjogos = "";
+                    if ((user.getMeusJogos().size() > 1)) {
+                        for (int j = 0; j < user.getMeusJogos().size() - 1; j++) {
+                            idjogos = idjogos + String.valueOf(user.getMeusJogos().get(j)) + ",";
+                        }
+                        idjogos = idjogos + user.getMeusJogos().get(user.getMeusJogos().size() - 1);
                     }
-                    idjogos = idjogos + String.valueOf(user.getMeusJogos().get(user.getMeusJogos().size() -1));
+
+                    if (user.getMeusJogos().size() == 1)
+                        idjogos = idjogos + user.getMeusJogos().get(user.getMeusJogos().size() - 1);
+
                     String linha = user.getNome() + ";" + user.getEmail() + ";" + user.getSenha() + ";" + user.getCpf() + ";" + user.getData() + ";" + idjogos + "\n";
                     buffer.write(linha);
                 }
