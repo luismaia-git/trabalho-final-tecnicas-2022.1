@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 
 public class VendaDados {
 
+
+
     public void inserir(Venda venda) { 
         ArrayList<Venda> vendas = carregaArquivoVendas();
         Venda ultimo = vendas.get(vendas.size() - 1);           // Pega o ultimo elemento do ArrayList de vendas
@@ -25,7 +27,7 @@ public class VendaDados {
 
     public ArrayList<Venda> carregaArquivoVendas () {
         ArrayList<Venda> vendaArquivo = new ArrayList<>();
-        try (BufferedReader buffRead = new BufferedReader(new FileReader("src/main/java/com/tecgames/controller/dados/carrinhos.txt"))) {
+        try (BufferedReader buffRead = new BufferedReader(new FileReader("src/main/java/com/tecgames/controller/dados/vendas.txt"))) {
             String linha;
             while (true) {
                 linha = buffRead.readLine();
@@ -56,14 +58,13 @@ public class VendaDados {
         }catch(Exception e){
             System.out.println(e);
         }
-
         return vendaArquivo;
 
     }
 
     public void escreveArquivoVendas(ArrayList<Venda> vendas){
         try { 
-            File arq = new File("src/main/java/com/tecgames/controller/dados/carrinhos.txt");
+            File arq = new File("src/main/java/com/tecgames/controller/dados/vendas.txt");
             if (!arq.exists()) {
                 arq.createNewFile();
             }

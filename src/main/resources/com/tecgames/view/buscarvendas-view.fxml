@@ -45,11 +45,11 @@
             <children>
                 <VBox prefHeight="495.0" prefWidth="516.0">
                     <children>
-                        <TableView prefHeight="398.0" prefWidth="456.0">
+                        <TableView fx:id="TabelaVendas" prefHeight="398.0" prefWidth="456.0">
                             <columns>
                                 <TableColumn fx:id="colunaId" prefWidth="142.0" text="ID VENDA" />
-                                <TableColumn fx:id="colunaNome" prefWidth="149.0" text="ID USUARIO" />
-                                <TableColumn fx:id="colunaCpf" prefWidth="164.0" text="VALOR" />
+                                <TableColumn fx:id="colunaIdUsuario" prefWidth="149.0" text="ID USUARIO" />
+                                <TableColumn fx:id="colunaValor" prefWidth="164.0" text="VALOR" />
                             </columns>
                             <VBox.margin>
                                 <Insets left="60.0" top="25.0" />
@@ -72,7 +72,7 @@
                                 <Font name="System Bold" size="20.0" />
                             </font>
                             <VBox.margin>
-                                <Insets left="151.0" />
+                                <Insets left="140.0" />
                             </VBox.margin>
                         </Label>
                         <GridPane prefHeight="279.0" prefWidth="409.0">
@@ -85,6 +85,7 @@
                                 <RowConstraints maxHeight="68.66665649414062" minHeight="10.0" prefHeight="50.333343505859375" vgrow="SOMETIMES" />
                                 <RowConstraints maxHeight="87.0" minHeight="7.666656494140625" prefHeight="43.333343505859375" vgrow="SOMETIMES" />
                                 <RowConstraints maxHeight="105.33331298828125" minHeight="8.0" prefHeight="65.33334350585938" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="135.33331298828125" minHeight="10.0" prefHeight="76.33331298828125" vgrow="SOMETIMES" />
                                 <RowConstraints maxHeight="135.33331298828125" minHeight="10.0" prefHeight="76.33331298828125" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
@@ -93,7 +94,7 @@
                                         <Font name="System Bold" size="18.0" />
                                     </font>
                                 </Label>
-                                <Label prefHeight="27.0" prefWidth="182.0" text="ID USUARIO" textFill="WHITE" GridPane.rowIndex="1">
+                                <Label prefHeight="27.0" prefWidth="182.0" text="USUARIO" textFill="WHITE" GridPane.rowIndex="1">
                                     <font>
                                         <Font name="System Bold" size="18.0" />
                                     </font>
@@ -108,36 +109,46 @@
                                         <Font name="System Bold" size="18.0" />
                                     </font>
                                 </Label>
-                                <Label prefHeight="27.0" prefWidth="182.0" text="VALOR" textFill="WHITE" GridPane.rowIndex="4">
+                                <Label prefHeight="27.0" prefWidth="182.0" text="VALOR" textFill="WHITE" GridPane.rowIndex="5">
                                     <font>
                                         <Font name="System Bold" size="16.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="labelVendaId" prefHeight="27.0" prefWidth="182.0" text="LABEL" textFill="WHITE" GridPane.columnIndex="1">
+                                <Label fx:id="labelVendaId" prefHeight="27.0" prefWidth="182.0" textFill="WHITE" GridPane.columnIndex="1">
                                     <font>
                                         <Font name="System Bold Italic" size="18.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="labelVendaIdUsuario" alignment="TOP_LEFT" prefHeight="47.0" prefWidth="199.0" text="LABEL" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <Label fx:id="labelVendaNomeUsuario" prefHeight="47.0" prefWidth="199.0" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                     <font>
                                         <Font name="System Bold Italic" size="18.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="labelVendaIdJogos" alignment="TOP_LEFT" prefHeight="43.0" prefWidth="213.0" text="LABEL" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <Label fx:id="labelVendaIdJogos" alignment="TOP_LEFT" prefHeight="43.0" prefWidth="213.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                     <font>
                                         <Font name="System Bold Italic" size="16.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="labelVendaData" prefHeight="27.0" prefWidth="202.0" text="LABEL" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                <Label fx:id="labelVendaData" prefHeight="27.0" prefWidth="202.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                     <font>
                                         <Font name="System Bold Italic" size="18.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="labelVendaValor" prefHeight="55.0" prefWidth="203.0" text="LABEL" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                <Label fx:id="labelVendaValor" prefHeight="55.0" prefWidth="203.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                     <font>
                                         <Font name="System Bold Italic" size="18.0" />
                                     </font>
                                 </Label>
+                        <Label prefHeight="27.0" prefWidth="182.0" text="HORA" textFill="WHITE" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelVendaHora" prefHeight="27.0" prefWidth="182.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
                             </children>
                             <VBox.margin>
                                 <Insets top="40.0" />

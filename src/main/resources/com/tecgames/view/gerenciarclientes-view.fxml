@@ -45,7 +45,7 @@
          <children>
             <VBox prefHeight="495.0" prefWidth="516.0">
                <children>
-                  <TableView prefHeight="398.0" prefWidth="456.0">
+                  <TableView fx:id="TabelaClientes" prefHeight="398.0" prefWidth="456.0">
                     <columns>
                       <TableColumn fx:id="colunaId" prefWidth="75.0" text="ID" />
                       <TableColumn fx:id="colunaNome" prefWidth="188.66668701171875" text="Nome" />
@@ -72,7 +72,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="151.0" />
+                        <Insets left="141.0" />
                      </VBox.margin>
                   </Label>
                   <GridPane prefHeight="279.0" prefWidth="409.0">
@@ -82,9 +82,9 @@
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints maxHeight="38.666656494140625" minHeight="10.0" prefHeight="38.666656494140625" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="68.66665649414062" minHeight="10.0" prefHeight="50.333343505859375" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="87.0" minHeight="7.666656494140625" prefHeight="43.333343505859375" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="105.33331298828125" minHeight="8.0" prefHeight="65.33334350585938" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="68.66665649414062" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="87.0" minHeight="7.666656494140625" prefHeight="49.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="105.33331298828125" minHeight="8.0" prefHeight="53.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="135.33331298828125" minHeight="10.0" prefHeight="76.33331298828125" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
@@ -113,27 +113,27 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelClienteId" prefHeight="27.0" prefWidth="182.0" text="LABEL" textFill="WHITE" GridPane.columnIndex="1">
+                        <Label fx:id="labelClienteId" prefHeight="27.0" prefWidth="182.0" textFill="WHITE" GridPane.columnIndex="1">
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelClienteNome" alignment="TOP_LEFT" prefHeight="47.0" prefWidth="199.0" text="LABEL" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="labelClienteNome" alignment="TOP_LEFT" prefHeight="47.0" prefWidth="199.0" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelClienteEmail" alignment="TOP_LEFT" prefHeight="43.0" prefWidth="213.0" text="LABEL" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label fx:id="labelClienteEmail" alignment="TOP_LEFT" prefHeight="43.0" prefWidth="213.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="System Bold Italic" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelClienteCpf" prefHeight="27.0" prefWidth="202.0" text="LABEL" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Label fx:id="labelClienteCpf" prefHeight="27.0" prefWidth="202.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelClienteData" prefHeight="55.0" prefWidth="203.0" text="LABEL" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Label fx:id="labelClienteData" prefHeight="55.0" prefWidth="203.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
                            </font>

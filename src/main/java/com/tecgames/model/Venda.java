@@ -3,8 +3,8 @@ package com.tecgames.model;
 import java.util.*;
 
 public class Venda {
-    private int id_venda;
-    private int id_usuario;
+    private int idvenda;
+    private int idusuario;
     private double valortotal;
     private String data;
     private String hora;
@@ -12,34 +12,34 @@ public class Venda {
     ArrayList<Integer> id_jogos;
     
     public Venda(String id_venda, String id_usuario, String valortotal, String data, String hora) {
-        this.id_venda = Integer.parseInt(id_venda);
-        this.id_usuario = Integer.parseInt(id_usuario);
+        this.idvenda = Integer.parseInt(id_venda);
+        this.idusuario = Integer.parseInt(id_usuario);
         this.valortotal = Double.parseDouble(valortotal.replaceAll( "," , "." ));
         this.data = data;
         this.hora = hora;      
     }
-
+    /*
     public Venda(String id_usuario, String valortotal, String data, String hora) {
         this.id_usuario = Integer.parseInt(id_usuario);
         this.valortotal = Double.parseDouble(valortotal.replaceAll( "," , "." ));
         this.data = data;
         this.hora = hora;        
-    }
+    }*/
 
     public int getIdvenda() {
-        return id_venda;
+        return idvenda;
     }
 
     public void setIdvenda(int id_venda) {
-        this.id_venda = id_venda;
+        this.idvenda = id_venda;
     }
 
     public int getIdusuario() {
-        return id_usuario;
+        return idusuario;
     }
 
     public void setIdusuario(int id) {
-        this.id_usuario = id;
+        this.idusuario = id;
     }
 
     public double getValortotal() {

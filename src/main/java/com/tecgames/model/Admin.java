@@ -1,3 +1,5 @@
+package com.tecgames.model;
+
 public class Admin {
     
     private int id;

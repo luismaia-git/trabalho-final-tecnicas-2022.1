@@ -7,9 +7,11 @@ module TecGames {
 
     opens com.tecgames to javafx.fxml;
     opens com.tecgames.view to javafx.fxml;
+    opens com.tecgames.controller to javafx.fxml;
+    opens com.tecgames.model to javafx.fxml;
     exports com.tecgames;
     //exports com.tecgames.view;
     exports com.tecgames.controller;
-    opens com.tecgames.controller to javafx.fxml;
+    exports com.tecgames.model;
 
 }

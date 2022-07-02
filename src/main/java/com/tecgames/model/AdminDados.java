@@ -1,3 +1,7 @@
+package com.tecgames.model;
+
+import com.tecgames.model.Admin;
+
 import java.io.*;
 import java.util.*;
 

@@ -13,6 +13,25 @@ public class UsuarioDados {
         return usuarios;
     }
 
+    public User buscarUsuario(int id){
+        ArrayList<User> usuarios;
+
+        usuarios = carregaArquivoUsuarios();
+
+        int i = 0;
+        while (i < usuarios.size()) {
+
+            if ((id == usuarios.get(i).getId())) {
+
+                return usuarios.get(i);
+            }
+            i = i + 1;
+        }
+
+        return null;
+
+    }
+
     public boolean inserir(User usuario) throws IOException {
         ArrayList<User> usuarios;
         usuarios = carregaArquivoUsuarios();
