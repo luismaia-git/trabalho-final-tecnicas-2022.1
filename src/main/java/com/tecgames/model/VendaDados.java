@@ -10,9 +10,14 @@ public class VendaDados {
 
     public void inserir(Venda venda) { 
         ArrayList<Venda> vendas = carregaArquivoVendas();
-        Venda ultimo = vendas.get(vendas.size() - 1);           // Pega o ultimo elemento do ArrayList de vendas
-        venda.setIdvenda(ultimo.getIdvenda() + 1);             // Pega o id do ultimo elemento, soma 1 e seta no ID da venda que será adicionada
         
+        if (vendas.equals(null))
+            venda.setIdvenda(1);
+        else {
+            Venda ultimo = vendas.get(vendas.size() - 1);          // Pega o ultimo elemento do ArrayList de vendas
+            venda.setIdvenda(ultimo.getIdvenda() + 1);            // Pega o id do ultimo elemento, soma 1 e seta no ID da venda que será adicionada
+        }    
+
         Date dh = new Date();
         String data = new SimpleDateFormat("dd/MM/yyyy").format(dh);
         String hora = new SimpleDateFormat("HH:mm:ss").format(dh);

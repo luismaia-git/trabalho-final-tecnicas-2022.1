@@ -14,7 +14,6 @@ public class User {
 
     private ArrayList<Integer> JogosUsuario;
 
-    //2;1,2,3,4,5,6,7,7
     public User(String id, String nome, String email, String senha, String cpf, String data){
         this.id = Integer.parseInt(id);
         this.nome = nome;

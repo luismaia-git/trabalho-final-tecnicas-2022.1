@@ -37,6 +37,13 @@ public class UsuarioDados {
         usuarios = carregaArquivoUsuarios();
 
         if (!checaUsuario(usuario, usuarios)) {
+            if (usuarios.equals(null))
+                usuario.setId(1);
+            else {
+                User ultimo = usuarios.get(usuarios.size() - 1);          // Pega o ultimo elemento do ArrayList de users
+                usuario.setIdvenda(ultimo.getIdvenda() + 1);            // Pega o id do ultimo elemento, soma 1 e seta no ID do usuario que será adicionado
+
+            }    
             usuarios.add(usuario);
             escreveArquivoUsuarios(usuarios);
             return true;
