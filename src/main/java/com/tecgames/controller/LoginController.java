@@ -1,6 +1,8 @@
 package com.tecgames.controller;
 
 
+import com.tecgames.model.Admin;
+import com.tecgames.model.AdminDados;
 import com.tecgames.model.User;
 
 import com.tecgames.model.UsuarioDados;
@@ -11,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
@@ -20,6 +23,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable{
@@ -34,11 +38,11 @@ public class LoginController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //animação no background
-        ScaleTransition st = new ScaleTransition(Duration.millis(20000), backgroundLogin);
+        ScaleTransition st = new ScaleTransition(Duration.millis(15000), backgroundLogin);
         st.setFromX(1);
         st.setFromY(1);
-        st.setToX(1.1);
-        st.setToY(1.1);
+        st.setToX(1.15);
+        st.setToY(1.15);
         st.setCycleCount(100);
         st.setAutoReverse(true);
         st.play();
@@ -59,46 +63,84 @@ public class LoginController implements Initializable{
     @FXML
     protected void onLoginButtonClick() throws IOException {
 
-        boolean is_admin = true;
-        //user test
-        UsuarioDados usuarioDAO = new UsuarioDados();
+        if(validaCampos()){
 
-        //User teste = usuarioDAO.carregaArquivoUsuarios().get(0);
-
-        User teste_admin = new User("1", "Administrador1", "admin1@email.com", "123", "777", "12/07/2001");
-
-        //This line gets the Stage(window) information
-        Stage window = (Stage) entrar.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader();
-
-        if(is_admin){
-            loader.setLocation(getClass().getResource("/com/tecgames/view/homeadmin-view.fxml"));
-            Parent View = loader.load();
+            String email = emailData.getText();
+            String senha = senhaData.getText();
 
 
-            Scene ViewScene = new Scene(View);
+            //Admin
+            AdminDados adminDAO = new AdminDados();
+            ArrayList<Admin> DadosArquivoAdmin = adminDAO.carregaArquivoAdmin();
 
-            //acess the controller and call a method (initData)
-            HomepageAdminController Controller = loader.getController();
-            Controller.initData(teste_admin );
+            Admin admin = null;
 
-            window.setScene(ViewScene);
-        }else {
+            //verifica a conta no arquivo e faz admin receber essa conta
+            int i = 0;
+            while(i < DadosArquivoAdmin.size()){
+                if(email.equals(DadosArquivoAdmin.get(i).getEmail())  && senha.equals(DadosArquivoAdmin.get(i).getSenha())){
+                    admin = DadosArquivoAdmin.get(i);
+                }
+                i = i +1;
+            }
 
-            loader.setLocation(getClass().getResource("/com/tecgames/view/homecliente-view.fxml"));
-            Parent homepageView = loader.load();
 
-            Scene homepageViewScene = new Scene(homepageView);
+            //existe {abro a pagina}
+            //nao existe {agora olho usuario}
+            //nenhum dos casos {essa conta nao existe}
 
-            //acess the controller and call a method (initData)
-            HomepageClienteController homeController = loader.getController();
-            //homeController.initData(teste);
+            //This line gets the Stage(window) information
+            Stage window = (Stage) entrar.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader();
 
-            window.setScene(homepageViewScene);
+            UsuarioDados usuarioDAO = new UsuarioDados();
+            User usuario = null;
+
+            if(admin != null){
+                loader.setLocation(getClass().getResource("/com/tecgames/view/homeadmin-view.fxml"));
+                Parent View = loader.load();
+
+                Scene ViewScene = new Scene(View);
+
+                //acess the controller and call a method (initData)
+                HomepageAdminController Controller = loader.getController();
+                Controller.initData(admin);
+
+                window.setScene(ViewScene);
+            } else {
+                //usuario
+
+
+                ArrayList<User> ArquivoUsuarios = usuarioDAO.carregaArquivoUsuarios();
+
+                int j = 0 ;
+                while(j < ArquivoUsuarios.size()){
+                    if(ArquivoUsuarios.get(j).getEmail().equals(email) && ArquivoUsuarios.get(j).getSenha().equals(senha)){
+                        usuario = ArquivoUsuarios.get(j);
+                    }
+                    j = j +1;
+                }
+
+                if(usuario != null) {
+                    loader.setLocation(getClass().getResource("/com/tecgames/view/homecliente-view.fxml"));
+                    Parent homepageView = loader.load();
+
+                    Scene homepageViewScene = new Scene(homepageView);
+
+                    //acess the controller and call a method (initData)
+                    HomepageClienteController homeController = loader.getController();
+                    homeController.initData(usuario);
+
+                    window.setScene(homepageViewScene);
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Email ou senha invalidos!");
+                    alert.show();
+                }
+
+            }
         }
-
-
-
+        
     }
 
     @FXML
@@ -116,5 +158,24 @@ public class LoginController implements Initializable{
         window.setScene(ViewScene); //mudando a cena da janela
     }
 
+    public boolean validaCampos(){
 
+        String errorMessage = "";
+
+        if (emailData.getText() == null || emailData.getText().length() == 0) errorMessage += "Preencha o campo Email!\n";
+
+        if (senhaData.getText() == null || senhaData.getText().length() == 0) errorMessage += "Preencha o campo Senha!\n";
+
+        if (errorMessage.length() == 0) {
+            return true;
+        } else {
+            // Mostrando a mensagem de erro
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro no cadastro");
+            alert.setHeaderText("Campos inválidos, por favor, corrija...");
+            alert.setContentText(errorMessage);
+            alert.show();
+            return false;
+        }
+    }
 }

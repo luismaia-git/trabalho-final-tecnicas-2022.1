@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -25,37 +26,52 @@
                             </font>
                         </Label>
                     </children></Pane>
-                <Button fx:id="logout" layoutX="903.0" layoutY="23.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Logout" onAction="#onLogoutButtonClick"/>
+                <Button fx:id="logout" layoutX="903.0" layoutY="23.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="35.0" prefWidth="75.0" text="Logout" />
             </children>
         </Pane>
-      <HBox fillHeight="false" layoutX="95.0" layoutY="148.0" prefHeight="407.0" prefWidth="796.0" spacing="65.0" AnchorPane.bottomAnchor="45.0" AnchorPane.topAnchor="148.0">
+      <HBox fillHeight="false" layoutY="148.0" prefHeight="328.0" prefWidth="999.0" spacing="40.0" AnchorPane.bottomAnchor="124.0" AnchorPane.topAnchor="148.0">
          <children>
-              <Pane fx:id="sidemenu" prefHeight="328.0" prefWidth="221.0" styleClass="card">
+              <Pane fx:id="card1" prefHeight="328.0" prefWidth="221.0" styleClass="card">
                   <children>
-                      <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="160.0" styleClass="botaocard" text="Gerenciar jogos" textFill="WHITE" onAction="#onGerenciarJogosButtonClick">
+                      <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="160.0" styleClass="botaocard" text="Adicionar administrador" textFill="WHITE" onAction="#onAdicionarAdminButtonClick">
                           <font>
-                              <Font name="System Bold" size="15.0" />
+                              <Font name="System Bold" size="11.0" />
                           </font>
                   </Button>
                   </children>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
               </Pane>
-            <Pane fx:id="sidemenu1" prefHeight="328.0" prefWidth="221.0" styleClass="card">
+            <Pane fx:id="card2" prefHeight="328.0" prefWidth="221.0" styleClass="card">
                <children>
-                  <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="176.0" styleClass="botaocard" text="Buscar vendas" textFill="WHITE" onAction="#onBuscarVendasButtonClick">
+                  <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" onAction="#onBuscarVendasButtonClick" prefHeight="55.0" prefWidth="176.0" styleClass="botaocard" text="Buscar vendas" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
                </children>
             </Pane>
-            <Pane fx:id="sidemenu11" prefHeight="328.0" prefWidth="221.0" styleClass="card">
+            <Pane fx:id="card3" prefHeight="328.0" prefWidth="221.0" styleClass="card">
                <children>
-                  <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="176.0" styleClass="botaocard" text="Gerenciar clientes" textFill="WHITE" onAction="#onGerenciarClientesButtonClick">
+                  <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" onAction="#onGerenciarClientesButtonClick" prefHeight="55.0" prefWidth="176.0" styleClass="botaocard" text="Gerenciar clientes" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
                </children>
+            </Pane>
+            <Pane fx:id="card4" prefHeight="328.0" prefWidth="221.0" styleClass="card">
+               <children>
+                  <Button layoutX="29.0" layoutY="247.0" mnemonicParsing="false" onAction="#onGerenciarJogosButtonClick" prefHeight="55.0" prefWidth="160.0" styleClass="botaocard" text="Gerenciar jogos" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
             </Pane>
          </children>
       </HBox>

@@ -2,8 +2,6 @@ package com.tecgames.controller;
 
 import com.tecgames.model.Game;
 import com.tecgames.model.GameDados;
-import com.tecgames.model.User;
-import com.tecgames.model.UsuarioDados;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -50,13 +48,10 @@ public class GerenciarJogosController implements Initializable {
     private ObservableList<Game> observableListJogos;
 
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         JogosDao = new GameDados();
         carregarDadosTabela();
-
 
         TabelaJogos.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> selecionarItemTabelaClientes(newValue));
@@ -85,7 +80,6 @@ public class GerenciarJogosController implements Initializable {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
-
 
                 String lowerCaseFilter = newValue.toLowerCase();
 
@@ -121,7 +115,6 @@ public class GerenciarJogosController implements Initializable {
 
     }
 
-
     public void selecionarItemTabelaClientes(Game jogo){
 
         if(jogo != null)  {
@@ -134,7 +127,6 @@ public class GerenciarJogosController implements Initializable {
             labelJogoDescricao.setText(jogo.getDescricao());
             labelJogoRequisitos.setText(jogo.getRequisitos());
             labelJogoFaixa.setText(jogo.getClassificacao());
-
 
         } else {
             labelJogoId.setText("");
@@ -150,11 +142,8 @@ public class GerenciarJogosController implements Initializable {
     }
 
 
-
-
     @FXML
     protected void onLogoutButtonClick() throws IOException {
-
         Parent root = FXMLLoader.load(getClass().getResource("/com/tecgames/view/login-view.fxml"));
         Scene scene = new Scene(root, 1000, 600); //cena
 
@@ -162,12 +151,10 @@ public class GerenciarJogosController implements Initializable {
         Stage window = (Stage) logout.getScene().getWindow();
 
         window.setScene(scene);
-
     }
 
     @FXML
     protected void onVoltarButtonClick() throws IOException {
-
         Parent root = FXMLLoader.load(getClass().getResource("/com/tecgames/view/homeadmin-view.fxml"));
         Scene scene = new Scene(root, 1000, 600); //cena
 
@@ -175,7 +162,6 @@ public class GerenciarJogosController implements Initializable {
         Stage window = (Stage) logout.getScene().getWindow();
 
         window.setScene(scene);
-
     }
 
 

@@ -48,7 +48,7 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Button fx:id="comprar" layoutX="50.0" layoutY="387.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="164.0" text="Comprar" />
+            <Button fx:id="comprar" layoutX="50.0" layoutY="387.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="164.0" text="Comprar" onAction="#onComprarButtonClick"/>
          </children>
       </Pane>
    </children>

@@ -16,7 +16,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class CriarContaController {
+public class CriarContaAdminController {
+
+    private Admin adminLogado;
     public Button criar;
     public Button cancelar;
     public TextField fieldnome;
@@ -25,43 +27,51 @@ public class CriarContaController {
     public TextField fielddata;
     public TextField fieldcpf;
 
+    public Admin getAdminLogado() {
+        return adminLogado;
+    }
 
+    public void initData(Admin adminLogado){
+        this.adminLogado = adminLogado;
+    }
     @FXML
     protected void onCancelarButtonClick() throws IOException {
-        telalogin();//muda pra tela de login
-   }
+        telahome();//muda pra tela de login
+    }
 
     @FXML
-    protected void onConfirmarButtonClick() throws IOException {
+    protected void onConfirmarButtonClick() throws Exception {
         if(validaCampos()){
-            User usuarionovo = new User();
+
+            Admin adminnovo = new Admin();
 
             AdminDados adminDAO = new AdminDados();
             UsuarioDados usuarioDAO = new UsuarioDados();
 
-            ArrayList<Admin> ArquivoAdmin = adminDAO.carregaArquivoAdmin();
+            ArrayList<User> ArquivoUsuario = usuarioDAO.carregaArquivoUsuarios();
 
-            //checando se o email ou cpf do novo usuario existe no banco de dados de administradores
+            //checando se o email ou cpf do novo usuario existe no banco de dados de usuarios
             boolean result = false;
-            boolean existe_admin = false;
+
+            boolean existe_usuario = false;
 
             int i = 0;
-            while(i < ArquivoAdmin.size()){
-                if(fieldemail.getText().equals(ArquivoAdmin.get(i).getEmail()) || fieldcpf.getText().equals(ArquivoAdmin.get(i).getCpf())){
-                    existe_admin = true;
+            while(i < ArquivoUsuario.size()){
+                if(fieldemail.getText().equals(ArquivoUsuario.get(i).getEmail()) || fieldcpf.getText().equals(ArquivoUsuario.get(i).getCpf())){
+                    existe_usuario = true;
                     break;
                 }
-                i = i +1;
+                i = i + 1;
             }
 
-            if(!existe_admin){
-                usuarionovo.setCpf(fieldcpf.getText());
-                usuarionovo.setEmail(fieldemail.getText());
-                usuarionovo.setNome(fieldnome.getText());
-                usuarionovo.setSenha(fieldsenha.getText());
-                usuarionovo.setData(fielddata.getText());
+            if(!existe_usuario){
+                adminnovo.setCpf(fieldcpf.getText());
+                adminnovo.setEmail(fieldemail.getText());
+                adminnovo.setNome(fieldnome.getText());
+                adminnovo.setSenha(fieldsenha.getText());
+                adminnovo.setData(fielddata.getText());
 
-                result = usuarioDAO.inserir(usuarionovo); // tenta inserir, se o email ou cpf ja existirem em usuarios.txt, retorna false
+                result = adminDAO.inserir(adminnovo); // tenta inserir, se o email ou cpf ja existirem em admin.txt, retorna false
             }
 
             if(!result){
@@ -71,23 +81,25 @@ public class CriarContaController {
                 alert.setContentText("Email ou Cpf ja cadastrados");
                 alert.show();
             } else {
-                telalogin(); //muda pra tela de login
+                telahome(); //muda pra tela de login
             }
         }
     }
 
-    public void telalogin() throws IOException {
-        //carregando estilização
+    public void telahome() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/com/tecgames/view/login-view.fxml"));
-
+        loader.setLocation(getClass().getResource("/com/tecgames/view/homeadmin-view.fxml"));
         Parent View = loader.load();
 
-        Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização
-        //This line gets the Stage(window) information
+        Scene ViewScene = new Scene(View);
+
+        //acess the controller and call a method (initData)
+        HomepageAdminController Controller = loader.getController();
+        Controller.initData(getAdminLogado());
+
         Stage window = (Stage) criar.getScene().getWindow();
 
-        window.setScene(ViewScene); //mudando a cena da janela
+        window.setScene(ViewScene);
     }
 
     public boolean validaCampos(){
@@ -117,4 +129,5 @@ public class CriarContaController {
             return false;
         }
     }
+
 }

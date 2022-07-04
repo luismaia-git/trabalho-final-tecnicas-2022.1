@@ -15,8 +15,7 @@
 }
 
 .inputField:focused{
-    -fx-pref-height: 38px;
-    -fx-pref-width: 238px;
+    -fx-focus-color: transparent;
 }
 
 .botao {
@@ -43,7 +42,7 @@
 
 
 #backgroundLogin{
-    -fx-background-image: url('../images/games/5-1.jpg');
+    -fx-background-image: url('../images/login.jpg');
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     -fx-background-position: center center;

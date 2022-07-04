@@ -87,6 +87,11 @@ public class GameInfoController {
                         }else{
                             array_ca.get(j).getIdjogos().add(jogoEscolhido.getId());
                             carrinhoDAO.escreveArquivoCarrinhos(array_ca);
+                            Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+                            dialogoInfo.setTitle("Informação");
+                            dialogoInfo.setHeaderText("Jogo adicionado ao carrinho com sucesso!");
+                            dialogoInfo.setContentText("Clique em ok");
+                            dialogoInfo.showAndWait();
                         }
 
                         break;
@@ -102,6 +107,11 @@ public class GameInfoController {
 
                     ca.setIdjogos(temp);
                     carrinhoDAO.inserir(ca);
+                    Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+                    dialogoInfo.setTitle("Informação");
+                    dialogoInfo.setHeaderText("Jogo adicionado ao carrinho com sucesso!");
+                    dialogoInfo.setContentText("Clique em ok");
+                    dialogoInfo.showAndWait();
                 }
 
 

@@ -11,7 +11,7 @@ public class VendaDados {
     public void inserir(Venda venda) { 
         ArrayList<Venda> vendas = carregaArquivoVendas();
         
-        if (vendas.equals(null))
+        if (vendas.size() == 0)
             venda.setIdvenda(1);
         else {
             Venda ultimo = vendas.get(vendas.size() - 1);          // Pega o ultimo elemento do ArrayList de vendas

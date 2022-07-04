@@ -24,6 +24,8 @@ public class User {
         JogosUsuario = new ArrayList<>();
     }
 
+    public User(){}
+
     public String getNome() {
         return nome;
     }

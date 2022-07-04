@@ -29,7 +29,6 @@ public class UsuarioDados {
         }
 
         return null;
-
     }
 
     public boolean inserir(User usuario) throws IOException {
@@ -37,13 +36,13 @@ public class UsuarioDados {
         usuarios = carregaArquivoUsuarios();
 
         if (!checaUsuario(usuario, usuarios)) {
-            if (usuarios.equals(null))
+            if (usuarios.size()==0)
                 usuario.setId(1);
             else {
                 User ultimo = usuarios.get(usuarios.size() - 1);          // Pega o ultimo elemento do ArrayList de users
-                usuario.setIdvenda(ultimo.getIdvenda() + 1);            // Pega o id do ultimo elemento, soma 1 e seta no ID do usuario que será adicionado
-
-            }    
+                usuario.setId(ultimo.getId() + 1);            // Pega o id do ultimo elemento, soma 1 e seta no ID do usuario que será adicionado
+            }
+            usuario.setJogosUsuario(new ArrayList<Integer>());
             usuarios.add(usuario);
             escreveArquivoUsuarios(usuarios);
             return true;
@@ -80,9 +79,18 @@ public class UsuarioDados {
         return null;
     }
 
-    public boolean alterar(ArrayList<User> usuarios){
-        escreveArquivoUsuarios(usuarios);
-        return true;
+
+    public boolean alterar(User usuario) {
+        ArrayList<User> usuarios = carregaArquivoUsuarios();
+        int i = 0;
+        while(true){
+            if(usuarios.get(i).getId() == usuario.getId()) {
+                usuarios.set(i, usuario);
+                escreveArquivoUsuarios(usuarios);
+                return true;
+            }
+            i++;
+        }
     }
 
 
@@ -96,7 +104,6 @@ public class UsuarioDados {
             }
             i = i + 1;
         }
-        
         return false;
     }
 
@@ -117,7 +124,14 @@ public class UsuarioDados {
                     String array[] = linha.split(";");
                     User user = new User(array[0], array[1],array[2], array[3], array[4], array[5]);
 
-                    String[] array2 = array[6].split(",");
+                    String[] array2;
+
+                    try{
+                        array2 = array[6].split(",");
+                    } catch (Exception e) {
+                        array2= new String[]{};
+                    }
+
                     ArrayList<Integer> games = new ArrayList<>();
 
                     for (int i = 0; i < array2.length; i++) {
@@ -161,7 +175,7 @@ public class UsuarioDados {
                     if (user.getMeusJogos().size() == 1)
                         idjogos = idjogos + user.getMeusJogos().get(user.getMeusJogos().size() - 1);
 
-                    String linha = user.getNome() + ";" + user.getEmail() + ";" + user.getSenha() + ";" + user.getCpf() + ";" + user.getData() + ";" + idjogos + "\n";
+                    String linha = user.getId() + ";" + user.getNome() + ";" + user.getEmail() + ";" + user.getSenha() + ";" + user.getCpf() + ";" + user.getData() + ";" + idjogos + "\n";
                     buffer.write(linha);
                 }
             }catch (IOException e) {

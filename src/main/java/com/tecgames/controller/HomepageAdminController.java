@@ -1,5 +1,6 @@
 package com.tecgames.controller;
 
+import com.tecgames.model.Admin;
 import com.tecgames.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,14 +16,18 @@ public class HomepageAdminController {
 
     public Label iconLetter;
     public Button logout;
-    private User usuarioLogado;
+    private Admin AdminLogado;
 
-    public void initData(User usuario) {
+    public Admin getAdminLogado() {
+        return AdminLogado;
+    }
 
-        this.usuarioLogado = usuario;
+    public void initData(Admin usuario) {
+
+        this.AdminLogado = usuario;
 
         char firstCaracter = usuario.getNome().charAt(0);
-        iconLetter.setText(String.valueOf(firstCaracter));
+        iconLetter.setText(String.valueOf(firstCaracter).toUpperCase());
     }
 
 
@@ -50,7 +55,6 @@ public class HomepageAdminController {
         Stage window = (Stage) logout.getScene().getWindow();
 
         window.setScene(scene);
-
     }
 
 
@@ -78,5 +82,26 @@ public class HomepageAdminController {
 
         window.setScene(scene);
 
+    }
+
+
+    @FXML
+    protected void onAdicionarAdminButtonClick() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/tecgames/view/criar-conta-admin-view.fxml"));
+
+        Parent View = loader.load();
+
+        Scene ViewScene = new Scene(View);
+
+        //acess the controller and call a method (initData)
+        CriarContaAdminController Controller = loader.getController();
+        Controller.initData(getAdminLogado());
+
+
+        //This line gets the Stage(window) information
+        Stage window = (Stage) logout.getScene().getWindow();
+
+        window.setScene(ViewScene);
     }
 }

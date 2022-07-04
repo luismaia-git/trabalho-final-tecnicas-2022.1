@@ -1,12 +1,17 @@
 package com.tecgames.controller;
 
 import com.tecgames.model.*;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 
 import java.io.IOException;
@@ -28,6 +33,8 @@ public class CarrinhoCheioController {
 
     private ArrayList<Carrinho> array_carrinhos;
 
+    private double preco = 0;
+
     public void initData(User usuarioLogado) throws IOException {
         this.usuarioLogado = usuarioLogado;
 
@@ -48,7 +55,7 @@ public class CarrinhoCheioController {
         //instanciando o array para preencher com todos os jogos do usuario
         jogos = new ArrayList<>();
 
-        double preco=0;
+
         //agora adicionar ao array de jogos, os jogos do usuario
         for (int l =0; l < carrinhoUsuario.getIdjogos().size(); l++){
 
@@ -173,5 +180,52 @@ public class CarrinhoCheioController {
 
     public User getUsuarioLogado() {
         return usuarioLogado;
+    }
+
+
+    @FXML
+    protected void onComprarButtonClick() throws IOException {
+
+        Venda venda = new Venda();
+        venda.setIdjogos(carrinhoUsuario.getIdjogos());
+        venda.setValortotal(preco);
+        venda.setIdusuario(usuarioLogado.getId());
+
+        VendaDados vd = new VendaDados();//inserindo a venda no txt
+        vd.inserir(venda);
+
+        CarrinhoDados cd2 = new CarrinhoDados();//apagando o carrinho do txt
+        cd2.remover_carrinho(carrinhoUsuario);
+
+        usuarioLogado.getJogosUsuario().addAll(carrinhoUsuario.getIdjogos()); //inserindo os jogos novos no usuario comprador
+
+        UsuarioDados ud = new UsuarioDados();
+
+        ud.alterar(usuarioLogado);//alterando/atualizando o usuario no txt
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Carrinho de compra");
+        alert.setHeaderText("Compra efetuada com sucesso!");
+        alert.setContentText("Clique em ok");
+        alert.show();
+
+
+        //carregando estilização da loja
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/tecgames/view/meusjogos-view.fxml"));
+
+        Parent View = loader.load();
+
+        Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização da loja
+
+        MeusJogosController meusjogosController = loader.getController();
+
+        meusjogosController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
+
+
+        //This line gets the Stage(window) information
+        Stage window = (Stage) divcontent2.getScene().getWindow();
+
+        window.setScene(ViewScene); //mudando a cena da janela para a loja
     }
 }

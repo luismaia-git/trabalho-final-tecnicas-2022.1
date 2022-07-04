@@ -18,6 +18,8 @@ public class Admin {
         this.dataNasc = data;
     }
 
+    public Admin() {}
+
     public int getId() {
         return id;
     }

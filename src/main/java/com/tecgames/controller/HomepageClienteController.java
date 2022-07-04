@@ -84,9 +84,6 @@ public class HomepageClienteController {
 
         Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização da loja
 
-        //+estilizações com css
-        ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/meusjogos.css").toExternalForm());
-
         MeusJogosController meusjogosController = loader.getController();
 
         meusjogosController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
