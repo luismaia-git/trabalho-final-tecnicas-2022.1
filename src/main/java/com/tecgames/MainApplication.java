@@ -15,8 +15,6 @@ public class MainApplication extends Application {
         //tela de login
         Parent root = FXMLLoader.load(getClass().getResource("view/login-view.fxml"));
         Scene scene = new Scene(root, 1000, 600); //cena
-        scene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap");
-        scene.getStylesheets().add(getClass().getResource("view/css/login.css").toExternalForm());
 
         stage.setTitle("TecGames");
         stage.setScene(scene);
@@ -29,4 +27,3 @@ public class MainApplication extends Application {
     }
 }
 
-//scene.getStylesheets().add(getClass().getResource("css/application.css").toExternalForm());

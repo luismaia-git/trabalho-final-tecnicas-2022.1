@@ -45,7 +45,7 @@ public class CarrinhoDados {
     public ArrayList<Carrinho> carregaArquivoCarrinhos () {
         ArrayList<Carrinho> carrinhoArquivo = new ArrayList<>();
 
-        try (BufferedReader buffRead = new BufferedReader(new FileReader("src/main/java/com/tecgames/controller/dados/carrinhos.txt"))) {
+        try (BufferedReader buffRead = new BufferedReader(new FileReader("dados/carrinhos.txt"))) {
             String linha;
             while (true) {
                 linha = buffRead.readLine();
@@ -83,7 +83,7 @@ public class CarrinhoDados {
 
     public void escreveArquivoCarrinhos(ArrayList<Carrinho> carrinhos){
         try {
-            File arq = new File("src/main/java/com/tecgames/controller/dados/carrinhos.txt");
+            File arq = new File(".\\dados/carrinhos.txt");
             if (!arq.exists()) {
                 arq.createNewFile();
             }

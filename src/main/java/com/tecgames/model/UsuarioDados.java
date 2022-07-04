@@ -99,7 +99,7 @@ public class UsuarioDados {
 
         ArrayList<User> usuariosArquivo = new ArrayList<>();
 
-        try (BufferedReader buffRead = new BufferedReader(new FileReader("src/main/java/com/tecgames/controller/dados/usuarios.txt"))) {
+        try (BufferedReader buffRead = new BufferedReader(new FileReader(".\\dados/usuarios.txt"))) {
             String linha;
             while (true) {
                 linha = buffRead.readLine();
@@ -134,7 +134,7 @@ public class UsuarioDados {
 
     public void escreveArquivoUsuarios(ArrayList<User> usuarios){
         try {
-            File arq = new File("src/main/java/com/tecgames/controller/dados/usuarios.txt");
+            File arq = new File(".\\dados/usuarios.txt");
             if (!arq.exists()) {
                 arq.createNewFile();
             }

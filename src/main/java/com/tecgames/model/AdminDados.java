@@ -10,7 +10,7 @@ public class AdminDados {
     public ArrayList<Admin> carregaArquivoAdmin () {
 
         ArrayList<Admin> adminArquivo = new ArrayList<>();
-        try (BufferedReader buffRead = new BufferedReader(new FileReader("src/main/java/com/tecgames/controller/dados/admin.txt"))) {
+        try (BufferedReader buffRead = new BufferedReader(new FileReader(".\\dados/admin.txt"))) {
             String linha;
             while (true) {
                 linha = buffRead.readLine();

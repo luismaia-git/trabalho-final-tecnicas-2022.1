@@ -35,7 +35,7 @@ public class BuscarVendasController implements Initializable {
     public Label labelVendaData;
     public Label labelVendaValor;
     public Label labelVendaHora;
-    public TextField fieldjogo;
+    public TextField fieldBusca;
 
     private VendaDados vendaDao;
     private List<Venda> listVendas;
@@ -66,7 +66,7 @@ public class BuscarVendasController implements Initializable {
         FilteredList<Venda> filteredData = new FilteredList<>(observableListVendas, b -> true);
 
 
-        fieldjogo.textProperty().addListener((observable, oldValue, newValue) -> {
+        fieldBusca.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(venda -> {
 
 

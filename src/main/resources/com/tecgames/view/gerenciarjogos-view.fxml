@@ -37,7 +37,7 @@
             </Button>
          </children>
       </HBox>
-       <TextField fx:id="fieldjogo" prefHeight="25.0" prefWidth="455.0">
+       <TextField fx:id="fieldBusca" prefHeight="25.0" prefWidth="455.0">
            <VBox.margin>
                <Insets left="60.0" top="10.0" />
            </VBox.margin>
@@ -46,7 +46,7 @@
            <children>
                <VBox prefHeight="495.0" prefWidth="516.0">
                    <children>
-                       <TableView prefHeight="398.0" prefWidth="456.0">
+                       <TableView fx:id="TabelaJogos" prefHeight="398.0" prefWidth="456.0">
                            <columns>
                                <TableColumn fx:id="colunaId" prefWidth="75.0" text="ID" />
                                <TableColumn fx:id="colunaNome" prefWidth="242.0" text="Nome" />
@@ -61,17 +61,17 @@
                                <Insets top="10.0" />
                            </VBox.margin>
                            <children>
-                               <Button fx:id="botaoInserir" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Inserir">
+                               <Button fx:id="botaoInserir" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Inserir" onAction="#onInserirButtonClick">
                                    <HBox.margin>
                                        <Insets left="60.0" top="10.0" />
                                    </HBox.margin>
                                </Button>
-                               <Button fx:id="botaoAlterar" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Alterar">
+                               <Button fx:id="botaoAlterar" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Alterar" onAction="#onAlterarButtonClick">
                                    <HBox.margin>
                                        <Insets left="15.0" top="10.0" />
                                    </HBox.margin>
                                </Button>
-                               <Button fx:id="botaoRemover" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Remover">
+                               <Button fx:id="botaoRemover" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Remover" onAction="#onRemoverButtonClick">
                                    <HBox.margin>
                                        <Insets left="15.0" top="10.0" />
                                    </HBox.margin>
@@ -154,42 +154,42 @@
                                        <Font name="System Bold" size="18.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="labelClienteId" prefHeight="27.0" prefWidth="182.0" text="LABEL" textFill="WHITE" GridPane.columnIndex="1">
+                               <Label fx:id="labelJogoId" prefHeight="27.0" prefWidth="182.0" textFill="WHITE" GridPane.columnIndex="1">
                                    <font>
                                        <Font name="System Bold Italic" size="18.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="labelClienteNome" prefHeight="47.0" prefWidth="199.0" text="LABEL" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                               <Label fx:id="labelJogoNome" prefHeight="47.0" prefWidth="199.0" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                    <font>
                                        <Font name="System Bold Italic" size="18.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="labelClientePreco" prefHeight="27.0" prefWidth="182.0" text="LABEL" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                               <Label fx:id="labelJogoPreco" prefHeight="27.0" prefWidth="182.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                    <font>
                                        <Font name="System Bold Italic" size="18.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="labelClienteGenero" prefHeight="27.0" prefWidth="202.0" text="LABEL" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                               <Label fx:id="labelJogoGenero" prefHeight="27.0" prefWidth="202.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                    <font>
                                        <Font name="System Bold Italic" size="18.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="labelClienteDescricao" prefHeight="55.0" prefWidth="203.0" text="LABEL" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                               <Label fx:id="labelJogoDescricao" prefHeight="55.0" prefWidth="203.0" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                    <font>
                                        <Font name="System Bold Italic" size="16.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="labelClienteData" prefHeight="27.0" prefWidth="182.0" text="LABEL" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                               <Label fx:id="labelJogoData" prefHeight="27.0" prefWidth="182.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                    <font>
                                        <Font name="System Bold Italic" size="18.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="labelClienteRequisitos" prefHeight="51.0" prefWidth="202.0" text="LABEL" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                               <Label fx:id="labelJogoRequisitos" prefHeight="51.0" prefWidth="202.0" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                    <font>
                                        <Font name="System Bold Italic" size="16.0" />
                                    </font>
                                </Label>
-                               <Label fx:id="labelClienteFaixa" prefHeight="27.0" prefWidth="182.0" text="LABEL" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                               <Label fx:id="labelJogoFaixa" prefHeight="27.0" prefWidth="182.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                    <font>
                                        <Font name="System Bold Italic" size="18.0" />
                                    </font>

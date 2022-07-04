@@ -1,0 +1,11 @@
+#background {
+    -fx-background-color: #D9D9D9;
+}
+
+#image{
+    -fx-background-color: #565656;
+}
+
+.campoTexto {
+    -fx-background-radius: 5,5;
+}

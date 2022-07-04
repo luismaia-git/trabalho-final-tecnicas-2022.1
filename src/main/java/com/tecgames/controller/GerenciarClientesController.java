@@ -26,7 +26,7 @@ public class GerenciarClientesController implements Initializable {
 
 
     public Button logout;
-    public TextField fieldjogo;
+    public TextField fieldBusca;
 
     public TableView<User> TabelaClientes;
     public TableColumn<User, Integer> colunaId;
@@ -69,7 +69,7 @@ public class GerenciarClientesController implements Initializable {
         FilteredList<User> filteredData = new FilteredList<>(observableListClientes, b -> true);
 
 
-        fieldjogo.textProperty().addListener((observable, oldValue, newValue) -> {
+        fieldBusca.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(cliente -> {
 
 

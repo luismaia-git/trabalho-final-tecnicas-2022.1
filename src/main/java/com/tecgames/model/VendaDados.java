@@ -27,7 +27,7 @@ public class VendaDados {
 
     public ArrayList<Venda> carregaArquivoVendas () {
         ArrayList<Venda> vendaArquivo = new ArrayList<>();
-        try (BufferedReader buffRead = new BufferedReader(new FileReader("src/main/java/com/tecgames/controller/dados/vendas.txt"))) {
+        try (BufferedReader buffRead = new BufferedReader(new FileReader(".\\dados/vendas.txt"))) {
             String linha;
             while (true) {
                 linha = buffRead.readLine();
@@ -64,7 +64,7 @@ public class VendaDados {
 
     public void escreveArquivoVendas(ArrayList<Venda> vendas){
         try { 
-            File arq = new File("src/main/java/com/tecgames/controller/dados/vendas.txt");
+            File arq = new File(".\\dados/vendas.txt");
             if (!arq.exists()) {
                 arq.createNewFile();
             }

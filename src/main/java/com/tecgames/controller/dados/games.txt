@@ -1,6 +1,0 @@
-1;the last of us;43.99;distopia; jogo de zumbi;2013;um pc bom;16 anos
-3;the witcher 3;100.0;fantasia;jogo de bruxo;2015;um pc mt bom;16 anos
-4;GTA-V;12.9;Assalto;jogo de ladrao;2014;um pc ok;16 anos
-5;jogosla;32;terror;jogo de ladrao;2014;um pc ok;16 anos
-7;slaessejogo;52.9;terror;jogo de acao;2008;um pc mais ou menos;16 anos
-12;the forest;19.9;terror;jogo de zumbi;2012;um pc bomzao;16 anos

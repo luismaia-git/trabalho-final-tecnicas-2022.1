@@ -45,7 +45,7 @@ public class LoginController implements Initializable{
 
 
         //animação no login
-        TranslateTransition openLogin = new TranslateTransition(new Duration(1950), content);
+        TranslateTransition openLogin = new TranslateTransition(new Duration(950), content);
         openLogin.setFromX(-(content.getPrefWidth()));
         openLogin.setToX(0);
         openLogin.play();
@@ -63,7 +63,7 @@ public class LoginController implements Initializable{
         //user test
         UsuarioDados usuarioDAO = new UsuarioDados();
 
-        User teste = usuarioDAO.carregaArquivoUsuarios().get(0);
+        //User teste = usuarioDAO.carregaArquivoUsuarios().get(0);
 
         User teste_admin = new User("1", "Administrador1", "admin1@email.com", "123", "777", "12/07/2001");
 
@@ -92,7 +92,7 @@ public class LoginController implements Initializable{
 
             //acess the controller and call a method (initData)
             HomepageClienteController homeController = loader.getController();
-            homeController.initData(teste);
+            //homeController.initData(teste);
 
             window.setScene(homepageViewScene);
         }

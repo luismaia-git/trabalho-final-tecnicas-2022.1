@@ -16,16 +16,15 @@ public class GameDados {
         ArrayList<Game> games;
         games = carregaArquivoGames();
 
-        if (!checaGame(game, games)) {
-            Game ultimo = games.get(games.size() - 1);           // Pega o ultimo elemento do ArrayList de jogos
-            game.setId(ultimo.getId() + 1);                     // Pega o id do ultimo elemento, soma 1 e seta no ID do jogo que será adicionado
-            games.add(game);
-            escreveArquivoGames(games);                       // Atualiza o banco de dados dos jogos
-            return true;
-        }
-        else
-            return false;
-        
+            if (!checaGame(game, games)) {
+                games.add(game);
+                escreveArquivoGames(games);                       // Atualiza o banco de dados dos jogos
+                return true;
+            }
+            else
+                return false;
+
+
     }
 
     public boolean checaGame(Game game, ArrayList<Game> games) {
@@ -47,7 +46,7 @@ public class GameDados {
         games = carregaArquivoGames();
         Game aux = retornaGame(game, games);
         if (!aux.equals(null)) {
-             games.remove(aux);
+            games.remove(aux);
             escreveArquivoGames(games);
             return true;
         }
@@ -68,15 +67,30 @@ public class GameDados {
         return null;
     }
 
+    /*
     public boolean alterar(ArrayList<Game> Games) {
         escreveArquivoGames(Games);
         return true;
+    }*/
+
+    public boolean alterar(Game game) {
+        ArrayList<Game> games = carregaArquivoGames();
+        int i = 0;
+        while(true){
+            if(games.get(i).getId() == game.getId()) {
+                games.set(i, game);
+                escreveArquivoGames(games);
+                return true;
+            }
+            i++;
+        }
     }
+
 
     public ArrayList<Game> carregaArquivoGames () {
         ArrayList<Game> gamesArquivo = new ArrayList<>();
         
-        try (BufferedReader buffRead = new BufferedReader(new FileReader("src/main/java/com/tecgames/controller/dados/games.txt"))) {
+        try (BufferedReader buffRead = new BufferedReader(new FileReader(".\\dados/games.txt"))) {
             String linha;
             while (true) {
                 linha = buffRead.readLine();
@@ -102,7 +116,7 @@ public class GameDados {
 
     public void escreveArquivoGames(ArrayList<Game> games){
         try {
-            File arq = new File("src/main/java/com/tecgames/controller/dados/games.txt");
+            File arq = new File(".\\dados/games.txt");
             if (!arq.exists()) {
                 arq.createNewFile();
             }

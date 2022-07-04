@@ -29,6 +29,8 @@ public class Game {
 
     }
 
+    public Game(){}
+
 
     public int getId() {
         return id;

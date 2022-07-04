@@ -36,7 +36,7 @@
                 </Button>
             </children>
         </HBox>
-        <TextField fx:id="fieldjogo" prefHeight="25.0" prefWidth="455.0">
+        <TextField fx:id="fieldBusca" prefHeight="25.0" prefWidth="455.0">
             <VBox.margin>
                 <Insets left="60.0" top="10.0" />
             </VBox.margin>
