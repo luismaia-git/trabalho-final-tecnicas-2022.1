@@ -4,14 +4,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.image.ImageView?>
 <AnchorPane fx:id="background" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/cadastrojogo.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecgames.controller.CadastroJogoController">
    <children>
-      <ImageView fx:id="image" layoutX="40.0" layoutY="49.0" />
+      <ImageView fx:id="image" layoutX="25.0" layoutY="49.0" />
       <VBox layoutX="300.0" layoutY="32.0">
          <children>
             <Label text="Nome" />
@@ -58,9 +57,9 @@
             </TextField>
          </children>
       </VBox>
-      <Button fx:id="botaoCancelar" layoutX="344.0" layoutY="361.0" mnemonicParsing="false" text="Cancelar" onAction="#onCancelarButtonClick"/>
-      <Button fx:id="botaoConfirmar" layoutX="433.0" layoutY="361.0" mnemonicParsing="false" text="Confirmar" onAction="#onConfirmarButtonClick" />
-      <Button fx:id="botaoUpload" layoutX="113.0" layoutY="265.0" mnemonicParsing="false" text="Upload" onAction="#onUploadButtonClick"/>
+      <Button fx:id="botaoCancelar" layoutX="344.0" layoutY="361.0" mnemonicParsing="false" onAction="#onCancelarButtonClick" text="Cancelar" />
+      <Button fx:id="botaoConfirmar" layoutX="433.0" layoutY="361.0" mnemonicParsing="false" onAction="#onConfirmarButtonClick" text="Confirmar" />
+      <Button fx:id="botaoUpload" layoutX="108.0" layoutY="231.0" mnemonicParsing="false" onAction="#onUploadButtonClick" text="Upload" />
       <Label layoutX="113.0" layoutY="24.0" text="Imagem" />
    </children>
 </AnchorPane>

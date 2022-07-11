@@ -28,7 +28,7 @@ public class CriarContaAdminController {
     public TextField fieldcpf;
 
     public Admin getAdminLogado() {
-        return adminLogado;
+        return this.adminLogado;
     }
 
     public void initData(Admin adminLogado){
@@ -41,6 +41,7 @@ public class CriarContaAdminController {
 
     @FXML
     protected void onConfirmarButtonClick() throws Exception {
+        //se todos os campos estao preenchidos
         if(validaCampos()){
 
             Admin adminnovo = new Admin();
@@ -50,13 +51,13 @@ public class CriarContaAdminController {
 
             ArrayList<User> ArquivoUsuario = usuarioDAO.carregaArquivoUsuarios();
 
-            //checando se o email ou cpf do novo usuario existe no banco de dados de usuarios
+
             boolean result = false;
 
             boolean existe_usuario = false;
 
             int i = 0;
-            while(i < ArquivoUsuario.size()){
+            while(i < ArquivoUsuario.size()){//checando se o email ou cpf do novo usuario existe no banco de dados de usuarios
                 if(fieldemail.getText().equals(ArquivoUsuario.get(i).getEmail()) || fieldcpf.getText().equals(ArquivoUsuario.get(i).getCpf())){
                     existe_usuario = true;
                     break;
@@ -64,7 +65,7 @@ public class CriarContaAdminController {
                 i = i + 1;
             }
 
-            if(!existe_usuario){
+            if(!existe_usuario){ //se o usuario nao existe, entao posso tentar inserir o admin novo
                 adminnovo.setCpf(fieldcpf.getText());
                 adminnovo.setEmail(fieldemail.getText());
                 adminnovo.setNome(fieldnome.getText());
@@ -95,6 +96,7 @@ public class CriarContaAdminController {
 
         //acess the controller and call a method (initData)
         HomepageAdminController Controller = loader.getController();
+
         Controller.initData(getAdminLogado());
 
         Stage window = (Stage) criar.getScene().getWindow();

@@ -10,7 +10,7 @@
 }
 
 #contentHome {
-    -fx-background-color: #2B4C7E;
+    -fx-background-color: linear-gradient(to top, #2B4C7E, #3c6db7);
 }
 
 #sidemenu {
@@ -22,8 +22,8 @@
 
 .botao {
     -fx-background-radius: 5, 5;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
-    -fx-background-color: #2B4C7E;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 1, 2);
+    -fx-background-color: linear-gradient(to bottom right, #2B4C7E, #5f8cce);
     -fx-pref-height: 55px;
     -fx-pref-width: 155px;
 }
@@ -32,8 +32,7 @@
 
 }
 .botao:pressed {
-    -fx-background-color: #45628c;
-
+    -fx-background-color: linear-gradient(to bottom right, #45628c, #698fd7);
 }
 
 
@@ -44,7 +43,7 @@
 #carrinho {
     -fx-background-radius: 4, 4;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
-    -fx-border-color: none;
+    -fx-focus-color: transparent;
 }
 
 #carrinho:hover {
@@ -53,7 +52,7 @@
 }
 
 #carrinho:pressed {
-    -fx-background-color: #2f4c69;
+    -fx-background-color: linear-gradient(to bottom right, #2f4c69, #698fd7);
     -fx-text-fill: White;
 }
 
@@ -61,7 +60,7 @@
 #logout {
     -fx-background-radius: 4, 4;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
-    -fx-border-color: none;
+    -fx-focus-color: transparent;
 }
 
 #logout:hover{
@@ -71,6 +70,20 @@
 
 
 #logout:pressed{
-    -fx-background-color: #2f4c69;
+    -fx-background-color: linear-gradient(to bottom right, #2f4c69, #698fd7);
     -fx-text-fill: White;
+}
+
+
+#vermais {
+    -fx-background-radius: 5, 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 1, 2);
+    -fx-background-color: linear-gradient(to bottom right, #2B4C7E, #5f8cce);
+}
+#vermais:hover {
+    -fx-background-color: #5f8cce;
+
+}
+#vermais:pressed {
+    -fx-background-color: linear-gradient(to bottom right, #45628c, #698fd7);
 }

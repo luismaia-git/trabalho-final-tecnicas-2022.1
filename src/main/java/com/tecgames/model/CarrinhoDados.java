@@ -12,7 +12,6 @@ public class CarrinhoDados {
         return true;
     }
 
-
     public boolean remover_carrinho(Carrinho carrinho){
         ArrayList<Carrinho> carrinhos;
 
@@ -137,8 +136,6 @@ public class CarrinhoDados {
             }
             escreveArquivoCarrinhos(carrinhos);
         }
-
-
 
     }
 }

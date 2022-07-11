@@ -21,7 +21,6 @@ public class MeuCarrinhoController implements Initializable {
     public Button voltar;
     public Pane divcontent;
 
-
     private User usuarioLogado;
 
     public User getUsuarioLogado() {
@@ -56,8 +55,8 @@ public class MeuCarrinhoController implements Initializable {
         }
 
 
-        //aqui carrega o dados do carrinho
-        //tenho que saber se o usuario logado tem alguma jogo no carrinho
+        //aqui carrega os dados do carrinho
+        //tenho que saber se o usuario logado tem algum jogo no carrinho
         if(carrinho){
 
             FXMLLoader loader = new FXMLLoader();
@@ -108,8 +107,6 @@ public class MeuCarrinhoController implements Initializable {
 
         window.setScene(ViewScene); //mudando a cena da janela para a home
     }
-
-
 
 
 }

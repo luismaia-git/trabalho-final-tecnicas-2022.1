@@ -12,6 +12,6 @@
             <Font name="System Bold" size="33.0" />
          </font>
       </Label>
-      <Button layoutX="437.0" layoutY="254.0" mnemonicParsing="false" onAction="#onLojaButtonClick" prefHeight="37.0" prefWidth="116.0" text="Ir para a Loja" />
+      <Button layoutX="437.0" layoutY="254.0" mnemonicParsing="false" onAction="#onLojaButtonClick" prefHeight="37.0" prefWidth="116.0" text="Ir para a Loja" fx:id="botaoloja"/>
    </children>
 </Pane>

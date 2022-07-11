@@ -1,2 +1,2 @@
-1;ADMIN;adminbase@email;admin123;000;04/07/2022
+1;ADMIN;adminbase@email.com;admin123;000;04/07/2022
 2;Italo Alencar;italoalencar@email.com;123;98777623423;12/10/2001

@@ -1,5 +1,6 @@
 package com.tecgames.controller;
 
+import com.tecgames.model.Admin;
 import com.tecgames.model.Game;
 import com.tecgames.model.GameDados;
 import javafx.collections.FXCollections;
@@ -13,9 +14,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -42,11 +46,21 @@ public class GerenciarJogosController implements Initializable {
     public Button botaoInserir;
     public Button botaoAlterar;
     public Button botaoRemover;
+    public ImageView imagegame;
     private GameDados JogosDao;
+
+    private Admin adminLogado;
+
 
     private ArrayList<Game> listJogos;
     private ObservableList<Game> observableListJogos;
 
+    public Admin getAdminLogado() {
+        return adminLogado;
+    }
+    public void initData(Admin adminLogado){
+        this.adminLogado = adminLogado;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -72,7 +86,7 @@ public class GerenciarJogosController implements Initializable {
 
         FilteredList<Game> filteredData = new FilteredList<>(observableListJogos, b -> true);
 
-
+        //adicionando um listener em campo de pesquisa, para fazer a busca na tabela e mostrar o conteudo referente oque está no campo de texto de pesquisa
         fieldBusca.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(jogo -> {
 
@@ -128,6 +142,10 @@ public class GerenciarJogosController implements Initializable {
             labelJogoRequisitos.setText(jogo.getRequisitos());
             labelJogoFaixa.setText(jogo.getClassificacao());
 
+            File f = new File("images/games/"+jogo.getId()+".jpg");
+            Image m = new Image( f.getAbsolutePath(), 236, 145 ,false, false);
+            imagegame.setImage(m); //setando imagem do jogo nos detalhes
+
         } else {
             labelJogoId.setText("");
             labelJogoNome.setText("");
@@ -137,6 +155,7 @@ public class GerenciarJogosController implements Initializable {
             labelJogoDescricao.setText("");
             labelJogoRequisitos.setText("");
             labelJogoFaixa.setText("");
+            imagegame.setImage(null);
         }
 
     }
@@ -155,9 +174,13 @@ public class GerenciarJogosController implements Initializable {
 
     @FXML
     protected void onVoltarButtonClick() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/tecgames/view/homeadmin-view.fxml"));
-        Scene scene = new Scene(root, 1000, 600); //cena
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/tecgames/view/homeadmin-view.fxml"));
+        Parent page = loader.load();
+        Scene scene = new Scene(page, 1000, 600); //cena
 
+        HomepageAdminController controller = loader.getController();
+        controller.initData(getAdminLogado());
         //This line gets the Stage(window) information
         Stage window = (Stage) logout.getScene().getWindow();
 
@@ -165,7 +188,7 @@ public class GerenciarJogosController implements Initializable {
     }
 
 
-    public boolean showCadastroJogo(Game jogo) throws IOException {
+    public boolean showCadastroJogo(Game jogo, int i) throws IOException {
         //carregando estilização
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/com/tecgames/view/components/cadastroJogo.fxml"));
@@ -175,7 +198,15 @@ public class GerenciarJogosController implements Initializable {
         Scene scene = new Scene(page);
 
         Stage newWindow = new Stage();
-        newWindow.setTitle("Cadastro de jogo");
+
+        newWindow.setResizable(false);
+
+        if(i == 1){
+            newWindow.setTitle("Cadastro de jogo");
+        }else {
+            newWindow.setTitle("Alterando "+ jogo.getNome());
+        }
+
         newWindow.setScene(scene);
 
         CadastroJogoController controller = loader.getController();
@@ -190,7 +221,7 @@ public class GerenciarJogosController implements Initializable {
     @FXML
     protected void onInserirButtonClick() throws IOException {
         Game game = new Game();
-        boolean IsBotaoClicked = showCadastroJogo(game);
+        boolean IsBotaoClicked = showCadastroJogo(game, 1); // recebe a "resposta" se clicou no botao confirmar
         if(IsBotaoClicked) {
             JogosDao.inserir(game);
 
@@ -203,7 +234,7 @@ public class GerenciarJogosController implements Initializable {
         Game game = TabelaJogos.getSelectionModel().getSelectedItem();
 
         if(game != null){
-            boolean IsBotaoClicked = showCadastroJogo(game);
+            boolean IsBotaoClicked = showCadastroJogo(game, 2); // recebe a "resposta" se clicou no botao confirmar
             if(IsBotaoClicked) {
                 JogosDao.alterar(game);
                 carregarDadosTabela();

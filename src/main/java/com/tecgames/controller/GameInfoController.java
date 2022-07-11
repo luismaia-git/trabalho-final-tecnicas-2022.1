@@ -11,10 +11,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -23,7 +26,7 @@ public class GameInfoController {
     public HBox divheader;
     public Label nomejogo;
     public Label descricaojogo;
-    public Pane imagem;
+    public ImageView imagem;
     public Label genero;
     public Label anolancamento;
     public Label requisitos;
@@ -48,16 +51,22 @@ public class GameInfoController {
         requisitos.setText(jogo.getRequisitos());
         preco.setText(String.valueOf(jogo.getPreço()));
 
+        String caminho = String.format(".\\images/games/%s.jpg", jogo.getId());
+        File foto = new File(caminho);
+        Image imageminput  = new Image(foto.getAbsolutePath() , 412, 220 , false , false);
+        imagem.setImage(imageminput);
+
+
         have_game = false;
 
         for(int i=0; i < usuarioLogado.getJogosUsuario().size();i++){
 
-            if(usuarioLogado.getJogosUsuario().get(i).equals(jogoEscolhido.getId())){
+            if(usuarioLogado.getJogosUsuario().get(i).equals(jogoEscolhido.getId())){//verifico se o usuario ja tem o jogo
                 have_game = true;
             }
         }
 
-        if(have_game) {
+        if(have_game) {//se ele ja tem o jogo, ele nao pode adicionar no carrinho
             adicionarcarrinho.setText("Ja comprado");
             adicionarcarrinho.setOnAction( e -> {
                 Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
@@ -66,7 +75,7 @@ public class GameInfoController {
                 dialogoInfo.setContentText("Clique em ok");
                 dialogoInfo.showAndWait();
             });
-        } else {
+        } else {//se ele nao tem, entao pode adicionar no carrinho
             adicionarcarrinho.setOnAction( e -> {
                 CarrinhoDados carrinhoDAO = new CarrinhoDados();
 
@@ -84,7 +93,7 @@ public class GameInfoController {
                             dialogoInfo.setContentText("Clique em ok");
                             dialogoInfo.showAndWait();
 
-                        }else{
+                        }else{//usuario nao tem o jogo no carrinho
                             array_ca.get(j).getIdjogos().add(jogoEscolhido.getId());
                             carrinhoDAO.escreveArquivoCarrinhos(array_ca);
                             Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
@@ -98,7 +107,7 @@ public class GameInfoController {
                     }
                     j = j +1;
                 }
-                if(j== array_ca.size()) { // add uma linha no carrinhos
+                if(j== array_ca.size()) { // add uma linha no carrinhos.txt
                     Carrinho ca = new Carrinho();
                     ca.setId(usuarioLogado.getId());
 
@@ -106,7 +115,7 @@ public class GameInfoController {
                     temp.add(jogoEscolhido.getId());
 
                     ca.setIdjogos(temp);
-                    carrinhoDAO.inserir(ca);
+                    carrinhoDAO.inserir(ca);//inserindo no carrinho
                     Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
                     dialogoInfo.setTitle("Informação");
                     dialogoInfo.setHeaderText("Jogo adicionado ao carrinho com sucesso!");
@@ -131,15 +140,12 @@ public class GameInfoController {
         //This line gets the Stage(window) information
         Stage window = (Stage) divheader.getScene().getWindow();
 
-        if(this.valueTela == 1) {
+        if(this.valueTela == 1) {// se valueTela = 1 muda pra tela da loja, se nao, tela de meus jogos
             loader.setLocation(getClass().getResource("/com/tecgames/view/loja-view.fxml"));
 
             Parent View = loader.load();
 
             Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização
-
-            //+estilizações com css
-            ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/loja.css").toExternalForm());
 
             LojaController lojaController = loader.getController();
             lojaController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
@@ -174,7 +180,6 @@ public class GameInfoController {
 
         Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização de carrinho
 
-
         MeuCarrinhoController Controller = loader.getController();
 
         Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de carrinho
@@ -186,21 +191,8 @@ public class GameInfoController {
 
     }
 
-
-
-
-
-
     public User getUsuarioLogado() {
         return this.usuarioLogado;
     }
-
-
-    @FXML
-    protected void onAdicionarButtonClick() throws IOException {
-
-    }
-
-
 
 }

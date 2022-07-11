@@ -11,9 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
-
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -23,7 +20,7 @@ import java.util.ResourceBundle;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
-public class CadastroJogoController implements Initializable {
+public class CadastroJogoController {
 
     public ImageView image;
     private FileChooser chooser = new FileChooser();
@@ -46,8 +43,6 @@ public class CadastroJogoController implements Initializable {
     private Game jogo;
 
     private boolean BotaoClicado = false;
-
-
 
     public Stage getCadastroJogo() {
         return CadastroJogo;
@@ -76,9 +71,6 @@ public class CadastroJogoController implements Initializable {
             //Jogo existe
             //Vou procurar o arquivo da foto
 
-            //id = 0
-            //id = 3
-
             if(jogo.getId() != 0){
                 try{
                     f = new File("images/games/"+jogo.getId()+".jpg");
@@ -88,18 +80,14 @@ public class CadastroJogoController implements Initializable {
 
             //se o arquivo da foto existe, entao eu mostro
             if(f != null){
-                Image m2 = new Image( f.getAbsolutePath(), 200, 200 ,false, false);
+                Image m2 = new Image( f.getAbsolutePath(), 220, 145 ,false, false);
                 image.setImage(m2);
             }else{ //se nao existe, entao mostro que está vazio
-                Image m3 = new Image( "com/tecgames/view/images/empty.png", 200, 200 ,false, false);
+                Image m3 = new Image( "com/tecgames/view/images/empty.png", 220, 145 ,false, false);
                 image.setImage(m3);
             }
 
-        }/*else{ //jogo nao existe, entao nao tem foto
-            Image m3 = new Image( "com/tecgames/view/images/empty.png", 200, 200 ,false, false);
-            image.setImage(m3);
-        }*/
-
+        }
     }
 
     public boolean isBotaoClicado() {
@@ -112,7 +100,7 @@ public class CadastroJogoController implements Initializable {
 
     @FXML
     protected void onConfirmarButtonClick() throws IOException {
-
+        //se todos os campos estão preenchidos
         if(validarEntradaDeDados()){
             jogo.setNomeGame(campoNome.getText());
             jogo.setPreço(Double.valueOf(campoPreco.getText()));
@@ -148,26 +136,23 @@ public class CadastroJogoController implements Initializable {
             CadastroJogo.close();
         }
 
-
-
     }
 
     @FXML
     protected void onCancelarButtonClick(){
         CadastroJogo.close();
-
     }
 
 
     @FXML
     protected void onUploadButtonClick(){
         File f2 = f;
-        f = chooser.showOpenDialog(null);
+        f = chooser.showOpenDialog(null); //selecionando uma foto do jogo
         if(f == null) {
             f = f2;
         }
         try{
-            Image imagem = new Image(f.getPath(), 200, 150, false ,false);
+            Image imagem = new Image(f.getPath(), 220, 145 , false ,false);
             image.setImage(imagem);
         } catch (Exception e) {
 
@@ -175,29 +160,6 @@ public class CadastroJogoController implements Initializable {
             alert.setContentText("Você não selecionou uma imagem!");
             alert.show();
         }
-
-
-    }
-
-    private String getFileExtension(File file) {
-        String name = file.getName();
-        int lastIndexOf = name.lastIndexOf(".");
-        if (lastIndexOf == -1) {
-            return ""; // empty extension
-        }
-        return name.substring(lastIndexOf);
-    }
-
-    static String getFileExtension2(String filename) {
-        if (filename.contains("."))
-            return filename.substring(filename.lastIndexOf(".") + 1);
-        else
-            return "";
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        //f = new File();
 
     }
 

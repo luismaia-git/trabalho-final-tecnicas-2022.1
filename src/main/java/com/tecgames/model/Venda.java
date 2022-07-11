@@ -20,13 +20,6 @@ public class Venda {
     }
 
     public Venda(){}
-    /*
-    public Venda(String id_usuario, String valortotal, String data, String hora) {
-        this.id_usuario = Integer.parseInt(id_usuario);
-        this.valortotal = Double.parseDouble(valortotal.replaceAll( "," , "." ));
-        this.data = data;
-        this.hora = hora;        
-    }*/
 
     public int getIdvenda() {
         return idvenda;

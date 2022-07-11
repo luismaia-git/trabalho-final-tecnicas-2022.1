@@ -18,7 +18,7 @@ public class GameDados {
 
             if (!checaGame(game, games)) {
                 games.add(game);
-                escreveArquivoGames(games);                       // Atualiza o banco de dados dos jogos
+                escreveArquivoGames(games);   // Atualiza o banco de dados dos jogos
                 return true;
             }
             else
@@ -67,11 +67,17 @@ public class GameDados {
         return null;
     }
 
-    /*
-    public boolean alterar(ArrayList<Game> Games) {
-        escreveArquivoGames(Games);
-        return true;
-    }*/
+    public Game buscarGame(int id) {
+        int i = 0;
+        ArrayList<Game> games = carregaArquivoGames();
+        while (i < games.size()) {
+            if (games.get(i).getId() == id)
+                return games.get(i);
+            i = i + 1;
+        }
+        return null;
+    }
+
 
     public boolean alterar(Game game) {
         ArrayList<Game> games = carregaArquivoGames();
@@ -104,7 +110,6 @@ public class GameDados {
                 }
             }
 
-            buffRead.close();
 
         }catch(Exception e){
             System.out.println(e);

@@ -1,9 +1,8 @@
 package com.tecgames.controller;
 
+import com.tecgames.model.Admin;
 import com.tecgames.model.User;
 import com.tecgames.model.UsuarioDados;
-import com.tecgames.model.Venda;
-import com.tecgames.model.VendaDados;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -16,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -38,11 +36,19 @@ public class GerenciarClientesController implements Initializable {
     public Label labelClienteCpf;
     public Label labelClienteData;
 
+    private Admin adminLogado;
 
     private UsuarioDados UsuarioDao;
     private List<User> listClientes;
     private ObservableList<User> observableListClientes;
 
+    public Admin getAdminLogado() {
+        return adminLogado;
+    }
+
+    public void initData(Admin adminLogado) {
+        this.adminLogado = adminLogado;
+    }
 
 
     @Override
@@ -68,7 +74,7 @@ public class GerenciarClientesController implements Initializable {
 
         FilteredList<User> filteredData = new FilteredList<>(observableListClientes, b -> true);
 
-
+        //adicionando um listener em campo de pesquisa, para fazer a busca na tabela e mostrar o conteudo referente oque está no campo de texto de pesquisa
         fieldBusca.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(cliente -> {
 
@@ -151,8 +157,13 @@ public class GerenciarClientesController implements Initializable {
     @FXML
     protected void onVoltarButtonClick() throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/com/tecgames/view/homeadmin-view.fxml"));
-        Scene scene = new Scene(root, 1000, 600); //cena
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/tecgames/view/homeadmin-view.fxml"));
+        Parent page = loader.load();
+        Scene scene = new Scene(page, 1000, 600); //cena
+
+        HomepageAdminController controller = loader.getController();
+        controller.initData(getAdminLogado());
 
         //This line gets the Stage(window) information
         Stage window = (Stage) logout.getScene().getWindow();

@@ -33,6 +33,7 @@ public class CriarContaController {
 
     @FXML
     protected void onConfirmarButtonClick() throws IOException {
+        //se todos os campos estao preenchidos
         if(validaCampos()){
             User usuarionovo = new User();
 
@@ -41,12 +42,12 @@ public class CriarContaController {
 
             ArrayList<Admin> ArquivoAdmin = adminDAO.carregaArquivoAdmin();
 
-            //checando se o email ou cpf do novo usuario existe no banco de dados de administradores
+
             boolean result = false;
             boolean existe_admin = false;
 
             int i = 0;
-            while(i < ArquivoAdmin.size()){
+            while(i < ArquivoAdmin.size()){//checando se o email ou cpf do novo usuario existe no banco de dados de administradores
                 if(fieldemail.getText().equals(ArquivoAdmin.get(i).getEmail()) || fieldcpf.getText().equals(ArquivoAdmin.get(i).getCpf())){
                     existe_admin = true;
                     break;

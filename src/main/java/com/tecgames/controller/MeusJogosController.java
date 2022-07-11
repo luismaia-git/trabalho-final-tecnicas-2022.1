@@ -5,7 +5,6 @@ import com.tecgames.model.GameDados;
 import com.tecgames.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,7 +20,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class MeusJogosController implements Initializable {
+public class MeusJogosController {
 
 
     public TextField campoTexto;
@@ -79,11 +78,6 @@ public class MeusJogosController implements Initializable {
 
     }
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
 
 
     //metodo que recebe um array de jogos e mostra na tela
@@ -232,7 +226,7 @@ public class MeusJogosController implements Initializable {
 
         for (int h = 0; h < array.length; h++) {
             for (int i = 0; i < jogos.size(); i++) {
-                if (jogos.get(i).getGenero().toLowerCase().contains(array[h].toLowerCase())) // add genero e getGenero() no model
+                if (jogos.get(i).getGenero().toLowerCase().contains(array[h].toLowerCase()))
                     aux.add(jogos.get(i));
             }
         }
@@ -265,8 +259,6 @@ public class MeusJogosController implements Initializable {
 
         Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização
 
-
-
         HomepageClienteController Controller = loader.getController();
         Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de home
 
@@ -286,7 +278,6 @@ public class MeusJogosController implements Initializable {
         Parent lojaView = loader.load();
 
         Scene lojaViewScene = new Scene(lojaView); // instanciando uma nova cena com a estilização da loja
-
 
         LojaController lojaController = loader.getController();
 
@@ -309,7 +300,6 @@ public class MeusJogosController implements Initializable {
         Parent View = loader.load();
 
         Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização de carrinho
-
 
         MeuCarrinhoController Controller = loader.getController();
 

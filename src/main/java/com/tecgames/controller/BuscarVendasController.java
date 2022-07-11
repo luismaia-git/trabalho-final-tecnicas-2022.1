@@ -1,6 +1,6 @@
 package com.tecgames.controller;
 
-import com.tecgames.model.User;
+import com.tecgames.model.Admin;
 import com.tecgames.model.UsuarioDados;
 import com.tecgames.model.Venda;
 import com.tecgames.model.VendaDados;
@@ -37,10 +37,18 @@ public class BuscarVendasController implements Initializable {
     public Label labelVendaHora;
     public TextField fieldBusca;
 
+    private Admin adminLogado;
     private VendaDados vendaDao;
     private List<Venda> listVendas;
     private ObservableList<Venda> observableListVendas;
 
+    public Admin getAdminLogado() {
+        return this.adminLogado;
+    }
+
+    public void initData(Admin adminLogado){
+        this.adminLogado = adminLogado;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -53,7 +61,6 @@ public class BuscarVendasController implements Initializable {
 
     }
 
-
     public void carregarDadosTabela() {
         colunaId.setCellValueFactory(new PropertyValueFactory<>("idvenda"));
         colunaIdUsuario.setCellValueFactory(new PropertyValueFactory<>("idusuario"));
@@ -65,7 +72,7 @@ public class BuscarVendasController implements Initializable {
 
         FilteredList<Venda> filteredData = new FilteredList<>(observableListVendas, b -> true);
 
-
+        //adicionando um listener em campo de pesquisa, para fazer a busca na tabela e mostrar o conteudo referente oque está no campo de texto de pesquisa
         fieldBusca.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(venda -> {
 
@@ -73,7 +80,6 @@ public class BuscarVendasController implements Initializable {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
-
 
                 String lowerCaseFilter = newValue.toLowerCase();
 
@@ -100,7 +106,6 @@ public class BuscarVendasController implements Initializable {
 
         sortedData.comparatorProperty().bind(TabelaVendas.comparatorProperty());
 
-
         TabelaVendas.setItems(sortedData);
 
     }
@@ -111,7 +116,7 @@ public class BuscarVendasController implements Initializable {
         if(venda != null)  {
             UsuarioDados us = new UsuarioDados();
 
-            String nomeUsuario = us.buscarUsuario(venda.getIdusuario()).getNome();
+            String nomeUsuario = us.buscarUsuario(venda.getIdusuario()).getNome();//capturando nome do usuario a qual está relacionado a venda
 
             labelVendaId.setText(String.valueOf(venda.getIdvenda()));
             labelVendaNomeUsuario.setText(nomeUsuario);
@@ -131,7 +136,6 @@ public class BuscarVendasController implements Initializable {
     }
 
 
-
     @FXML
     protected void onLogoutButtonClick() throws IOException {
 
@@ -142,14 +146,18 @@ public class BuscarVendasController implements Initializable {
         Stage window = (Stage) logout.getScene().getWindow();
 
         window.setScene(scene);
-
     }
 
     @FXML
     protected void onVoltarButtonClick() throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/com/tecgames/view/homeadmin-view.fxml"));
-        Scene scene = new Scene(root, 1000, 600); //cena
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/tecgames/view/homeadmin-view.fxml"));
+        Parent page = loader.load();
+        Scene scene = new Scene(page, 1000, 600); //cena
+
+        HomepageAdminController controller = loader.getController();
+        controller.initData(getAdminLogado());
 
         //This line gets the Stage(window) information
         Stage window = (Stage) logout.getScene().getWindow();
@@ -157,6 +165,8 @@ public class BuscarVendasController implements Initializable {
         window.setScene(scene);
 
     }
+
+
 
 
 }

@@ -37,7 +37,7 @@
     -fx-text-fill: White;
     -fx-background-radius: 5,5;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
-    -fx-background-color: #2b4c7e;
+    -fx-background-color: linear-gradient(to bottom right, #2b4c7e, #698fd7);
 }
 
 #comprar:hover {
@@ -45,14 +45,14 @@
 }
 
 #comprar:pressed {
-    -fx-background-color: #5f8cce;
+    -fx-background-color: linear-gradient(to bottom right,  #5f8cce , #2b4c7e);
 }
 
 #removerjogocarrinho {
     -fx-text-fill: White;
     -fx-background-radius: 5,5;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
-    -fx-background-color: #2b4c7e;
+    -fx-background-color: linear-gradient(to bottom right, #2b4c7e, #698fd7);
 }
 
 #removerjogocarrinho:hover{
@@ -60,5 +60,22 @@
 }
 
 #removerjogocarrinho:pressed{
-    -fx-background-color: #5f8cce;
+    -fx-background-color: linear-gradient(to bottom right, #5f8cce , #2b4c7e);
+}
+
+
+
+#botaoloja {
+    -fx-text-fill: Black;
+    -fx-background-radius: 5,5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 2);
+    -fx-background-color: linear-gradient(to bottom right, #b1c6ee, #698fd7);
+}
+
+#botaoloja:hover{
+    -fx-background-color: #5898e1;
+}
+
+#botaoloja:pressed{
+    -fx-background-color: linear-gradient(to bottom right, #5f8cce , #b1c6ee);
 }

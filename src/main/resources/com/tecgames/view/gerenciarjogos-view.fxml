@@ -6,10 +6,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -61,17 +61,17 @@
                                <Insets top="10.0" />
                            </VBox.margin>
                            <children>
-                               <Button fx:id="botaoInserir" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Inserir" onAction="#onInserirButtonClick">
+                               <Button fx:id="botaoInserir" mnemonicParsing="false" onAction="#onInserirButtonClick" prefHeight="35.0" prefWidth="75.0" text="Inserir">
                                    <HBox.margin>
                                        <Insets left="60.0" top="10.0" />
                                    </HBox.margin>
                                </Button>
-                               <Button fx:id="botaoAlterar" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Alterar" onAction="#onAlterarButtonClick">
+                               <Button fx:id="botaoAlterar" mnemonicParsing="false" onAction="#onAlterarButtonClick" prefHeight="35.0" prefWidth="75.0" text="Alterar">
                                    <HBox.margin>
                                        <Insets left="15.0" top="10.0" />
                                    </HBox.margin>
                                </Button>
-                               <Button fx:id="botaoRemover" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Remover" onAction="#onRemoverButtonClick">
+                               <Button fx:id="botaoRemover" mnemonicParsing="false" onAction="#onRemoverButtonClick" prefHeight="35.0" prefWidth="75.0" text="Remover">
                                    <HBox.margin>
                                        <Insets left="15.0" top="10.0" />
                                    </HBox.margin>
@@ -90,14 +90,14 @@
                                <Font name="System Bold" size="20.0" />
                            </font>
                            <VBox.margin>
-                               <Insets left="151.0" />
+                               <Insets left="130.0" />
                            </VBox.margin>
                        </Label>
-                       <Pane fx:id="imagegame" prefHeight="145.0" prefWidth="369.0">
+                       <ImageView fx:id="imagegame">
                            <VBox.margin>
-                               <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                               <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
                            </VBox.margin>
-                       </Pane>
+                       </ImageView>
                        <GridPane prefHeight="279.0" prefWidth="409.0">
                            <columnConstraints>
                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="226.0" />

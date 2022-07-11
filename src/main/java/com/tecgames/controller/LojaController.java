@@ -5,7 +5,6 @@ import com.tecgames.model.GameDados;
 import com.tecgames.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -23,7 +22,7 @@ import java.util.ArrayList;
 
 import java.util.ResourceBundle;
 
-public class LojaController implements Initializable {
+public class LojaController {
     public ArrayList<Game> jogos; //JogosDados.listar() // arraylist games <-- carregar
 
     @FXML
@@ -63,12 +62,6 @@ public class LojaController implements Initializable {
 
         displayJogos(jogos);
 
-
-    }
-
-     // carregar jogos de arquivo
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
@@ -217,7 +210,7 @@ public class LojaController implements Initializable {
 
         for (int h = 0; h < array.length; h++) {
             for (int i = 0; i < jogos.size(); i++) {
-                if (jogos.get(i).getGenero().toLowerCase().equals(array[h].toLowerCase())) // add genero e getGenero() no model
+                if (jogos.get(i).getGenero().toLowerCase().equals(array[h].toLowerCase()))
                     aux.add(jogos.get(i));
             }
         }
@@ -251,13 +244,8 @@ public class LojaController implements Initializable {
 
         Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização
 
-        //+estilizações com css
-        ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/homecliente.css").toExternalForm());
-
-
         HomepageClienteController Controller = loader.getController();
         Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de home
-
 
         //This line gets the Stage(window) information
         Stage window = (Stage) voltar.getScene().getWindow();
@@ -274,7 +262,6 @@ public class LojaController implements Initializable {
         Parent View = loader.load();
 
         Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização de carrinho
-
 
         MeuCarrinhoController Controller = loader.getController();
 
@@ -297,9 +284,6 @@ public class LojaController implements Initializable {
         Parent View = loader.load();
 
         Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização da loja
-
-        //+estilizações com css
-        ViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/meusjogos.css").toExternalForm());
 
         MeusJogosController meusjogosController = loader.getController();
 

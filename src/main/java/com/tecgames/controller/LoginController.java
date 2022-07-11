@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -29,7 +30,7 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable{
     public Button entrar;
     public TextField emailData;
-    public TextField senhaData;
+    public PasswordField senhaData;
     public Button criarConta;
     public Pane backgroundLogin;
     public Pane content;
@@ -55,14 +56,12 @@ public class LoginController implements Initializable{
         openLogin.play();
 
 
-
-
     }
 
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
-
+        //se todos os campos estao preenchidos
         if(validaCampos()){
 
             String email = emailData.getText();
@@ -85,10 +84,6 @@ public class LoginController implements Initializable{
             }
 
 
-            //existe {abro a pagina}
-            //nao existe {agora olho usuario}
-            //nenhum dos casos {essa conta nao existe}
-
             //This line gets the Stage(window) information
             Stage window = (Stage) entrar.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
@@ -109,8 +104,6 @@ public class LoginController implements Initializable{
                 window.setScene(ViewScene);
             } else {
                 //usuario
-
-
                 ArrayList<User> ArquivoUsuarios = usuarioDAO.carregaArquivoUsuarios();
 
                 int j = 0 ;

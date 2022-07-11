@@ -12,8 +12,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -36,7 +34,7 @@ public class CarrinhoCheioController {
     private double preco = 0;
 
     public void initData(User usuarioLogado) throws IOException {
-        this.usuarioLogado = usuarioLogado;
+        this.usuarioLogado = usuarioLogado;//setando o usuario
 
         CarrinhoDados carrinhoDAO = new CarrinhoDados();
         array_carrinhos = carrinhoDAO.carregaArquivoCarrinhos();
@@ -46,7 +44,7 @@ public class CarrinhoCheioController {
 
 
 
-        for(int i = 0; i < array_carrinhos.size(); i++) {
+        for(int i = 0; i < array_carrinhos.size(); i++) {//buscando o carrinho do usuario no arquivo carrinhos.txt
             if(usuarioLogado.getId() == array_carrinhos.get(i).getId()){//achei o usuario
                 carrinhoUsuario = array_carrinhos.get(i);
             }
@@ -70,7 +68,7 @@ public class CarrinhoCheioController {
             }
         }
 
-
+        //se o usuario nao tiver nenhum jogo no carrinho, entao mostro a tela de carrinho vazio (ele pode iniciar com jogos no carrinho e acabar removendo ate que nao fique nenhum, logo tenho que mostrar a tela de carrinho vazio)
         if(jogos.size() == 0) {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/com/tecgames/view/components/carrinhovazio.fxml"));
@@ -149,7 +147,7 @@ public class CarrinhoCheioController {
                 CarrinhoDados CD = new CarrinhoDados();
 
 
-                CD.Atualiza(carrinhoUsuario);
+                CD.Atualiza(carrinhoUsuario);//atualizando no arquivo carrinhos.txt o novo carrinho do usuario
 
 
                 try {
@@ -167,7 +165,7 @@ public class CarrinhoCheioController {
         }
 
 
-        if(array.size() >= 3) {
+        if(array.size() >= 3) { //codigo somente para setar a altura correta da Vbox contida no ScrollPane
             int excedente = array.size() - 3;
             BoxMain.setPrefHeight(440 + (excedente*117));
         }
@@ -191,11 +189,11 @@ public class CarrinhoCheioController {
         venda.setValortotal(preco);
         venda.setIdusuario(usuarioLogado.getId());
 
-        VendaDados vd = new VendaDados();//inserindo a venda no txt
-        vd.inserir(venda);
+        VendaDados vd = new VendaDados();
+        vd.inserir(venda);//inserindo a venda no txt
 
-        CarrinhoDados cd2 = new CarrinhoDados();//apagando o carrinho do txt
-        cd2.remover_carrinho(carrinhoUsuario);
+        CarrinhoDados cd2 = new CarrinhoDados();
+        cd2.remover_carrinho(carrinhoUsuario);//apagando o carrinho do txt
 
         usuarioLogado.getJogosUsuario().addAll(carrinhoUsuario.getIdjogos()); //inserindo os jogos novos no usuario comprador
 

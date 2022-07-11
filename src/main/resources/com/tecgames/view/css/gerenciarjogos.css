@@ -5,11 +5,11 @@
 }
 
 #header {
-    -fx-background-color: #2B4C7E;
+    -fx-background-color: #3c6db7;
 }
 
 #background {
-    -fx-background-color: #2B4C7E;
+    -fx-background-color: linear-gradient(to top, #2B4C7E, #3c6db7);
 }
 
 .card {
@@ -76,12 +76,12 @@
 }
 
 #voltar{
-    -fx-background-color: #2B4C7E;
+    -fx-background-color: #3c6db7;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0), 0, 0, 0, 0);
 }
 
 #voltar:hover{
-    -fx-background-color: #3a6bb8;
+    -fx-background-color: #2B4C7E;
 
 }
 

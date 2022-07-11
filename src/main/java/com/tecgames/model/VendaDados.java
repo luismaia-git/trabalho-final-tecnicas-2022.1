@@ -58,7 +58,6 @@ public class VendaDados {
                 }
             }
 
-            buffRead.close();
 
         }catch(Exception e){
             System.out.println(e);

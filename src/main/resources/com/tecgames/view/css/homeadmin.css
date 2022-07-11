@@ -10,7 +10,7 @@
 }
 
 #contentHome {
-    -fx-background-color: #2B4C7E;
+    -fx-background-color: linear-gradient(to top, #2B4C7E, #3c6db7);
 }
 
 .card {

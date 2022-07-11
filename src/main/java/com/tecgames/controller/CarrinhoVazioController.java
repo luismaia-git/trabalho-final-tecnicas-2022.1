@@ -34,9 +34,6 @@ public class CarrinhoVazioController {
 
         Scene lojaViewScene = new Scene(lojaView); // instanciando uma nova cena com a estilização da loja
 
-        //+estilizações com css
-        lojaViewScene.getStylesheets().add(getClass().getResource("/com/tecgames/view/css/loja.css").toExternalForm());
-
         LojaController lojaController = loader.getController();
 
         lojaController.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de loja
@@ -46,10 +43,5 @@ public class CarrinhoVazioController {
         Stage window = (Stage) divcontent2.getScene().getWindow();
 
         window.setScene(lojaViewScene); //mudando a cena da janela para a loja
-
     }
-
-
-
-
 }

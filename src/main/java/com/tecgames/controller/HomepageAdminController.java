@@ -1,7 +1,6 @@
 package com.tecgames.controller;
 
 import com.tecgames.model.Admin;
-import com.tecgames.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -48,9 +47,13 @@ public class HomepageAdminController {
     @FXML
     protected void onGerenciarJogosButtonClick() throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/com/tecgames/view/gerenciarjogos-view.fxml"));
-        Scene scene = new Scene(root, 1000, 600); //cena
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/tecgames/view/gerenciarjogos-view.fxml"));
+        Parent page = loader.load();
+        Scene scene = new Scene(page, 1000, 600); //cena
 
+        GerenciarJogosController controller = loader.getController();
+        controller.initData(getAdminLogado());
         //This line gets the Stage(window) information
         Stage window = (Stage) logout.getScene().getWindow();
 
@@ -61,8 +64,13 @@ public class HomepageAdminController {
     @FXML
     protected void onGerenciarClientesButtonClick() throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/com/tecgames/view/gerenciarclientes-view.fxml"));
-        Scene scene = new Scene(root, 1000, 600); //cena
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/tecgames/view/gerenciarclientes-view.fxml"));
+        Parent page = loader.load();
+        Scene scene = new Scene(page, 1000, 600); //cena
+
+        GerenciarClientesController controller = loader.getController();
+        controller.initData(getAdminLogado());
 
         //This line gets the Stage(window) information
         Stage window = (Stage) logout.getScene().getWindow();
@@ -74,8 +82,13 @@ public class HomepageAdminController {
     @FXML
     protected void onBuscarVendasButtonClick() throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/com/tecgames/view/buscarvendas-view.fxml"));
-        Scene scene = new Scene(root, 1000, 600); //cena
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/tecgames/view/buscarvendas-view.fxml"));
+        Parent page = loader.load();
+        Scene scene = new Scene(page, 1000, 600); //cena
+
+        BuscarVendasController controller = loader.getController();
+        controller.initData(getAdminLogado());
 
         //This line gets the Stage(window) information
         Stage window = (Stage) logout.getScene().getWindow();
@@ -96,8 +109,8 @@ public class HomepageAdminController {
 
         //acess the controller and call a method (initData)
         CriarContaAdminController Controller = loader.getController();
-        Controller.initData(getAdminLogado());
 
+        Controller.initData(getAdminLogado());
 
         //This line gets the Stage(window) information
         Stage window = (Stage) logout.getScene().getWindow();

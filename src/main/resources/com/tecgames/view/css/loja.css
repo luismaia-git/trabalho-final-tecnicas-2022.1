@@ -13,8 +13,6 @@
    -fx-background-color:transparent;
 }
 
-
-
 Button {
    -fx-background-color: #D9D9D9;
    -fx-border-radius: 10;
@@ -26,11 +24,11 @@ Button:hover {
 }
 
 Button:pressed {
-   -fx-background-color: #3a6bb8;
+   -fx-background-color: linear-gradient(to bottom right, #3a6bb8, #698fd7);
 }
 
 .botaosidemenu {
-   -fx-background-color: #2B4C7E;
+   -fx-background-color: linear-gradient(to bottom right, #2B4C7E, #5f8cce);
 }
 
 .botaosidemenu:hover {
@@ -38,7 +36,7 @@ Button:pressed {
 }
 
 .botaosidemenu:pressed {
-   -fx-background-color: #45628c;
+   -fx-background-color: linear-gradient(to bottom right, #45628c, #698fd7);
 }
 
 #voltar{

@@ -10,42 +10,42 @@
     <children>
         <Pane fx:id="card" layoutX="101.0" layoutY="98.0" prefHeight="473.0" prefWidth="782.0">
             <children>
-                <Label fx:id="title" layoutX="327.0" layoutY="31.0" text="Criar conta" textFill="WHITE">
+                <Label fx:id="title" layoutX="327.0" layoutY="31.0" text="Criar conta">
                     <font>
                         <Font name="System Bold" size="23.0" />
                     </font>
                 </Label>
                 <TextField fx:id="fieldnome" layoutX="237.0" layoutY="113.0" prefHeight="25.0" prefWidth="289.0" styleClass="campo" />
-                <Label fx:id="Lnome" layoutX="237.0" layoutY="87.0" text="Nome" textFill="WHITE">
+                <Label fx:id="Lnome" layoutX="237.0" layoutY="87.0" text="Nome">
                     <font>
                         <Font name="System Bold" size="17.0" />
                     </font>
                 </Label>
                 <TextField fx:id="fieldemail" layoutX="237.0" layoutY="173.0" prefHeight="25.0" prefWidth="289.0" styleClass="campo" />
-                <Label fx:id="Lemail" layoutX="237.0" layoutY="147.0" text="Email" textFill="WHITE">
+                <Label fx:id="Lemail" layoutX="237.0" layoutY="147.0" text="Email">
                     <font>
                         <Font name="System Bold" size="17.0" />
                     </font>
                 </Label>
                 <TextField fx:id="fieldsenha" layoutX="237.0" layoutY="237.0" prefHeight="25.0" prefWidth="289.0" styleClass="campo" />
-                <Label fx:id="Lsenha" layoutX="237.0" layoutY="211.0" text="Senha" textFill="WHITE">
+                <Label fx:id="Lsenha" layoutX="237.0" layoutY="211.0" text="Senha">
                     <font>
                         <Font name="System Bold" size="17.0" />
                     </font>
                 </Label>
                 <TextField fx:id="fielddata" layoutX="237.0" layoutY="296.0" prefHeight="25.0" prefWidth="289.0" styleClass="campo" />
-                <Label fx:id="Ldata" layoutX="237.0" layoutY="270.0" text="Data de Nascimento" textFill="WHITE">
+                <Label fx:id="Ldata" layoutX="237.0" layoutY="270.0" text="Data de Nascimento">
                     <font>
                         <Font name="System Bold" size="17.0" />
                     </font>
                 </Label>
                 <TextField fx:id="fieldcpf" layoutX="237.0" layoutY="355.0" prefHeight="25.0" prefWidth="289.0" styleClass="campo" />
-                <Label fx:id="Lcpf" layoutX="237.0" layoutY="329.0" text="CPF" textFill="WHITE">
+                <Label fx:id="Lcpf" layoutX="237.0" layoutY="329.0" text="CPF">
                     <font>
                         <Font name="System Bold" size="17.0" />
                     </font>
                 </Label>
-                <Button fx:id="criar" layoutX="280.0" layoutY="400.0" mnemonicParsing="false"  onAction="#onConfirmarButtonClick" prefHeight="34.0" prefWidth="74.0" styleClass="botao" text="Criar" />
+                <Button fx:id="criar" layoutX="280.0" layoutY="400.0" mnemonicParsing="false" onAction="#onConfirmarButtonClick" prefHeight="34.0" prefWidth="74.0" styleClass="botao" text="Criar" />
                 <Button fx:id="cancelar" layoutX="399.0" layoutY="400.0" mnemonicParsing="false" onAction="#onCancelarButtonClick" prefHeight="34.0" prefWidth="74.0" styleClass="botao" text="Cancelar" />
             </children></Pane>
         <Label fx:id="tecgames" layoutX="426.0" layoutY="32.0" text="TecGames" textFill="WHITE">

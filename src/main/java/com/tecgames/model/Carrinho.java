@@ -7,7 +7,6 @@ public class Carrinho {
     private int id_usuario;
     private ArrayList<Integer> id_jogos;
 
-
     public Carrinho() {
     }
 
