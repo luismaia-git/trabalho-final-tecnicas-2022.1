@@ -4,8 +4,19 @@ package com.tecgames.model;
 import java.io.*;
 import java.util.*;
 
+/**
+ * Class model AdminDados, contains the "connections" to the "database" admin
+ * */
 public class AdminDados {
 
+    /**
+     * Constructor for class AdminDados
+     * */
+    public AdminDados(){}
+
+    /**
+     * loads the contents of the admins database
+     * */
     public ArrayList<Admin> carregaArquivoAdmin () {
 
         ArrayList<Admin> adminArquivo = new ArrayList<>();
@@ -31,6 +42,9 @@ public class AdminDados {
         return adminArquivo;
     }
 
+    /**
+     * inserts into "db' admin
+     * */
     public boolean inserir(Admin adminnovo) throws Exception{
         ArrayList<Admin> admins;
         admins = carregaArquivoAdmin();
@@ -51,7 +65,9 @@ public class AdminDados {
             return false;
     }
 
-
+    /**
+     * checks on "database" if Admin exists
+     * */
     public boolean checaAdmin(Admin adminInput, ArrayList<Admin> admins) {
         int i = 0;
 
@@ -65,6 +81,10 @@ public class AdminDados {
         return false;
     }
 
+
+    /**
+     * writes in database of admins
+     * */
     public void escreveArquivoAdmin(ArrayList<Admin> adms){
         try {
             File arq = new File(".\\dados/admin.txt");

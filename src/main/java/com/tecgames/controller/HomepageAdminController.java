@@ -11,16 +11,20 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/** Class HomepageAdminController, controller for the admins homepage */
 public class HomepageAdminController {
 
     public Label iconLetter;
     public Button logout;
     private Admin AdminLogado;
 
+
+    /** Returns the logged admin */ 
     public Admin getAdminLogado() {
         return AdminLogado;
     }
 
+    /** Sets controller initial data */
     public void initData(Admin usuario) {
 
         this.AdminLogado = usuario;
@@ -30,7 +34,7 @@ public class HomepageAdminController {
     }
 
 
-    //button logout
+    /** Button logout */
     @FXML
     protected void onLogoutButtonClick() throws IOException {
 
@@ -44,6 +48,7 @@ public class HomepageAdminController {
 
     }
 
+    /** Manage games button */
     @FXML
     protected void onGerenciarJogosButtonClick() throws IOException {
 
@@ -60,7 +65,7 @@ public class HomepageAdminController {
         window.setScene(scene);
     }
 
-
+    /** Manage clients button */
     @FXML
     protected void onGerenciarClientesButtonClick() throws IOException {
 
@@ -79,6 +84,7 @@ public class HomepageAdminController {
 
     }
 
+    /** Search sales button */
     @FXML
     protected void onBuscarVendasButtonClick() throws IOException {
 
@@ -98,6 +104,7 @@ public class HomepageAdminController {
     }
 
 
+    /** Button to add admin */
     @FXML
     protected void onAdicionarAdminButtonClick() throws IOException {
         FXMLLoader loader = new FXMLLoader();

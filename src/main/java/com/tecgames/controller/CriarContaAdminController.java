@@ -16,6 +16,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Class CriarContaAdminController, controller for the CriarContaAdmin screen
+ * */
 public class CriarContaAdminController {
 
     private Admin adminLogado;
@@ -31,14 +34,25 @@ public class CriarContaAdminController {
         return this.adminLogado;
     }
 
+    /**
+     * Sets controller initial data
+     * */
     public void initData(Admin adminLogado){
         this.adminLogado = adminLogado;
     }
+
+
+    /**
+     * to return to the home screen
+     * */
     @FXML
     protected void onCancelarButtonClick() throws IOException {
         telahome();//muda pra tela de login
     }
 
+    /**
+     * to create an account
+     * */
     @FXML
     protected void onConfirmarButtonClick() throws Exception {
         //se todos os campos estao preenchidos
@@ -87,6 +101,10 @@ public class CriarContaAdminController {
         }
     }
 
+
+    /**
+     * return to the home screen
+     * */
     public void telahome() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/com/tecgames/view/homeadmin-view.fxml"));
@@ -104,6 +122,9 @@ public class CriarContaAdminController {
         window.setScene(ViewScene);
     }
 
+    /**
+     * Valid data entry for the form
+     * */
     public boolean validaCampos(){
 
         String errorMessage = "";

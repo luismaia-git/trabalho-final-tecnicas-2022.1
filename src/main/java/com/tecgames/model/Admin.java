@@ -1,7 +1,9 @@
 package com.tecgames.model;
-
+/**
+ * Class model admin
+ * */
 public class Admin {
-    
+
     private int id;
     private String nome;
     private String email;
@@ -9,6 +11,9 @@ public class Admin {
     private String cpf;
     private String dataNasc;
 
+    /**
+     * Constructor for class Admin
+     * */
     public Admin(String id, String nome, String email, String senha, String cpf, String data){
         this.id = Integer.parseInt(id);
         this.nome = nome;
@@ -18,6 +23,9 @@ public class Admin {
         this.dataNasc = data;
     }
 
+    /**
+     * Constructor for class Admin
+     * */
     public Admin() {}
 
     public int getId() {

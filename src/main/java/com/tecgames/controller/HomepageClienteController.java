@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 
+/** Class HomepageClienteController, controller for the clients homepage */
 public class HomepageClienteController {
 
     public Label iconLetter;
@@ -29,8 +30,9 @@ public class HomepageClienteController {
 
     private Game GameDestaque;
 
-    private User usuarioLogado; //ainda vai ser usado
+    private User usuarioLogado;
 
+    /** Sets controller initial data */
     public void initData(User usuario) {
 
         this.usuarioLogado = usuario;
@@ -56,7 +58,13 @@ public class HomepageClienteController {
         jogodestaque.setImage(imagem);
     }
 
-    //button logout
+    /** Returns the logged user */ 
+    public User getUsuarioLogado() {
+        return this.usuarioLogado;
+    }
+
+
+    /** Button logout */
     @FXML
     protected void onLogoutButtonClick() throws IOException {
 
@@ -70,7 +78,7 @@ public class HomepageClienteController {
 
     }
 
-    //botao loja
+    /** Button to go to store */
     @FXML
     protected void onLojaButtonClick() throws IOException {
         //carregando estilização da loja
@@ -93,7 +101,7 @@ public class HomepageClienteController {
 
     }
 
-
+    /** Button to go to user games */
     @FXML
     protected void onMeusjogosButtonClick() throws IOException {
         //carregando estilização da loja
@@ -116,6 +124,7 @@ public class HomepageClienteController {
 
     }
 
+    /** Button to open the cart screen */
     @FXML
     protected void onCarrinhoButtonClick() throws IOException {
         //carregando estilização da loja
@@ -138,12 +147,7 @@ public class HomepageClienteController {
     }
 
 
-    public User getUsuarioLogado() {
-        return this.usuarioLogado;
-    }
-
-
-
+    /** Open the game details screen */
     @FXML
     protected void onVermaisButtonClick() throws IOException {
 

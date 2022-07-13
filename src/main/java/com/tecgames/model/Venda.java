@@ -2,6 +2,10 @@ package com.tecgames.model;
 
 import java.util.*;
 
+
+/**
+ * Class model Venda
+ * */
 public class Venda {
     private int idvenda;
     private int idusuario;
@@ -10,7 +14,10 @@ public class Venda {
     private String hora;
     
     ArrayList<Integer> id_jogos;
-    
+
+    /**
+     * Constructor for Venda
+     * */
     public Venda(String id_venda, String id_usuario, String valortotal, String data, String hora) {
         this.idvenda = Integer.parseInt(id_venda);
         this.idusuario = Integer.parseInt(id_usuario);
@@ -19,6 +26,9 @@ public class Venda {
         this.hora = hora;      
     }
 
+    /**
+     * Constructor for Venda
+     * */
     public Venda(){}
 
     public int getIdvenda() {

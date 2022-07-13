@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/** Class GameInfoController, controller for the info games */
 public class GameInfoController {
 
     public HBox divheader;
@@ -39,6 +40,13 @@ public class GameInfoController {
     private int valueTela;// se 1 entao eu entrei na tela de gameinfo apartir da tela de loja, se 2 entao foi da tela meus jogos
 
     boolean have_game;
+
+    /** Returns the logged user */
+    public User getUsuarioLogado() {
+        return this.usuarioLogado;
+    }
+
+    /** Sets controller initial data */
     public void initData(Game jogo, User usuario, int valor) {
         this.usuarioLogado = usuario;
         this.jogoEscolhido = jogo;
@@ -130,7 +138,7 @@ public class GameInfoController {
     }
 
 
-
+    /** Button to return to the home screen */
     @FXML
     protected void onVoltarButtonClick() throws IOException {
 
@@ -170,6 +178,7 @@ public class GameInfoController {
 
     }
 
+    /** Button to open the cart screen */
     @FXML
     protected void onCarrinhoButtonClick() throws IOException {
         //carregando estilização da loja
@@ -189,10 +198,6 @@ public class GameInfoController {
 
         window.setScene(ViewScene); //mudando a cena da janela para a tela de carrinho
 
-    }
-
-    public User getUsuarioLogado() {
-        return this.usuarioLogado;
     }
 
 }

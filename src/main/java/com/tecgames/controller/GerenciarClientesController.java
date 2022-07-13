@@ -20,8 +20,8 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/** Class MeusJogosController, controller for the games of an user screen */
 public class GerenciarClientesController implements Initializable {
-
 
     public Button logout;
     public TextField fieldBusca;
@@ -42,15 +42,17 @@ public class GerenciarClientesController implements Initializable {
     private List<User> listClientes;
     private ObservableList<User> observableListClientes;
 
+    /** Returns the logged admin */
     public Admin getAdminLogado() {
         return adminLogado;
     }
 
+    /** Sets controller initial data */
     public void initData(Admin adminLogado) {
         this.adminLogado = adminLogado;
     }
 
-
+    /** Defines the initial behavior of the controller */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         UsuarioDao = new UsuarioDados();
@@ -62,7 +64,7 @@ public class GerenciarClientesController implements Initializable {
 
     }
 
-
+    /** Build a table from the data */
     public void carregarDadosTabela() {
         colunaId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
@@ -112,7 +114,7 @@ public class GerenciarClientesController implements Initializable {
 
     }
 
-
+    /** Selects one item in the table and display info */
     public void selecionarItemTabelaClientes(User cliente){
 
         if(cliente != null)  {
@@ -134,13 +136,7 @@ public class GerenciarClientesController implements Initializable {
 
     }
 
-
-
-
-
-
-
-
+    /** Button logout */
     @FXML
     protected void onLogoutButtonClick() throws IOException {
 
@@ -154,6 +150,7 @@ public class GerenciarClientesController implements Initializable {
 
     }
 
+    /** Button to return to the home screen */
     @FXML
     protected void onVoltarButtonClick() throws IOException {
 

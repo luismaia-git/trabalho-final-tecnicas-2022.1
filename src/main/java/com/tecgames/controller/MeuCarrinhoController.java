@@ -17,31 +17,37 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/** Class MeuCarrinhoController, controller for the cart of an user screen */
 public class MeuCarrinhoController implements Initializable {
     public Button voltar;
     public Pane divcontent;
 
     private User usuarioLogado;
 
+    /** Returns the logged user */
     public User getUsuarioLogado() {
         return usuarioLogado;
     }
+
+    /** Sets user */
     @FXML
     public void setUsuarioLogado(User usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
     }
 
-
+    /** Sets controller initial data */
     public void initData(User usuarioLogado) throws IOException {
         this.usuarioLogado = usuarioLogado;
         displayCarrinho();
     }
+
+    /** Defines the initial behavior of the controller */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
-
+    /** Show cart of an user on screen */
     public void displayCarrinho() throws IOException {
         boolean carrinho = false;
         
@@ -49,14 +55,14 @@ public class MeuCarrinhoController implements Initializable {
         ArrayList<Carrinho> array_ca = carrinhoDAO.carregaArquivoCarrinhos();
 
         for(int i = 0; i < array_ca.size(); i++) {
-            if(usuarioLogado.getId() == array_ca.get(i).getId()){//achei o usuario
+            if(usuarioLogado.getId() == array_ca.get(i).getId()){ // Achei o usuario
                 carrinho = true;
             }
         }
 
 
-        //aqui carrega os dados do carrinho
-        //tenho que saber se o usuario logado tem algum jogo no carrinho
+        // Carrega os dados do carrinho
+        // Tenho que saber se o usuario logado tem algum jogo no carrinho
         if(carrinho){
 
             FXMLLoader loader = new FXMLLoader();
@@ -87,6 +93,7 @@ public class MeuCarrinhoController implements Initializable {
         }
     }
 
+    /** Button to return to the home screen */
     @FXML
     protected void onVoltarButtonClick() throws IOException {
         //carregando estilização
@@ -95,18 +102,17 @@ public class MeuCarrinhoController implements Initializable {
 
         Parent View = loader.load();
 
-        Scene ViewScene = new Scene(View); // instanciando uma nova cena com a estilização
+        Scene ViewScene = new Scene(View); // Instanciando uma nova cena com a estilização
 
 
         HomepageClienteController Controller = loader.getController();
-        Controller.initData(getUsuarioLogado());//passando o usuario que esta logado para a tela de home
+        Controller.initData(getUsuarioLogado()); // Passando o usuario que esta logado para a tela de home
 
 
         //This line gets the Stage(window) information
         Stage window = (Stage) voltar.getScene().getWindow();
 
-        window.setScene(ViewScene); //mudando a cena da janela para a home
+        window.setScene(ViewScene); // Mudando a cena da janela para a home
     }
-
 
 }

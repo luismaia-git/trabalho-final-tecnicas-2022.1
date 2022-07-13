@@ -2,6 +2,9 @@ package com.tecgames.model;
 
 import java.util.ArrayList;
 
+/**
+ * Class model User
+ * */
 public class User {
     private int id;
     private String nome;
@@ -14,6 +17,9 @@ public class User {
 
     private ArrayList<Integer> JogosUsuario;
 
+    /**
+     * Constructor for User
+     * */
     public User(String id, String nome, String email, String senha, String cpf, String data){
         this.id = Integer.parseInt(id);
         this.nome = nome;
@@ -24,6 +30,9 @@ public class User {
         JogosUsuario = new ArrayList<>();
     }
 
+    /**
+     * Constructor for User
+     * */
     public User(){}
 
     public String getNome() {

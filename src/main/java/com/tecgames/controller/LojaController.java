@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 import java.util.ResourceBundle;
 
+/** Class LojaController, controller for the store screen */
 public class LojaController {
     public ArrayList<Game> jogos; //JogosDados.listar() // arraylist games <-- carregar
 
@@ -35,20 +36,20 @@ public class LojaController {
     private HBox hboxGames;
     private VBox BoxMain;
 
-
-
     private User usuarioLogado;
 
 
+    /** Returns the logged user */
     public User getUsuarioLogado() {
         return usuarioLogado;
     }
 
+    /** Sets user */
     public void setUsuarioLogado(User usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
     }
 
-
+    /** Sets controller initial data */
     public void initData(User usuarioLogado) throws IOException {
         this.usuarioLogado = usuarioLogado;
 
@@ -62,11 +63,11 @@ public class LojaController {
 
         displayJogos(jogos);
 
-
     }
 
 
     //metodo que recebe um array de jogos e mostra na tela
+    /** Sets controller initial data */
     public void displayJogos(ArrayList<Game> array) throws IOException{
         int hboxes = 0;
         //instanciando uma VBox
@@ -187,6 +188,7 @@ public class LojaController {
 
     }
 
+    /** Returns a user that contains the String (game title) of the parameter */
     public ArrayList<Game> buscaTitulo(String titulo) {
 
         ArrayList<Game> aux = new ArrayList<>();
@@ -197,6 +199,7 @@ public class LojaController {
         return aux;
     }
 
+    /** Returns a user that contains the String (game genre) of the parameter */
     public ArrayList<Game> buscaGenero(String genero) { // a String genero pode ser gerada ao clicar o botao do genero escolhido
         
         ArrayList<Game> aux = new ArrayList<>();
@@ -210,7 +213,7 @@ public class LojaController {
 
         for (int h = 0; h < array.length; h++) {
             for (int i = 0; i < jogos.size(); i++) {
-                if (jogos.get(i).getGenero().toLowerCase().equals(array[h].toLowerCase()))
+                if (jogos.get(i).getGenero().toLowerCase().contains(array[h].toLowerCase()))
                     aux.add(jogos.get(i));
             }
         }
@@ -220,6 +223,7 @@ public class LojaController {
 
     //botoes de eventos
 
+    /** Button to search games */
     @FXML
     protected void onBuscaButtonClick() throws IOException {
         String result = campoTexto.getText();
@@ -227,6 +231,7 @@ public class LojaController {
         displayJogos(array);
     }
 
+    /** Button to search games by genre */
     @FXML
     protected void onBuscaGeneroButtonClick() throws IOException {
         String result = campoTexto.getText();
@@ -234,6 +239,7 @@ public class LojaController {
         displayJogos(array);
     }
 
+    /** Button to return to the home screen */
     @FXML
     protected void onVoltarButtonClick() throws IOException {
         //carregando estilização
@@ -253,6 +259,7 @@ public class LojaController {
         window.setScene(ViewScene); //mudando a cena da janela para a home
     }
 
+    /** Button to go to cart */
     @FXML
     protected void onCarrinhoButtonClick() throws IOException {
         //carregando estilização da loja
@@ -274,7 +281,7 @@ public class LojaController {
 
     }
 
-
+    /** Button to go to user games */
     @FXML
     protected void onMeusjogosButtonClick() throws IOException {
         //carregando estilização da loja
@@ -296,6 +303,5 @@ public class LojaController {
         window.setScene(ViewScene); //mudando a cena da janela para a loja
 
     }
-
 
 }

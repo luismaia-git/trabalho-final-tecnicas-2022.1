@@ -4,10 +4,20 @@ import java.io.*;
 import java.util.*;
 import java.text.SimpleDateFormat;
 
+/**
+ * Class model VendaDados, contains the "connections" to the "database" vendas
+ * */
 public class VendaDados {
 
 
+    /**
+     * Constructor for class VendaDados
+     * */
+    public VendaDados(){}
 
+    /**
+     * inserts into "db' vendas
+     * */
     public void inserir(Venda venda) { 
         ArrayList<Venda> vendas = carregaArquivoVendas();
         
@@ -29,7 +39,9 @@ public class VendaDados {
         escreveArquivoVendas(vendas);
     }
 
-
+    /**
+     * loads the contents of "database" vendas
+     * */
     public ArrayList<Venda> carregaArquivoVendas () {
         ArrayList<Venda> vendaArquivo = new ArrayList<>();
         try (BufferedReader buffRead = new BufferedReader(new FileReader(".\\dados/vendas.txt"))) {
@@ -66,6 +78,9 @@ public class VendaDados {
 
     }
 
+    /**
+     * writes in "database" vendas
+     * */
     public void escreveArquivoVendas(ArrayList<Venda> vendas){
         try { 
             File arq = new File(".\\dados/vendas.txt");

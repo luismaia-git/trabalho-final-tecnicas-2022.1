@@ -26,8 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class GerenciarJogosController implements Initializable {
 
+/** Class GerenciarJogosController, controller for the manage games */
+public class GerenciarJogosController implements Initializable {
 
     public Button logout;
     public TableView<Game> TabelaJogos;
@@ -55,13 +56,17 @@ public class GerenciarJogosController implements Initializable {
     private ArrayList<Game> listJogos;
     private ObservableList<Game> observableListJogos;
 
+    /** Returns the logged admin */
     public Admin getAdminLogado() {
         return adminLogado;
     }
+
+    /** Sets controller initial data */
     public void initData(Admin adminLogado){
         this.adminLogado = adminLogado;
     }
 
+    /** Defines the initial behavior of the controller */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         JogosDao = new GameDados();
@@ -73,7 +78,7 @@ public class GerenciarJogosController implements Initializable {
 
     }
 
-
+    /** Build a table from the data */
     public void carregarDadosTabela() {
         colunaId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
@@ -129,6 +134,7 @@ public class GerenciarJogosController implements Initializable {
 
     }
 
+    /** Selects one item in the table and display info */
     public void selecionarItemTabelaClientes(Game jogo){
 
         if(jogo != null)  {
@@ -160,7 +166,7 @@ public class GerenciarJogosController implements Initializable {
 
     }
 
-
+    /** Button logout */
     @FXML
     protected void onLogoutButtonClick() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/com/tecgames/view/login-view.fxml"));
@@ -172,6 +178,7 @@ public class GerenciarJogosController implements Initializable {
         window.setScene(scene);
     }
 
+    /** Button to return to the home screen */
     @FXML
     protected void onVoltarButtonClick() throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -187,7 +194,7 @@ public class GerenciarJogosController implements Initializable {
         window.setScene(scene);
     }
 
-
+    /** Game register button */
     public boolean showCadastroJogo(Game jogo, int i) throws IOException {
         //carregando estilização
         FXMLLoader loader = new FXMLLoader();
@@ -218,6 +225,7 @@ public class GerenciarJogosController implements Initializable {
         return controller.isBotaoClicado();
     }
 
+    /** Insert game button */
     @FXML
     protected void onInserirButtonClick() throws IOException {
         Game game = new Game();
@@ -229,6 +237,7 @@ public class GerenciarJogosController implements Initializable {
         }
     }
 
+    /** Change game button */
     @FXML
     protected void onAlterarButtonClick() throws IOException {
         Game game = TabelaJogos.getSelectionModel().getSelectedItem();
@@ -247,11 +256,12 @@ public class GerenciarJogosController implements Initializable {
 
     }
 
+    /** Remove game button */
     @FXML
     protected void onRemoverButtonClick() throws IOException {
         Game game = TabelaJogos.getSelectionModel().getSelectedItem();
 
-        if(game != null){
+        if(game != null) {
             JogosDao.remover(game);
             carregarDadosTabela();
 

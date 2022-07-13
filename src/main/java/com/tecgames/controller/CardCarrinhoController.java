@@ -9,6 +9,9 @@ import javafx.scene.layout.Pane;
 
 import java.io.File;
 
+/**
+ * Class CardCarrinhoController, controller for the CardCarrinho component
+ * */
 public class CardCarrinhoController {
 
 
@@ -20,6 +23,9 @@ public class CardCarrinhoController {
 
     private Game jogo;
 
+    /**
+     * Sets controller initial data
+     * */
     public void initData(Game jogo) {
 
         this.jogo = jogo;

@@ -3,7 +3,16 @@ package com.tecgames.model;
 import java.io.*;
 import java.util.*;
 
+
+/**
+ * Class model GameDados, contains the "connections" to the "database" games
+ * */
 public class GameDados {
+
+    /**
+     * Constructor for class GameDados
+     * */
+    public GameDados(){}
 
     public ArrayList<Game> listar() {
         ArrayList<Game> games;
@@ -12,6 +21,9 @@ public class GameDados {
         return games;
     }
 
+    /**
+     * inserts into "db' games
+     * */
     public boolean inserir(Game game) throws IOException {
         ArrayList<Game> games;
         games = carregaArquivoGames();
@@ -27,6 +39,9 @@ public class GameDados {
 
     }
 
+    /**
+     * checks on "database" if Game exists
+     * */
     public boolean checaGame(Game game, ArrayList<Game> games) {
         int i = 0;
         while (i < games.size()) {
@@ -40,6 +55,10 @@ public class GameDados {
         return false;
     }
 
+
+    /**
+     * removes Game in "db' games
+     * */
     public boolean remover(Game game) throws IOException {
         ArrayList<Game> games;
 
@@ -54,6 +73,10 @@ public class GameDados {
             return false;
     }
 
+
+    /**
+     * return Game if Game exists in "db' games
+     * */
     public Game retornaGame(Game game, ArrayList<Game> games) {
         int i = 0;
         while (i < games.size()) {
@@ -67,6 +90,9 @@ public class GameDados {
         return null;
     }
 
+    /**
+     * searches Game by id in "db' games
+     * */
     public Game buscarGame(int id) {
         int i = 0;
         ArrayList<Game> games = carregaArquivoGames();
@@ -78,7 +104,9 @@ public class GameDados {
         return null;
     }
 
-
+    /**
+     * updates Game in "db' games
+     * */
     public boolean alterar(Game game) {
         ArrayList<Game> games = carregaArquivoGames();
         int i = 0;
@@ -93,6 +121,9 @@ public class GameDados {
     }
 
 
+    /**
+     * loads the contents of the games database
+     * */
     public ArrayList<Game> carregaArquivoGames () {
         ArrayList<Game> gamesArquivo = new ArrayList<>();
         
@@ -119,6 +150,9 @@ public class GameDados {
 
     }
 
+    /**
+     * writes in database of games
+     * */
     public void escreveArquivoGames(ArrayList<Game> games){
         try {
             File arq = new File(".\\dados/games.txt");

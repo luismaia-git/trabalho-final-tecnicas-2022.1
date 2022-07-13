@@ -2,10 +2,21 @@ package com.tecgames.model;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
+
+/**
+ * Class model UsuarioDados, contains the "connections" to the "database" usuarios
+ * */
 public class UsuarioDados {
 
+    /**
+     * Constructor for class UsuarioDados
+     * */
+    public UsuarioDados(){}
+
+    /**
+     * loads the "database" usuarios
+     * */
     public ArrayList<User> listar() {
         ArrayList<User> usuarios;
 
@@ -13,6 +24,10 @@ public class UsuarioDados {
         return usuarios;
     }
 
+
+    /**
+     * searches Usuario by id in "db' usuarios
+     * */
     public User buscarUsuario(int id){
         ArrayList<User> usuarios;
 
@@ -31,6 +46,9 @@ public class UsuarioDados {
         return null;
     }
 
+    /**
+     * inserts into "db' usuarios
+     * */
     public boolean inserir(User usuario) throws IOException {
         ArrayList<User> usuarios;
         usuarios = carregaArquivoUsuarios();
@@ -52,6 +70,9 @@ public class UsuarioDados {
         
     }
 
+    /**
+     * removes user in "db" usuarios
+     * */
     public boolean remover(User usuario) throws IOException {
         ArrayList<User> usuarios;
         usuarios = carregaArquivoUsuarios();
@@ -66,6 +87,9 @@ public class UsuarioDados {
         
     }
 
+    /**
+     * Returns a user of an ArrayList from a User with the same name.
+     * */
     public User retornaUsuario(User usuario, ArrayList<User> usuarios) {
         int i = 0;
         while (i < usuarios.size()) {
@@ -79,7 +103,9 @@ public class UsuarioDados {
         return null;
     }
 
-
+    /**
+     * Replaces a changed user in the position passed in the parameter
+     * */
     public boolean alterar(User usuario) {
         ArrayList<User> usuarios = carregaArquivoUsuarios();
         int i = 0;
@@ -94,6 +120,9 @@ public class UsuarioDados {
     }
 
 
+    /**
+     * checks on "database" if User exists
+     * */
     public boolean checaUsuario(User usuario, ArrayList<User> usuarios) {
         int i = 0;
 
@@ -109,6 +138,9 @@ public class UsuarioDados {
 
 
 
+    /**
+     * loads the content of database usuarios
+     * */
     public ArrayList<User> carregaArquivoUsuarios () {
 
         ArrayList<User> usuariosArquivo = new ArrayList<>();
@@ -152,7 +184,9 @@ public class UsuarioDados {
         return usuariosArquivo;
     }
 
-
+    /**
+     * writes in database of users
+     * */
     public void escreveArquivoUsuarios(ArrayList<User> usuarios){
         try {
             File arq = new File(".\\dados/usuarios.txt");

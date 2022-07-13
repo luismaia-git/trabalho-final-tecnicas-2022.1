@@ -15,6 +15,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+/**
+ * Class CarrinhoCheioController, controller for the CarrinhoCheio screen
+ * */
 public class CarrinhoCheioController {
     public ScrollPane scrollPane;
     public Pane divcontent2;
@@ -33,6 +37,9 @@ public class CarrinhoCheioController {
 
     private double preco = 0;
 
+    /**
+     * Sets controller initial data
+     * */
     public void initData(User usuarioLogado) throws IOException {
         this.usuarioLogado = usuarioLogado;//setando o usuario
 
@@ -91,7 +98,9 @@ public class CarrinhoCheioController {
     }
 
 
-
+    /**
+     * Displays the games in Carrinho
+     * */
     public void display(ArrayList<Game> array) throws IOException {
 
         //instanciando uma VBox
@@ -181,6 +190,9 @@ public class CarrinhoCheioController {
     }
 
 
+    /**
+     * Buys the games contained in the cart
+     * */
     @FXML
     protected void onComprarButtonClick() throws IOException {
 

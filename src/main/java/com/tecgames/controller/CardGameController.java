@@ -10,7 +10,9 @@ import javafx.scene.layout.Pane;
 
 import java.io.File;
 
-
+/**
+ * Class CardGameController, controller for the CardGame component
+ * */
 public class CardGameController {
 
 
@@ -27,7 +29,9 @@ public class CardGameController {
     private Game jogo;
 
 
-
+    /**
+     * Sets controller initial data
+     * */
     public void initData(Game jogo) {
         //setando as informações do card de jogo que é mostrado na loja e em meus jogos
         this.jogo = jogo;

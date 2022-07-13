@@ -27,6 +27,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+
+/** Class LoginController, ontroller for user login */
 public class LoginController implements Initializable{
     public Button entrar;
     public TextField emailData;
@@ -35,7 +37,7 @@ public class LoginController implements Initializable{
     public Pane backgroundLogin;
     public Pane content;
 
-
+    /** Defines the initial behavior of the controller */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //animação no background
@@ -58,7 +60,7 @@ public class LoginController implements Initializable{
 
     }
 
-
+    /** login button */
     @FXML
     protected void onLoginButtonClick() throws IOException {
         //se todos os campos estao preenchidos
@@ -136,6 +138,7 @@ public class LoginController implements Initializable{
         
     }
 
+    /** create account button */
     @FXML
     protected void onCriarContaButtonClick() throws IOException {
         //carregando estilização
@@ -151,6 +154,7 @@ public class LoginController implements Initializable{
         window.setScene(ViewScene); //mudando a cena da janela
     }
 
+    /** Validates input data */
     public boolean validaCampos(){
 
         String errorMessage = "";

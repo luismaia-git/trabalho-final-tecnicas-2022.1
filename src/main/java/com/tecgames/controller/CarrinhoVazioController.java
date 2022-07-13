@@ -10,11 +10,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
+/**
+ * Class CarrinhoVazioController, controller for the CarrinhoVazio screen
+ * */
 public class CarrinhoVazioController {
 
     public Pane divcontent2;
     private User usuarioLogado;
 
+    /**
+     * Sets controller initial data
+     * */
     public void initData(User usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
 
@@ -24,6 +31,10 @@ public class CarrinhoVazioController {
         return this.usuarioLogado;
     }
 
+
+    /**
+     * Button to go to store
+     * */
     @FXML
     protected void onLojaButtonClick() throws IOException {
         //carregando estilização da loja

@@ -16,6 +16,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+/**
+ * Class CriarContaController, controller for the CriarConta screen
+ * */
 public class CriarContaController {
     public Button criar;
     public Button cancelar;
@@ -25,12 +29,17 @@ public class CriarContaController {
     public TextField fielddata;
     public TextField fieldcpf;
 
-
+    /**
+     * to return to the login screen
+     * */
     @FXML
     protected void onCancelarButtonClick() throws IOException {
         telalogin();//muda pra tela de login
    }
 
+    /**
+     * create an account
+     * */
     @FXML
     protected void onConfirmarButtonClick() throws IOException {
         //se todos os campos estao preenchidos
@@ -77,6 +86,9 @@ public class CriarContaController {
         }
     }
 
+    /**
+     * to return to the login screen
+     * */
     public void telalogin() throws IOException {
         //carregando estilização
         FXMLLoader loader = new FXMLLoader();
@@ -91,6 +103,9 @@ public class CriarContaController {
         window.setScene(ViewScene); //mudando a cena da janela
     }
 
+    /**
+     * Valid data entry for the form
+     * */
     public boolean validaCampos(){
 
         String errorMessage = "";

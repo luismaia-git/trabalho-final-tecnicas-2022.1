@@ -3,8 +3,19 @@ package com.tecgames.model;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Class model CarrinhoDados, contains the "connections" to the "database" carrinhos
+ * */
 public class CarrinhoDados {
 
+    /**
+     * Constructor for class CarrinhoDados
+     * */
+    public CarrinhoDados(){}
+
+    /**
+     * inserts into "db' admin
+     * */
     public boolean inserir(Carrinho carrinho) {
         ArrayList<Carrinho> carrinhos = carregaArquivoCarrinhos();
         carrinhos.add(carrinho);
@@ -12,6 +23,10 @@ public class CarrinhoDados {
         return true;
     }
 
+
+    /**
+     * removes Carrinho in "db' carrinhos
+     * */
     public boolean remover_carrinho(Carrinho carrinho){
         ArrayList<Carrinho> carrinhos;
 
@@ -26,7 +41,9 @@ public class CarrinhoDados {
             return false;
     }
 
-
+    /**
+     * checks on "database" if Carrinho exists
+     * */
     public Carrinho retornaCarrinho(Carrinho carrinho, ArrayList<Carrinho> carrinhos) {
         int i = 0;
         while (i < carrinhos.size()) {
@@ -40,7 +57,9 @@ public class CarrinhoDados {
         return null;
     }
 
-
+    /**
+     * loads the contents of the carrinhos database
+     * */
     public ArrayList<Carrinho> carregaArquivoCarrinhos () {
         ArrayList<Carrinho> carrinhoArquivo = new ArrayList<>();
 
@@ -80,6 +99,10 @@ public class CarrinhoDados {
 
     }
 
+
+    /**
+     * writes in database of carrinhos
+     * */
     public void escreveArquivoCarrinhos(ArrayList<Carrinho> carrinhos){
         try {
             File arq = new File(".\\dados/carrinhos.txt");
@@ -115,7 +138,9 @@ public class CarrinhoDados {
         }
     }
 
-
+    /**
+     * updates Carrinho in "db' carrinhos
+     * */
     public void Atualiza(Carrinho ca_user) {
         ArrayList<Carrinho> carrinhos;
 

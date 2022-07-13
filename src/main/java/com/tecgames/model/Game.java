@@ -1,5 +1,9 @@
 package com.tecgames.model;
 
+
+/**
+ * Class model Game
+ * */
 public class Game {
 
     private int id;
@@ -15,7 +19,9 @@ public class Game {
     private String requisitos;
     private String classificacao;
 
-
+    /**
+     * Constructor for class Game
+     * */
     public Game(String id, String nome, String preço, String genero, String descricao, String anolançamento, String requisitos, String classificacao){
         
         this.id = Integer.parseInt(id);
@@ -29,6 +35,9 @@ public class Game {
 
     }
 
+    /**
+     * Constructor for class Game
+     * */
     public Game(){}
 
 

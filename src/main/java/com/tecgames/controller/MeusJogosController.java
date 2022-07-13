@@ -20,8 +20,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class MeusJogosController {
 
+/** Class MeusJogosController, controller for the games of an user screen */
+public class MeusJogosController {
 
     public TextField campoTexto;
     private ArrayList<Game> jogos;
@@ -35,15 +36,18 @@ public class MeusJogosController {
 
     private User usuarioLogado;
 
+    /** Returns the logged user */
     public User getUsuarioLogado() {
         return usuarioLogado;
     }
 
+    /** Sets user */
     public void setUsuarioLogado(User usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
     }
-
+ 
     // carregar jogos de arquivo etc
+    /** Sets controller initial data */
     public void initData(User usuarioLogado) throws IOException {
         this.usuarioLogado = usuarioLogado;
 
@@ -78,9 +82,8 @@ public class MeusJogosController {
 
     }
 
-
-
     //metodo que recebe um array de jogos e mostra na tela
+    /** Show ArrayList games on screen */
     public void displayMeusJogos(ArrayList<Game> array) throws IOException{
 
         int hboxes =0;
@@ -202,7 +205,7 @@ public class MeusJogosController {
 
     }
 
-
+    /** Returns a user that contains the String (game title) of the parameter */
     public ArrayList<Game> buscaTitulo(String titulo) {
 
         ArrayList<Game> aux = new ArrayList<>();
@@ -213,6 +216,7 @@ public class MeusJogosController {
         return aux;
     }
 
+    /** Returns a user that contains the String (game genre) of the parameter */
     public ArrayList<Game> buscaGenero(String genero) { // a String genero pode ser gerada ao clicar o botao do genero escolhido
         
         ArrayList<Game> aux = new ArrayList<>();
@@ -235,6 +239,7 @@ public class MeusJogosController {
 
     //botoes de eventos
 
+    /** Button to search games */ 
     @FXML
     protected void onBuscaButtonClick() throws IOException {
         String result = campoTexto.getText();
@@ -242,6 +247,7 @@ public class MeusJogosController {
         displayMeusJogos(array);
     }
 
+    /** Button to search games by genre */ 
     @FXML
     protected void onBuscaGeneroButtonClick() throws IOException {
         String result = campoTexto.getText();
@@ -249,6 +255,7 @@ public class MeusJogosController {
         displayMeusJogos(array);
     }
 
+    /** Button to return to the home screen */
     @FXML
     protected void onVoltarButtonClick() throws IOException {
         //carregando estilização
@@ -269,6 +276,7 @@ public class MeusJogosController {
         window.setScene(ViewScene); //mudando a cena da janela para a home
     }
 
+    /** Button to go to store */
     @FXML
     protected void onLojaButtonClick() throws IOException {
         //carregando estilização da loja
@@ -291,6 +299,7 @@ public class MeusJogosController {
 
     }
 
+    /** Button to open the cart screen */
     @FXML
     protected void onCarrinhoButtonClick() throws IOException {
         //carregando estilização da loja

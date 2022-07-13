@@ -20,6 +20,9 @@ import java.util.ResourceBundle;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
+/**
+ * Class CadastroJogoController, controller for the CadastroJogo screen
+ * */
 public class CadastroJogoController {
 
     public ImageView image;
@@ -56,6 +59,9 @@ public class CadastroJogoController {
         return jogo;
     }
 
+    /**
+     * Sets the game in controller, and displays info
+     * */
     public void setJogo(Game jogo) {
         this.jogo = jogo;
         this.campoNome.setText(jogo.getNome());
@@ -90,6 +96,9 @@ public class CadastroJogoController {
         }
     }
 
+    /**
+     * confirm Button is clicked
+     * */
     public boolean isBotaoClicado() {
         return BotaoClicado;
     }
@@ -98,6 +107,10 @@ public class CadastroJogoController {
         BotaoClicado = botaoClicado;
     }
 
+
+    /**
+     * if confirm Button is clicked, inserts Game in "database" games
+     * */
     @FXML
     protected void onConfirmarButtonClick() throws IOException {
         //se todos os campos estão preenchidos
@@ -137,13 +150,17 @@ public class CadastroJogoController {
         }
 
     }
-
+    /**
+     * Close the window CadastroJogo
+     * */
     @FXML
     protected void onCancelarButtonClick(){
         CadastroJogo.close();
     }
 
-
+    /**
+     * Upload image buttom
+     * */
     @FXML
     protected void onUploadButtonClick(){
         File f2 = f;
@@ -163,8 +180,9 @@ public class CadastroJogoController {
 
     }
 
-
-
+    /**
+     * Valid data entry for the form
+     * */
     //Validar entrada de dados para o cadastro
     private boolean validarEntradaDeDados() {
         String errorMessage = "";

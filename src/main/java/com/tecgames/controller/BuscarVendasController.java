@@ -22,6 +22,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Class BuscarVendasController, controller for the BuscarVendas screen
+ * */
 public class BuscarVendasController implements Initializable {
 
     public Button logout;
@@ -46,10 +49,18 @@ public class BuscarVendasController implements Initializable {
         return this.adminLogado;
     }
 
+
+    /**
+     * Sets controller initial data
+     * */
     public void initData(Admin adminLogado){
         this.adminLogado = adminLogado;
     }
 
+
+    /**
+     * Defines the initial behavior of the controller
+     * */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         vendaDao = new VendaDados();
@@ -61,6 +72,9 @@ public class BuscarVendasController implements Initializable {
 
     }
 
+    /**
+     * Loads the content of table
+     * */
     public void carregarDadosTabela() {
         colunaId.setCellValueFactory(new PropertyValueFactory<>("idvenda"));
         colunaIdUsuario.setCellValueFactory(new PropertyValueFactory<>("idusuario"));
@@ -110,7 +124,9 @@ public class BuscarVendasController implements Initializable {
 
     }
 
-
+    /**
+     * Selects one item in the table and display info
+     * */
     public void selecionarItemTabelaVendas(Venda venda){
 
         if(venda != null)  {
@@ -135,7 +151,9 @@ public class BuscarVendasController implements Initializable {
 
     }
 
-
+    /**
+     * logout of the system
+     * */
     @FXML
     protected void onLogoutButtonClick() throws IOException {
 
@@ -148,6 +166,9 @@ public class BuscarVendasController implements Initializable {
         window.setScene(scene);
     }
 
+    /**
+     * Back page
+     * */
     @FXML
     protected void onVoltarButtonClick() throws IOException {
 
@@ -165,8 +186,5 @@ public class BuscarVendasController implements Initializable {
         window.setScene(scene);
 
     }
-
-
-
 
 }
